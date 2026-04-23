@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atelier Bois & Déco | Pièces décoratives en bois</title>
+    <meta
+      name="description"
+      content="Atelier artisanal spécialisé dans la fabrication de pièces décoratives en bois : décor mural, objets personnalisés et créations sur mesure."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero" id="accueil">
+      <nav class="nav">
+        <a class="logo" href="#accueil">Atelier Bois & Déco</a>
+        <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+        <ul class="nav-links">
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#realisations">Réalisations</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hero-content">
+        <p class="tagline">Créations artisanales</p>
+        <h1>Pièces décoratives en bois faites avec passion</h1>
+        <p>
+          J’imagine et fabrique des objets uniques en bois pour embellir votre
+          intérieur : décoration murale, cadeaux personnalisés et séries sur
+          mesure.
+        </p>
+        <a href="#contact" class="btn">Demander un devis</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="apropos" class="section">
+        <h2>À propos de l’atelier</h2>
+        <p>
+          Installé en France, l’atelier travaille des essences locales avec une
+          finition soignée. Chaque pièce est pensée pour allier esthétique,
+          durabilité et authenticité.
+        </p>
+      </section>
+
+      <section id="services" class="section section-alt">
+        <h2>Mes services</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Décoration murale</h3>
+            <p>
+              Panneaux gravés, lettrages, cartes en bois et compositions
+              artistiques pour maison, bureau ou commerce.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Personnalisation</h3>
+            <p>
+              Noms, dates, logos et messages gravés au laser ou sculptés pour
+              des pièces uniques et des cadeaux marquants.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Sur mesure</h3>
+            <p>
+              Conception de projets décoratifs adaptés à votre style, vos
+              dimensions et votre budget.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="realisations" class="section">
+        <h2>Exemples de réalisations</h2>
+        <div class="gallery">
+          <figure>
+            <img src="https://images.unsplash.com/photo-1463415268136-e52a5af54519?auto=format&fit=crop&w=900&q=80" alt="Décoration murale en bois" />
+            <figcaption>Décor mural naturel</figcaption>
+          </figure>
+          <figure>
+            <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=900&q=80" alt="Pièce en bois personnalisée" />
+            <figcaption>Création personnalisée</figcaption>
+          </figure>
+          <figure>
+            <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80" alt="Objet décoratif en bois" />
+            <figcaption>Objet décoratif artisanal</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="contact" class="section section-alt">
+        <h2>Contact</h2>
+        <p>
+          Un projet en tête ? Écrivez-moi pour discuter de votre idée et obtenir
+          un devis personnalisé.
+        </p>
+        <form class="contact-form">
+          <label>
+            Nom
+            <input type="text" name="nom" placeholder="Votre nom" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="vous@email.com" required />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="5" placeholder="Décrivez votre projet" required></textarea>
+          </label>
+          <button type="submit" class="btn">Envoyer</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> Atelier Bois & Déco — Fabrication artisanale de pièces décoratives en bois.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
