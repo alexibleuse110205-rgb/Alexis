@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Bleuse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">Bleuse<span class="dot">.</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+      <span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Accueil</a></li>
+      <li><a href="parcours.html" class="nav-link">Parcours</a></li>
+      <li><a href="competences.html" class="nav-link">Compétences</a></li>
+      <li><a href="experiences.html" class="nav-link">Expériences</a></li>
+      <li><a href="projets.html" class="nav-link">Projets</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== CONTENU ===== -->
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <p class="section-label reveal">Me joindre</p>
+        <h1 class="section-title reveal reveal-delay-1">Contact</h1>
+        <p class="section-sub reveal reveal-delay-2">
+          Tu veux me contacter pour une opportunité, un projet ou juste discuter ? Voici comment me trouver.
+        </p>
+
+        <div class="contact-grid reveal reveal-delay-3">
+
+          <!-- LIENS DE CONTACT -->
+          <div class="contact-links">
+
+            <!-- Email -->
+            <!-- ▼ Remplace par ton email professionnel/personnel -->
+            <a href="mailto:alexibleuse110205@gmail.com" class="contact-item">
+              <span class="contact-item-icon">✉</span>
+              <div>
+                <p class="contact-item-label">Email</p>
+                <p class="contact-item-value">alexibleuse110205@gmail.com</p>
+              </div>
+            </a>
+
+            <!-- LinkedIn -->
+            <!-- ▼ Remplace '#' par l'URL de ton profil LinkedIn -->
+            <a href="#" target="_blank" rel="noopener" class="contact-item">
+              <span class="contact-item-icon">🔗</span>
+              <div>
+                <p class="contact-item-label">LinkedIn</p>
+                <p class="contact-item-value">
+                  [ Ton profil LinkedIn ]
+                  <span class="placeholder-block" style="display:inline;font-size:0.7rem;margin-left:0.4rem;">lien à ajouter</span>
+                </p>
+              </div>
+            </a>
+
+            <!-- GitHub (optionnel — supprime ce bloc si tu n'as pas de GitHub) -->
+            <a href="https://github.com/alexibleuse110205-rgb" target="_blank" rel="noopener" class="contact-item">
+              <span class="contact-item-icon">⌥</span>
+              <div>
+                <p class="contact-item-label">GitHub</p>
+                <p class="contact-item-value">alexibleuse110205-rgb</p>
+              </div>
+            </a>
+
+          </div>
+
+          <!-- CV TÉLÉCHARGEABLE -->
+          <div class="cv-section">
+            <div style="font-size:2.5rem;margin-bottom:1rem;">📄</div>
+            <h2 style="font-family:var(--font-serif);font-size:1.3rem;font-weight:700;margin-bottom:0.7rem;">Mon CV</h2>
+            <p>Télécharge mon CV au format PDF.</p>
+            <!-- ▼ Remplace '#' par l'URL de ton CV (ex: lien Google Drive en accès "lecture seule") -->
+            <a href="#" class="btn btn-dark" download style="margin:0 auto;width:fit-content;">
+              Télécharger le CV
+              <span class="placeholder-block" style="display:inline;font-size:0.7rem;margin-left:0.4rem;">lien à ajouter</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <span>© 2026 Bleuse</span>
+    <span>BUT GACO · IUT Brest-Morlaix</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expériences — Bleuse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">Bleuse<span class="dot">.</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+      <span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Accueil</a></li>
+      <li><a href="parcours.html" class="nav-link">Parcours</a></li>
+      <li><a href="competences.html" class="nav-link">Compétences</a></li>
+      <li><a href="experiences.html" class="nav-link">Expériences</a></li>
+      <li><a href="projets.html" class="nav-link">Projets</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== CONTENU ===== -->
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <p class="section-label reveal">Terrain</p>
+        <h1 class="section-title reveal reveal-delay-1">Mes expériences</h1>
+        <p class="section-sub reveal reveal-delay-2">
+          Alternance et autres expériences professionnelles qui ont forgé mes compétences.
+        </p>
+
+        <!-- ===== LISTE DES EXPÉRIENCES ===== -->
+        <!-- ▼ Duplique un .exp-card pour ajouter une expérience -->
+        <div class="exp-list">
+
+          <!-- EXPÉRIENCE 1 — Alternance (EN COURS) -->
+          <div class="exp-card reveal">
+            <div class="exp-header">
+              <h2 class="exp-company">Groupe Le Télégramme</h2>
+              <span class="exp-badge current">En cours</span>
+            </div>
+            <p class="exp-role">Alternant — Service ADV Logistique</p>
+            <!-- ▼ Remplace par tes dates exactes -->
+            <p class="exp-dates">[ Mois 20XX ] → Aujourd'hui · Brest, Bretagne</p>
+            <div class="exp-desc">
+              <ul>
+                <!-- ▼ Remplace ces lignes par tes vraies missions -->
+                <li>Gestion et suivi des commandes clients au sein du service ADV.</li>
+                <li>Coordination avec les équipes logistiques pour l'acheminement des abonnements.</li>
+                <li>[ Ajoute une mission ]</li>
+                <li>[ Ajoute une mission ]</li>
+                <li>[ Ajoute une mission ]</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- EXPÉRIENCE 2 — Placeholder à remplir -->
+          <div class="exp-card reveal reveal-delay-1">
+            <div class="exp-header">
+              <h2 class="exp-company">[ Nom de l'entreprise ] <span class="placeholder-block" style="display:inline;font-size:0.72rem;">à remplir</span></h2>
+              <span class="exp-badge past">Passée</span>
+            </div>
+            <p class="exp-role">[ Ton poste / rôle ]</p>
+            <p class="exp-dates">[ Mois 20XX ] → [ Mois 20XX ] · [ Ville ]</p>
+            <div class="exp-desc">
+              <ul>
+                <li>[ Description de ta mission ]</li>
+                <li>[ Description de ta mission ]</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- EXPÉRIENCE 3 — Placeholder à remplir (supprime si pas besoin) -->
+          <div class="exp-card reveal reveal-delay-2">
+            <div class="exp-header">
+              <h2 class="exp-company">[ Nom de l'entreprise ] <span class="placeholder-block" style="display:inline;font-size:0.72rem;">à remplir</span></h2>
+              <span class="exp-badge past">Passée</span>
+            </div>
+            <p class="exp-role">[ Ton poste / rôle ]</p>
+            <p class="exp-dates">[ Mois 20XX ] → [ Mois 20XX ] · [ Ville ]</p>
+            <div class="exp-desc">
+              <ul>
+                <li>[ Description de ta mission ]</li>
+                <li>[ Description de ta mission ]</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <span>© 2026 Bleuse</span>
+    <span>BUT GACO · IUT Brest-Morlaix</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

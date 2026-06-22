@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projets — Bleuse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">Bleuse<span class="dot">.</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+      <span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Accueil</a></li>
+      <li><a href="parcours.html" class="nav-link">Parcours</a></li>
+      <li><a href="competences.html" class="nav-link">Compétences</a></li>
+      <li><a href="experiences.html" class="nav-link">Expériences</a></li>
+      <li><a href="projets.html" class="nav-link">Projets</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== CONTENU ===== -->
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <p class="section-label reveal">Réalisations</p>
+        <h1 class="section-title reveal reveal-delay-1">Mes projets</h1>
+        <p class="section-sub reveal reveal-delay-2">
+          Clique sur une carte pour découvrir le détail du projet.
+        </p>
+
+        <!-- ===== GRILLE DE CARTES — générée automatiquement par script.js ===== -->
+        <!-- ▼ Pour ajouter un projet, va dans script.js et ajoute un objet dans le tableau "projets" -->
+        <div id="cardsGrid" class="cards-grid"></div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== PANNEAU DE DÉTAIL PROJET ===== -->
+  <!-- Ce bloc est affiché/masqué par script.js — ne pas modifier la structure -->
+  <div class="detail-overlay" id="detailOverlay" aria-hidden="true"></div>
+
+  <aside class="detail-panel" id="detailPanel" role="dialog" aria-label="Détail du projet">
+    <button class="detail-close" id="detailClose">Retour aux projets</button>
+
+    <!-- Bande colorée reprenant la couleur de la carte -->
+    <div class="detail-color-band" id="detailBande"></div>
+
+    <p class="detail-number" id="detailNumero"></p>
+    <h2 class="detail-title" id="detailTitre"></h2>
+    <p class="detail-meta" id="detailMeta"></p>
+
+    <p class="detail-section-title">Contexte</p>
+    <p class="detail-desc" id="detailContexte"></p>
+
+    <p class="detail-section-title">Mon rôle</p>
+    <p class="detail-desc" id="detailRole"></p>
+
+    <p class="detail-section-title">Résultat</p>
+    <p class="detail-desc" id="detailResultat"></p>
+
+    <div class="detail-actions">
+      <!-- ▼ Ce bouton est activé/désactivé selon que le lien est renseigné dans script.js -->
+      <a id="detailLien" href="#" target="_blank" rel="noopener" class="btn btn-accent">Voir le dossier ↗</a>
+      <button class="btn btn-outline" id="detailCloseBottom" onclick="document.getElementById('detailClose').click()">
+        ← Retour à la liste
+      </button>
+    </div>
+  </aside>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <span>© 2026 Bleuse</span>
+    <span>BUT GACO · IUT Brest-Morlaix</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

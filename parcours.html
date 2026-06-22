@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parcours — Bleuse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">Bleuse<span class="dot">.</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+      <span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Accueil</a></li>
+      <li><a href="parcours.html" class="nav-link">Parcours</a></li>
+      <li><a href="competences.html" class="nav-link">Compétences</a></li>
+      <li><a href="experiences.html" class="nav-link">Expériences</a></li>
+      <li><a href="projets.html" class="nav-link">Projets</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== CONTENU ===== -->
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <p class="section-label reveal">Formation</p>
+        <h1 class="section-title reveal reveal-delay-1">Mon parcours</h1>
+        <p class="section-sub reveal reveal-delay-2">
+          De mes premières années scolaires jusqu'à mon BUT, voici le chemin qui m'a mené là où j'en suis.
+        </p>
+
+        <!-- ===== FRISE CHRONOLOGIQUE ===== -->
+        <!-- ▼ Ajoute ou modifie les étapes ici. Duplique un bloc .timeline-item pour en ajouter. -->
+        <div class="timeline">
+
+          <!-- ÉTAPE 1 — Collège -->
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <!-- ▼ Remplace "20XX – 20XX" par tes vraies dates -->
+            <p class="timeline-date">[ 20XX – 20XX ] <span class="placeholder-block" style="display:inline;font-size:0.72rem;">dates à remplir</span></p>
+            <h2 class="timeline-title">Collège</h2>
+            <!-- ▼ Remplace par le nom de ton collège -->
+            <p class="timeline-sub">[ Nom du collège ] — [ Ville ]</p>
+            <p class="timeline-desc">
+              <!-- ▼ Décris cette période si tu veux (optionnel) -->
+              Scolarité au collège. [ Ajoute une phrase sur cette période si tu veux ]
+            </p>
+          </div>
+
+          <!-- ÉTAPE 2 — Lycée -->
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <p class="timeline-date">[ 20XX – 20XX ] <span class="placeholder-block" style="display:inline;font-size:0.72rem;">dates à remplir</span></p>
+            <h2 class="timeline-title">Lycée — Baccalauréat</h2>
+            <!-- ▼ Remplace par le nom de ton lycée et ta série de bac -->
+            <p class="timeline-sub">[ Nom du lycée ] — [ Série du bac ]</p>
+            <p class="timeline-desc">
+              <!-- ▼ Décris cette période -->
+              [ Décris ton lycée, ta série, tes matières fortes, etc. ]
+            </p>
+          </div>
+
+          <!-- ÉTAPE 3 — BUT GACO -->
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" style="background: var(--accent); outline-color: var(--accent);"></div>
+            <p class="timeline-date">[ 20XX – En cours ]</p>
+            <h2 class="timeline-title">BUT GACO — Parcours MRPE</h2>
+            <p class="timeline-sub">IUT de Brest-Morlaix</p>
+            <p class="timeline-desc">
+              Bachelor Universitaire de Technologie en Gestion Administrative et Commerciale des Organisations,
+              parcours Management des Relations avec les Partenaires et les Entreprises.
+              Formation en alternance depuis la 2<sup>e</sup> année au sein du groupe Le Télégramme.
+            </p>
+          </div>
+
+          <!-- ▼ AJOUTE D'AUTRES ÉTAPES ICI si besoin (copie-colle un .timeline-item) -->
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <span>© 2026 Bleuse</span>
+    <span>BUT GACO · IUT Brest-Morlaix</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
