@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alexis — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-logo">Alexis<span class="accent">.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#skills">Compétences</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle">☰</button>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-content">
+      <p class="hero-tag">// Bonjour, je suis</p>
+      <h1 class="hero-name">Alexis<span class="accent">.</span></h1>
+      <h2 class="hero-title">Étudiant en <span class="typed" id="typed"></span></h2>
+      <p class="hero-desc">
+        Passionné par la technologie et le développement, je construis des projets qui mêlent créativité et code.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+        <a href="#contact" class="btn btn-outline">Me contacter</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="code-block">
+        <span class="code-line"><span class="kw">const</span> alexis = {</span>
+        <span class="code-line">  <span class="prop">nom</span>: <span class="str">"Alexis"</span>,</span>
+        <span class="code-line">  <span class="prop">statut</span>: <span class="str">"Étudiant"</span>,</span>
+        <span class="code-line">  <span class="prop">passion</span>: <span class="str">"Tech & Code"</span>,</span>
+        <span class="code-line">  <span class="prop">disponible</span>: <span class="bool">true</span></span>
+        <span class="code-line">};</span>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- À propos -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">À propos <span class="accent">de moi</span></h2>
+      <div class="about-grid">
+        <div class="about-avatar">
+          <div class="avatar-placeholder">A</div>
+        </div>
+        <div class="about-text">
+          <p>
+            Je suis <strong>Alexis</strong>, étudiant passionné par l'informatique et le développement web.
+            J'aime apprendre de nouvelles technologies et construire des projets concrets pour mettre en pratique mes connaissances.
+          </p>
+          <p>
+            En dehors du code, je m'intéresse à la résolution de problèmes, aux nouvelles tendances tech, et je cherche constamment à progresser.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number">10+</span>
+              <span class="stat-label">Projets réalisés</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">2+</span>
+              <span class="stat-label">Ans d'expérience</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">∞</span>
+              <span class="stat-label">Curiosité</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compétences -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Mes <span class="accent">compétences</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">🌐</div>
+          <h3>Frontend</h3>
+          <ul>
+            <li>HTML / CSS</li>
+            <li>JavaScript</li>
+            <li>React (en apprentissage)</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">⚙️</div>
+          <h3>Backend</h3>
+          <ul>
+            <li>Python</li>
+            <li>Node.js</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🛠️</div>
+          <h3>Outils</h3>
+          <ul>
+            <li>Git / GitHub</li>
+            <li>VS Code</li>
+            <li>Linux</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">📚</div>
+          <h3>En cours</h3>
+          <ul>
+            <li>TypeScript</li>
+            <li>Docker</li>
+            <li>Algorithmes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projets -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Mes <span class="accent">projets</span></h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-tag">Web</span>
+            <div class="project-links">
+              <a href="#" title="GitHub">⌥</a>
+              <a href="#" title="Live">↗</a>
+            </div>
+          </div>
+          <h3>Projet 1</h3>
+          <p>Description de ton premier projet. Remplace ce texte par ce que tu as vraiment construit.</p>
+          <div class="project-tech">
+            <span>HTML</span><span>CSS</span><span>JS</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-tag">Python</span>
+            <div class="project-links">
+              <a href="#" title="GitHub">⌥</a>
+              <a href="#" title="Live">↗</a>
+            </div>
+          </div>
+          <h3>Projet 2</h3>
+          <p>Description de ton deuxième projet. Parle de ce que ça fait et des défis que tu as rencontrés.</p>
+          <div class="project-tech">
+            <span>Python</span><span>SQL</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-tag">Algo</span>
+            <div class="project-links">
+              <a href="#" title="GitHub">⌥</a>
+            </div>
+          </div>
+          <h3>Projet 3</h3>
+          <p>Description du troisième projet. Montre ce que tu as appris et ce qui te rend fier de ce travail.</p>
+          <div class="project-tech">
+            <span>Python</span><span>Git</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Me <span class="accent">contacter</span></h2>
+      <p class="contact-intro">Tu as un projet, une question ou juste envie de dire bonjour ? Écris-moi !</p>
+      <div class="contact-grid">
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" id="name" placeholder="Ton nom" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="ton@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Ton message..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Envoyer le message</button>
+        </form>
+        <div class="contact-links">
+          <a href="mailto:alexibleuse110205@gmail.com" class="contact-link">
+            <span class="contact-icon">✉</span>
+            <div>
+              <strong>Email</strong>
+              <p>alexibleuse110205@gmail.com</p>
+            </div>
+          </a>
+          <a href="https://github.com/alexibleuse110205-rgb" class="contact-link" target="_blank">
+            <span class="contact-icon">⌥</span>
+            <div>
+              <strong>GitHub</strong>
+              <p>alexibleuse110205-rgb</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Fait avec ❤️ par <span class="accent">Alexis</span> · 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
