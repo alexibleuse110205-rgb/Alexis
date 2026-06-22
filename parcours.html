@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parcours — Bleuse</title>
+  <title>Parcours — Alexis Bleuse</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
@@ -13,9 +13,7 @@
   <!-- ===== NAVIGATION ===== -->
   <nav class="nav" id="nav">
     <a href="index.html" class="nav-logo">Bleuse<span class="dot">.</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
-      <span></span><span></span>
-    </button>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span></button>
     <ul class="nav-menu" id="navMenu">
       <li><a href="index.html" class="nav-link">Accueil</a></li>
       <li><a href="parcours.html" class="nav-link">Parcours</a></li>
@@ -26,7 +24,6 @@
     </ul>
   </nav>
 
-  <!-- ===== CONTENU ===== -->
   <main>
     <section class="section">
       <div class="container">
@@ -34,50 +31,91 @@
         <p class="section-label reveal">Formation</p>
         <h1 class="section-title reveal reveal-delay-1">Mon parcours</h1>
         <p class="section-sub reveal reveal-delay-2">
-          De mes premières années scolaires jusqu'à mon BUT, voici le chemin qui m'a mené là où j'en suis.
+          Un chemin construit autour de la gestion, du commerce et du management — chaque étape a été choisie avec intention.
         </p>
 
-        <!-- ===== FRISE CHRONOLOGIQUE ===== -->
-        <!-- ▼ Ajoute ou modifie les étapes ici. Duplique un bloc .timeline-item pour en ajouter. -->
         <div class="timeline">
 
-          <!-- ÉTAPE 1 — Collège -->
+          <!-- COLLÈGE -->
           <div class="timeline-item reveal">
             <div class="timeline-dot"></div>
-            <!-- ▼ Remplace "20XX – 20XX" par tes vraies dates -->
-            <p class="timeline-date">[ 20XX – 20XX ] <span class="placeholder-block" style="display:inline;font-size:0.72rem;">dates à remplir</span></p>
+            <!-- ▼ Remplace les dates et le nom de l'établissement -->
+            <p class="timeline-date">[ 20XX – 20XX ]</p>
             <h2 class="timeline-title">Collège</h2>
-            <!-- ▼ Remplace par le nom de ton collège -->
             <p class="timeline-sub">[ Nom du collège ] — [ Ville ]</p>
             <p class="timeline-desc">
-              <!-- ▼ Décris cette période si tu veux (optionnel) -->
-              Scolarité au collège. [ Ajoute une phrase sur cette période si tu veux ]
+              [ Décris cette période si tu veux : matières préférées, activités, premiers intérêts. ]
             </p>
           </div>
 
-          <!-- ÉTAPE 2 — Lycée -->
+          <!-- LYCÉE — BAC STMG (ou autre) -->
           <div class="timeline-item reveal">
             <div class="timeline-dot"></div>
-            <p class="timeline-date">[ 20XX – 20XX ] <span class="placeholder-block" style="display:inline;font-size:0.72rem;">dates à remplir</span></p>
-            <h2 class="timeline-title">Lycée — Baccalauréat</h2>
-            <!-- ▼ Remplace par le nom de ton lycée et ta série de bac -->
-            <p class="timeline-sub">[ Nom du lycée ] — [ Série du bac ]</p>
+            <!-- ▼ Remplace "STMG" si tu as fait un autre bac -->
+            <p class="timeline-date">[ 20XX – 20XX ]</p>
+            <h2 class="timeline-title">Lycée — Baccalauréat STMG</h2>
+            <!-- ▼ Nom du lycée -->
+            <p class="timeline-sub">[ Nom du lycée ] — [ Ville ]</p>
             <p class="timeline-desc">
-              <!-- ▼ Décris cette période -->
-              [ Décris ton lycée, ta série, tes matières fortes, etc. ]
+              Baccalauréat Sciences et Technologies du Management et de la Gestion.
+              [ Précise ta spécialité : Gestion & Finance / Marketing / RH / Systèmes d'information ]
             </p>
+            <!-- Encadré "Pourquoi ce choix ?" -->
+            <div class="timeline-why reveal">
+              <strong>Pourquoi le BAC STMG ?</strong><br>
+              [ Explique ton choix avec tes propres mots. Exemple : "J'ai choisi le BAC STMG parce que
+              je voulais allier théorie de gestion et sens pratique des affaires dès le lycée. Les matières
+              comme l'économie, le droit et le management correspondaient à ce que je voulais faire plus tard." ]
+              <br><br>
+              <!-- ▼ Remplace par ta vraie mention/note si tu veux la mettre -->
+              Obtenu en [ année ] — [ mention à compléter ].
+            </div>
           </div>
 
-          <!-- ÉTAPE 3 — BUT GACO -->
+          <!-- BUT GACO -->
           <div class="timeline-item reveal">
-            <div class="timeline-dot" style="background: var(--accent); outline-color: var(--accent);"></div>
+            <div class="timeline-dot" style="background:var(--accent);outline-color:var(--accent);"></div>
             <p class="timeline-date">[ 20XX – En cours ]</p>
             <h2 class="timeline-title">BUT GACO — Parcours MRPE</h2>
-            <p class="timeline-sub">IUT de Brest-Morlaix</p>
+            <p class="timeline-sub">IUT de Brest-Morlaix — Brest, Bretagne</p>
             <p class="timeline-desc">
-              Bachelor Universitaire de Technologie en Gestion Administrative et Commerciale des Organisations,
-              parcours Management des Relations avec les Partenaires et les Entreprises.
-              Formation en alternance depuis la 2<sup>e</sup> année au sein du groupe Le Télégramme.
+              Bachelor Universitaire de Technologie en <strong>Gestion Administrative et Commerciale des Organisations</strong>,
+              parcours <strong>MRPE — Management Responsable de Projet et Entrepreneuriat</strong>.
+              <br><br>
+              Formation en alternance depuis la 2ᵉ année au sein du service ADV Logistique du groupe
+              <strong>Le Télégramme</strong>.
+            </p>
+            <div class="timeline-why reveal">
+              <strong>Pourquoi le BUT GACO ?</strong><br>
+              [ Explique ton choix. Exemple : "Après le BAC STMG, j'ai voulu aller plus loin dans la gestion
+              d'entreprise. Le BUT GACO m'a semblé le meilleur équilibre entre formation solide en gestion,
+              ouverture à l'alternance rapide, et polyvalence — commerce, administration, logistique. L'IUT de
+              Brest-Morlaix m'a convaincu par sa réputation et sa proximité avec les entreprises régionales." ]
+            </div>
+            <div class="timeline-why reveal" style="margin-top:0.8rem;">
+              <strong>Pourquoi le parcours MRPE ?</strong><br>
+              Le parcours <em>Management Responsable de Projet et Entrepreneuriat</em> m'a attiré pour sa
+              dimension concrète : apprendre à piloter des projets de A à Z, développer une posture
+              d'entrepreneur, et aborder les enjeux RSE/responsabilité dans les organisations.
+              <br><br>
+              [ Complète avec ce qui t'a vraiment motivé dans ce parcours spécifique par rapport aux autres
+              (ACSG, CIBO, etc.). ]
+            </div>
+          </div>
+
+          <!-- ALTERNANCE (peut rester ici ou aller dans "Expériences") -->
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" style="background:var(--accent);outline-color:var(--accent);"></div>
+            <p class="timeline-date">[ 20XX – En cours ]</p>
+            <h2 class="timeline-title">Alternance — Groupe Le Télégramme</h2>
+            <p class="timeline-sub">Service ADV Logistique — Brest, Bretagne</p>
+            <p class="timeline-desc">
+              En parallèle de ma 2ᵉ et 3ᵉ année de BUT, je travaille en alternance au sein du service
+              <strong>Administration des Ventes et Logistique</strong> du groupe Le Télégramme,
+              premier quotidien régional breton.
+              <br><br>
+              [ Décris rapidement tes missions principales ici, ou laisse cette section vide et
+              consulte la page "Expériences" pour le détail. ]
             </p>
           </div>
 
@@ -89,9 +127,8 @@
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer>
-    <span>© 2026 Bleuse</span>
+    <span>© 2026 Alexis Bleuse</span>
     <span>BUT GACO · IUT Brest-Morlaix</span>
   </footer>
 
