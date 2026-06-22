@@ -3,15 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- ▼ Modifie le titre de l'onglet ici -->
   <title>Bleuse — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Styles spécifiques à cette page uniquement */
+    body { overflow-x: hidden; }
+
+    /* Compteur de scroll discret en bas à droite */
+    .scroll-counter {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+      font-variant-numeric: tabular-nums;
+      opacity: 0;
+      transition: opacity 0.4s;
+      z-index: 100;
+    }
+    .scroll-counter.visible { opacity: 1; }
+
+    /* Ligne décorative qui grandit à gauche de l'écran */
+    .side-progress {
+      position: fixed;
+      left: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.5px;
+      height: 80px;
+      background: var(--border);
+      z-index: 100;
+      display: none;
+    }
+    .side-progress-fill {
+      width: 100%;
+      background: var(--accent);
+      height: 0%;
+      transition: height 0.1s linear;
+    }
+    @media (min-width: 900px) { .side-progress { display: block; } }
+
+    /* Section "à propos" rapide sur la home */
+    .about-strip {
+      padding: 6rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-strip-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.15;
+    }
+    .about-strip-text { color: var(--muted); line-height: 1.9; font-size: 0.97rem; }
+    .about-strip-text strong { color: var(--text); }
+    @media (max-width: 768px) {
+      .about-strip { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
+      .hscroll-header { padding: 0 1.5rem; }
+      .hscroll-track { padding: 0 1.5rem; }
+      .hscroll-track .card { width: 220px; min-width: 220px; }
+      .after-hscroll { padding: 4rem 1.5rem; }
+      .hero { padding: calc(var(--nav-h) + 1rem) 1.5rem 4rem; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ===== NAVIGATION (même sur toutes les pages) ===== -->
+  <!-- ===== NAVIGATION ===== -->
   <nav class="nav" id="nav">
     <a href="index.html" class="nav-logo">Bleuse<span class="dot">.</span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
@@ -27,37 +93,148 @@
     </ul>
   </nav>
 
-  <!-- ===== HERO ===== -->
-  <main>
-    <section class="hero" style="position:relative;">
+  <!-- Barre de progression latérale -->
+  <div class="side-progress">
+    <div class="side-progress-fill" id="sideProgress"></div>
+  </div>
+  <div class="scroll-counter" id="scrollCounter">00%</div>
 
-      <!-- ▼ Modifie le texte de présentation ici -->
+  <!-- ===================================================================
+       HERO — parallax au scroll
+       =================================================================== -->
+  <section class="hero" id="hero">
+    <!-- Fond qui bouge en parallax (plus lent que le texte) -->
+    <div class="hero-bg" id="heroBg"></div>
+
+    <div class="hero-content">
+      <!-- ▼ Modifie le texte ici -->
       <p class="hero-eyebrow reveal">Portfolio · 2026</p>
 
-      <h1 class="hero-name reveal reveal-delay-1">
+      <h1 class="hero-name" id="heroName">
         Bleuse<span>.</span>
       </h1>
 
       <!-- ▼ Modifie l'accroche ici -->
-      <p class="hero-tagline reveal reveal-delay-2">
-        Étudiant en 3<sup>e</sup> année de BUT GACO parcours MRPE à l'IUT de Brest-Morlaix,
-        en alternance au service ADV Logistique du groupe <strong>Le Télégramme</strong>.
+      <p class="hero-tagline" id="heroTagline">
+        Étudiant en 3<sup>e</sup> année de BUT GACO parcours MRPE,<br>
+        en alternance au service ADV Logistique — <strong>Le Télégramme</strong>.
       </p>
 
-      <div class="hero-cta reveal reveal-delay-3">
+      <div class="hero-cta reveal">
         <a href="projets.html" class="btn btn-dark">Voir mes projets</a>
-        <!-- ▼ Remplace '#' par le lien vers ton CV (PDF hébergé sur Google Drive) -->
-        <a href="#" class="btn btn-outline" download>Mon CV <span class="placeholder-block" style="display:inline;padding:0.1rem 0.4rem;font-size:0.7rem;margin-left:0.3rem;">lien à ajouter</span></a>
+        <!-- ▼ Remplace '#' par le lien vers ton CV PDF -->
+        <a href="#" class="btn btn-outline">Mon CV ↓</a>
         <a href="contact.html" class="btn btn-outline">Me contacter</a>
       </div>
+    </div>
 
-      <!-- Indicateur de scroll -->
-      <div class="hero-scroll" aria-hidden="true">
-        <span class="hero-scroll-line"></span>
-        Scroll
+    <!-- Indicateur de scroll -->
+    <div class="hero-scroll">
+      <span class="hero-scroll-line"></span>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       BANDE "À PROPOS" rapide — apparaît au scroll
+       =================================================================== -->
+  <div class="about-strip">
+    <h2 class="about-strip-title reveal">
+      Qui<br>suis-je<span style="color:var(--accent);">?</span>
+    </h2>
+    <p class="about-strip-text reveal reveal-delay-2">
+      Je m'appelle <strong>Bleuse</strong>, étudiant en <strong>BUT GACO</strong> (parcours MRPE)
+      à l'IUT de Brest-Morlaix. En alternance chez <strong>Le Télégramme</strong>,
+      je gère l'administration des ventes et la logistique au quotidien.<br><br>
+      <!-- ▼ Remplace par quelques mots sur toi -->
+      [ Ajoute une phrase supplémentaire sur toi ici ]
+    </p>
+  </div>
+
+  <!-- ===================================================================
+       SECTION PROJETS — SCROLL HORIZONTAL
+       Tu scrolles vers le bas → les cartes avancent vers la droite
+       =================================================================== -->
+  <div class="hscroll-section" id="hscrollSection">
+    <div class="hscroll-sticky">
+
+      <div class="hscroll-header">
+        <p class="section-label">Réalisations</p>
+        <h2 class="section-title" style="margin-bottom:0;">Mes projets</h2>
       </div>
-    </section>
-  </main>
+
+      <!-- La piste de cartes défile horizontalement grâce au JS -->
+      <div class="hscroll-track" id="hscrollTrack">
+
+        <!-- CARTE 1 -->
+        <article class="card" onclick="window.location='projets.html'" style="cursor:pointer;" aria-label="Projet Cerafel">
+          <div class="card-visual" style="background: linear-gradient(145deg, #1b4f72 0%, #2e86c1 100%);">
+            <span class="card-number">N°01</span>
+            <span class="card-category">Marketing</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Étude de marché<br>Cerafel / Prince de Bretagne</h3>
+            <p class="card-year">2025</p>
+          </div>
+        </article>
+
+        <!-- CARTE 2 -->
+        <article class="card" onclick="window.location='projets.html'" style="cursor:pointer;" aria-label="Projet Brasserie">
+          <div class="card-visual" style="background: linear-gradient(145deg, #6e3b1a 0%, #c07941 100%);">
+            <span class="card-number">N°02</span>
+            <span class="card-category">Communication</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Dossier communication<br>Brasserie du Bout du Monde</h3>
+            <p class="card-year">2024</p>
+          </div>
+        </article>
+
+        <!-- CARTE 3 -->
+        <article class="card" onclick="window.location='projets.html'" style="cursor:pointer;" aria-label="Projet Mémoire">
+          <div class="card-visual" style="background: linear-gradient(145deg, #2c3e50 0%, #4a6274 100%);">
+            <span class="card-number">N°03</span>
+            <span class="card-category">Mémoire</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Mémoire BUT3<br>Qualité de service — Le Télégramme</h3>
+            <p class="card-year">2025</p>
+          </div>
+        </article>
+
+        <!-- ▼ Ajoute d'autres cartes ici si tu veux -->
+
+        <!-- Carte finale : appel à l'action -->
+        <article class="card" style="background: var(--bg-alt); border: 1.5px dashed var(--border); display:flex;align-items:center;justify-content:center; text-align:center;">
+          <div style="padding:2rem;">
+            <p style="font-size:2rem;margin-bottom:1rem;">→</p>
+            <a href="projets.html" class="btn btn-dark" style="font-size:0.82rem;">Voir tous les projets</a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Barre de progression du scroll horizontal -->
+      <div class="hscroll-progress-bar">
+        <div class="hscroll-progress-fill" id="hscrollFill"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       APPEL À L'ACTION FINAL
+       =================================================================== -->
+  <div class="after-hscroll">
+    <p class="section-label reveal" style="justify-content:center;display:flex;">Contact</p>
+    <h2 class="section-title reveal reveal-delay-1" style="font-size:clamp(2rem,5vw,3.5rem);margin-bottom:1.5rem;">
+      Travaillons<br>ensemble<span style="color:var(--accent);">.</span>
+    </h2>
+    <div class="reveal reveal-delay-2" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-dark">Me contacter</a>
+      <a href="parcours.html" class="btn btn-outline">Mon parcours</a>
+    </div>
+  </div>
 
   <!-- ===== FOOTER ===== -->
   <footer>
@@ -66,5 +243,56 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    /* ===== PARALLAX HERO ===== */
+    const heroBg      = document.getElementById('heroBg');
+    const heroName    = document.getElementById('heroName');
+    const heroTagline = document.getElementById('heroTagline');
+
+    /* ===== SCROLL HORIZONTAL ===== */
+    const hscrollSection = document.getElementById('hscrollSection');
+    const hscrollTrack   = document.getElementById('hscrollTrack');
+    const hscrollFill    = document.getElementById('hscrollFill');
+
+    /* ===== PROGRESSION GLOBALE ===== */
+    const sideProgress  = document.getElementById('sideProgress');
+    const scrollCounter = document.getElementById('scrollCounter');
+
+    function onScroll() {
+      const scrollY = window.scrollY;
+      const docH    = document.body.scrollHeight - window.innerHeight;
+      const globalProgress = Math.min(scrollY / docH, 1);
+
+      /* --- Progression latérale et compteur --- */
+      sideProgress.style.height  = (globalProgress * 100) + '%';
+      scrollCounter.textContent  = String(Math.round(globalProgress * 100)).padStart(2, '0') + '%';
+      scrollCounter.classList.toggle('visible', scrollY > 100);
+
+      /* --- Parallax hero --- */
+      if (scrollY < window.innerHeight * 1.5) {
+        const p = scrollY / window.innerHeight;
+        // Le fond recule plus lentement que le contenu
+        heroBg.style.transform      = `translateY(${p * 60}px)`;
+        // Le titre recule un peu moins vite que le scroll normal
+        heroName.style.transform    = `translateY(${p * -40}px)`;
+        heroName.style.opacity      = 1 - p * 1.2;
+        heroTagline.style.transform = `translateY(${p * -25}px)`;
+        heroTagline.style.opacity   = 1 - p * 1.5;
+      }
+
+      /* --- Scroll horizontal projets --- */
+      const rect     = hscrollSection.getBoundingClientRect();
+      const sectionH = hscrollSection.offsetHeight - window.innerHeight;
+      const progress = Math.max(0, Math.min(1, -rect.top / sectionH));
+
+      // Distance maximale à parcourir horizontalement
+      const maxTranslate = hscrollTrack.scrollWidth - window.innerWidth + 96; // 96 = padding
+      hscrollTrack.style.transform = `translateX(-${progress * maxTranslate}px)`;
+      hscrollFill.style.width      = (progress * 100) + '%';
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // init
+  </script>
 </body>
 </html>
