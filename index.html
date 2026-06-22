@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ▼ Modifie le titre de l'onglet ici -->
   <title>Alexis Bleuse — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -10,106 +11,90 @@
 </head>
 <body>
 
-  <!-- =============================================
-       FOND — Énorme texte qui défile horizontalement
-       ============================================= -->
+  <!-- =====================================================
+       FOND — Texte géant qui défile vers la gauche
+       Défilement HORIZONTAL indépendant du scroll vertical
+       → crée l'effet de parallaxe
+       ===================================================== -->
   <div class="marquee-bg" aria-hidden="true">
     <div class="marquee-inner">
-      <span>PORTFOLIO — ALEXIS BLEUSE ←®</span>
-      <span>PORTFOLIO — ALEXIS BLEUSE ←®</span>
-      <span>PORTFOLIO — ALEXIS BLEUSE ←®</span>
-      <span>PORTFOLIO — ALEXIS BLEUSE ←®</span>
+      <!-- Doublé pour que la boucle soit seamless -->
+      <!-- ▼ Modifie le texte de fond ici -->
+      <span>PORTFOLIO — ALEXIS BLEUSE ←&nbsp;&nbsp;&nbsp;</span>
+      <span>PORTFOLIO — ALEXIS BLEUSE ←&nbsp;&nbsp;&nbsp;</span>
+      <span>PORTFOLIO — ALEXIS BLEUSE ←&nbsp;&nbsp;&nbsp;</span>
+      <span>PORTFOLIO — ALEXIS BLEUSE ←&nbsp;&nbsp;&nbsp;</span>
     </div>
   </div>
 
-  <!-- =============================================
-       UI FIXE — compteur collection (haut gauche)
-       ============================================= -->
-  <div class="collection-slot" id="collectionSlot">
-    <!-- Miniature de la dernière carte collectée -->
-    <div class="slot-thumb" id="slotThumb">✦</div>
+  <!-- =====================================================
+       UI FIXE — toujours visible
+       ===================================================== -->
+
+  <!-- Compteur de collection — haut gauche -->
+  <!-- Le nombre après "/" = total de cartes (7). Modifie si tu changes le nb de cartes. -->
+  <div class="collection-ui">
+    <div class="slot-thumb" id="slotThumb" aria-label="Dernière carte collectée">✦</div>
     <div>
-      <!-- ▼ Modifie "/12" si tu changes le nombre de cartes (= nb d'objets dans CARDS dans script.js) -->
-      <div class="slot-count"><span id="slotCount">0</span>/12</div>
-      <div class="slot-label-text">CARDS<br>COLLECTED</div>
+      <div class="slot-count"><span id="slotCount">0</span>/7</div>
+      <div class="slot-label">CARDS<br>COLLECTED</div>
     </div>
   </div>
 
   <!-- Pourcentage de progression — bas gauche -->
-  <div class="scroll-pct" id="scrollPct">00%</div>
+  <div class="scroll-pct" id="scrollPct" aria-label="Progression">00%</div>
 
-  <!-- Compteur de carte — bas droite -->
-  <div class="card-counter" id="cardCounter">01 / 12</div>
+  <!-- Numéro de carte courante — bas droite -->
+  <div class="card-ctr" id="cardCtr" aria-label="Carte courante">01 / 07</div>
 
-  <!-- Bouton pilule fixe — bas centre -->
-  <!-- ▼ Modifie le texte et le lien si besoin -->
+  <!-- Bouton pilule — bas centre -->
+  <!-- ▼ Modifie le texte et/ou le lien ici -->
   <a href="contact.html" class="pill-btn">
-    <span class="pill-dot"></span>
+    <span class="pill-dot" aria-hidden="true"></span>
     Ouvert aux opportunités · Me contacter
   </a>
 
-  <!-- =============================================
-       SCÈNE DES CARTES — générée par script.js
-       ============================================= -->
-  <div class="cards-stage" id="cardsStage"></div>
+  <!-- =====================================================
+       SCÈNE — Les cartes sont créées ici par script.js
+       ===================================================== -->
+  <div class="cards-stage" id="cardsStage" aria-label="Galerie de cartes"></div>
 
-  <!-- =============================================
-       VUE DÉTAIL — affichée au clic sur une carte
-       ============================================= -->
-  <div class="detail-view" id="detailView">
+  <!-- =====================================================
+       VUE DÉTAIL — s'ouvre au clic sur une carte
+       Structure fixe, contenu injecté par script.js
+       ===================================================== -->
+  <div class="detail-view" id="detailView" role="dialog" aria-label="Détail de la carte" aria-modal="true">
 
-    <!-- Colonne gauche : carte miniature + navigation -->
+    <!-- Colonne gauche : mini-carte + navigation -->
     <div class="detail-left">
-      <div class="detail-mini-card">
-        <div class="mini-visual" id="detailMiniVisual"></div>
-        <div class="mini-name" id="detailMiniName"></div>
+      <!-- Mini-carte de la catégorie sélectionnée -->
+      <div class="detail-mini">
+        <div class="detail-mini-visual" id="detailMiniVisual"></div>
+        <div class="detail-mini-name"   id="detailMiniName"></div>
       </div>
-      <div class="detail-collected-label">Collectée</div>
 
-      <!-- Progression scroll de la vue détail -->
-      <div class="detail-progress" id="detailProgress">00%</div>
+      <!-- Badge "Collectée" -->
+      <div class="detail-collected">Collectée</div>
+
+      <!-- Progression du scroll dans la colonne droite -->
+      <div class="detail-scroll-pct" id="detailScrollPct">00%</div>
 
       <!-- Bouton retour -->
-      <div class="detail-back" id="detailBack">← Retour</div>
+      <button class="detail-back" id="detailBackBtn">← Retour à la galerie</button>
     </div>
 
-    <!-- Colonne droite : texte éditorial -->
+    <!-- Colonne droite : contenu de la catégorie (injecté par script.js) -->
     <div class="detail-right" id="detailRight">
-      <div class="detail-scroll-area">
-        <p class="detail-eyebrow" id="detailEyebrow"></p>
-        <h2 class="detail-title" id="detailTitle"></h2>
-        <div class="detail-divider"></div>
-
-        <p class="detail-section-label">Contexte</p>
-        <p class="detail-text" id="detailContexte"></p>
-
-        <p class="detail-section-label">Mon rôle</p>
-        <p class="detail-text" id="detailRole" style="white-space:pre-line;"></p>
-
-        <p class="detail-section-label">Résultat</p>
-        <p class="detail-text" id="detailResultat"></p>
-
-        <div class="detail-actions">
-          <!-- ▼ Ce bouton est grisé si lien = '#' dans script.js -->
-          <a class="btn btn-accent" id="detailLien" href="#" target="_blank" rel="noopener">Voir le dossier</a>
-          <button class="btn btn-outline" id="detailCloseBottom" onclick="document.getElementById('detailCloseBtn').click()">
-            ← Retour à la galerie
-          </button>
-        </div>
+      <div class="detail-body" id="detailContent">
+        <!-- Le contenu est injecté ici par renderDetail() dans script.js -->
       </div>
     </div>
 
-  </div>
+  </div><!-- fin .detail-view -->
 
-  <!-- Bouton X fermer la vue détail -->
-  <button class="detail-close-btn" id="detailCloseBtn" aria-label="Fermer">✕</button>
+  <!-- Bouton ✕ fermer — visible seulement quand le détail est ouvert -->
+  <button class="close-x" id="closeBtn" aria-label="Fermer">✕</button>
 
   <script src="script.js"></script>
-  <script>
-    // Lier le bouton "Retour" de la colonne gauche
-    document.getElementById('detailBack').addEventListener('click', () => {
-      document.getElementById('detailCloseBtn').click();
-    });
-  </script>
 </body>
 </html>
