@@ -67,8 +67,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .marquee-inner {
   display: flex;
   white-space: nowrap;
-  /* ▼ Modifie la durée pour accélérer (valeur basse) ou ralentir (valeur haute) le défilement */
-  animation: defilement 28s linear infinite;
+  /* transform piloté par JS (scroll) — pas d'animation CSS */
+  will-change: transform;
 }
 .marquee-inner span {
   font-family: var(--font-serif);
