@@ -671,34 +671,36 @@ if (document.getElementById('cardsStage')) {
     el.setAttribute('aria-label', c.type);
 
     const visualHtml = c.holo
-      ? `<div class="tcard-visual"><div class="holo-avatar">AB</div></div>`
-      : `<div class="tcard-visual">${c.emoji}</div>`;
+      ? `<div class="tcard-visual"><div class="tcard-visual-ring"><div class="holo-avatar">AB</div></div></div>`
+      : `<div class="tcard-visual"><div class="tcard-visual-ring">${c.emoji}</div></div>`;
 
     /* Fond coloré directement sur la carte */
     if (!c.holo) el.style.background = c.visual;
 
     el.innerHTML = `
+      <div class="tcard-bg-num">${c.num}</div>
       <div class="tcard-top">
-        <span class="tcard-logo"></span>
-        <span class="tcard-type">(${c.type})</span>
+        <span class="tcard-logo-txt">←®</span>
+        <span class="tcard-type">${c.type}</span>
       </div>
+      <div class="tcard-top-line"></div>
       ${visualHtml}
-      <div class="tcard-divider"></div>
       <div class="tcard-name-block">
-        <span class="tcard-collected">Collected</span>
-        <span class="tcard-name">${c.title.replace('\n', ' ')}</span>
+        <span class="tcard-collected-badge">Collected</span>
+        <div class="tcard-name">${c.title.replace('\n', '<br>')}</div>
       </div>
       <div class="tcard-bottom">
         <div class="tcard-bottom-col">
           <span class="tcard-year-label">Year</span>
           <span class="tcard-year-val">2026</span>
         </div>
+        <div class="tcard-bottom-sep"></div>
         <div class="tcard-bottom-col">
           <span class="tcard-num-label">Number</span>
           <span class="tcard-num-val">${c.num}/${String(TOTAL).padStart(2,'0')}</span>
         </div>
       </div>
-      <div class="tcard-copy">© 2026 Alexis Bleuse / IUT Brest-Morlaix / BUT GACO MRPE</div>
+      <div class="tcard-copy">© 2026 Alexis Bleuse · IUT Brest-Morlaix · BUT GACO MRPE</div>
     `;
 
     shell.appendChild(el);
@@ -738,44 +740,46 @@ if (document.getElementById('cardsStage')) {
   function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
   function easeInCubic(t)  { return t * t * t; }
 
-  /* ── Calcul de la position d'une carte ──────────────────── */
-  /* ── Calcul : les cartes restent FIXES, c'est le scroll qui "nous déplace" ──
-     Pas de translateY — seules opacity et scale changent.
-     Effet : on avance à travers un mur de cartes posées dans l'espace. */
+  /* ── Animation : effet de vol à travers les cartes ────────
+     Les cartes sont fixes dans l'espace 3D.
+     En scrollant on s'en approche (scale ↑) puis on les dépasse (scale ↓ rapide).
+     Aucune translation Y — seulement scale + opacity + Z simulé.
+     La sensation : on "vole" le long d'un couloir de cartes. */
   function applyCardStyle(wrapper, offset, tilt, sideX) {
     let sc, op, rot, zi;
-    /* Zone active élargie à 0.45 pour que le click soit facile */
-    const isActive = Math.abs(offset) < 0.45;
+    const isActive = Math.abs(offset) < 0.4;
 
-    if (offset > 0.9) {
-      /* Carte suivante — totalement invisible, légèrement inclinée, "derrière" */
-      sc = 0.90; op = 0; rot = tilt * 1.2; zi = 1;
+    if (offset > 2.2) {
+      /* Très loin devant — minuscule, invisible */
+      sc = 0.28; op = 0; rot = tilt * 1.5; zi = 1;
 
     } else if (offset > 0) {
-      /* Entrée : la carte arrive depuis "derrière" (scale 0.90→1, fade 0→1) */
-      const t = easeOutCubic(1 - offset / 0.9);
-      sc  = 0.90 + t * 0.10;       /* 0.90 → 1   */
-      op  = t * t;                  /* courbe quadratique : apparaît vite à la fin */
-      rot = tilt * (1 - t) * 1.3;
-      zi  = 5 + Math.round(t * 22);
+      /* ── On s'approche — carte qui grossit progressivement ──
+         0 = on est dessus (sc=1), 2.2 = très loin (sc=0.28) */
+      const t = easeOutCubic(1 - offset / 2.2);  /* 0 → 1 quand on arrive */
+      sc  = 0.28 + t * 0.72;          /* 0.28 → 1.0  (grossit en s'approchant) */
+      op  = Math.pow(t, 1.8);          /* fade in assez tard pour qu'elle surgisse */
+      rot = tilt * (1 - t) * 1.2;
+      zi  = 2 + Math.round(t * 28);
 
-    } else if (offset >= -0.45) {
-      /* Active : parfaitement au centre, droite, pleine */
-      sc = 1; op = 1; rot = 0; zi = 30;
+    } else if (offset >= -0.4) {
+      /* ── On est dessus — pleine taille, pleine opacité ── */
+      sc = 1; op = 1; rot = 0; zi = 32;
 
-    } else if (offset >= -1.1) {
-      /* Sortie : la carte repart "en arrière" (scale 1→0.90, fade 1→0) */
-      const t = easeInCubic(Math.min((-offset - 0.45) / 0.65, 1));
-      sc  = 1 - t * 0.10;
-      op  = 1 - t * t;             /* disparaît vite dès le début de la sortie */
-      rot = -tilt * t * 1.3;
-      zi  = 28 - Math.round(t * 22);
+    } else if (offset >= -1.0) {
+      /* ── On dépasse — s'éloigne très vite derrière nous ──
+         Rétrécit et disparaît rapidement (on l'a dépassée) */
+      const t = easeInCubic(Math.min((-offset - 0.4) / 0.6, 1));
+      sc  = 1 - t * 0.55;             /* 1.0 → 0.45 (rétrécit = elle est derrière) */
+      op  = 1 - t;
+      rot = -tilt * t * 0.8;
+      zi  = 30 - Math.round(t * 28);
 
     } else {
-      sc = 0.90; op = 0; rot = -tilt * 1.2; zi = 1;
+      /* Loin derrière — tout petite, invisible */
+      sc = 0.45; op = 0; rot = 0; zi = 1;
     }
 
-    /* translateX seulement — PAS de translateY */
     wrapper.style.transform = `translateX(${sideX}px) rotate(${rot}deg) scale(${sc})`;
     wrapper.style.opacity   = String(Math.max(0, Math.min(1, op)));
     wrapper.style.zIndex    = String(zi);
