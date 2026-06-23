@@ -508,8 +508,8 @@ if (document.getElementById('cardsStage')) {
   const detailProg = document.getElementById('detailScrollPct');
   const closeBtn   = document.getElementById('closeBtn');
 
-  let detailOpen = false;
-  let collected  = 0;
+  let detailOpen  = false;
+  const visitedIds = new Set(); /* cartes visitées (compteur réel) */
 
   document.body.style.minHeight = (TOTAL + 0.6) * 100 + 'vh';
 
@@ -541,6 +541,7 @@ if (document.getElementById('cardsStage')) {
         <span class="tcard-type">(${c.type})</span>
       </div>
       ${visualHtml}
+      <div class="tcard-divider"></div>
       <div class="tcard-name-block">
         <span class="tcard-collected">Collected</span>
         <span class="tcard-name">${c.title.replace('\n', ' ')}</span>
@@ -564,6 +565,28 @@ if (document.getElementById('cardsStage')) {
 
     wrapper.addEventListener('click', () => {
       if (wrapper.classList.contains('is-active')) openDetail(c.id);
+    });
+
+    /* ── Tilt 3D au survol ─────────────────────────────────── */
+    shell.addEventListener('mousemove', e => {
+      if (!wrapper.classList.contains('is-active')) return;
+      const r  = shell.getBoundingClientRect();
+      const x  = (e.clientX - r.left)  / r.width  - 0.5; /* -0.5 → +0.5 */
+      const y  = (e.clientY - r.top)   / r.height - 0.5;
+      /* Tilt : max ±18° Y, ±14° X */
+      el.style.transform = `perspective(900px) rotateY(${x * 18}deg) rotateX(${-y * 14}deg) scale(1.045)`;
+      el.style.boxShadow = `
+        ${x * -18}px ${y * 14}px 60px rgba(0,0,0,0.4),
+        0 40px 100px rgba(0,0,0,0.28),
+        inset 0 1px 0 rgba(255,255,255,0.28)
+      `;
+      /* Reflet dynamique via custom property CSS */
+      el.style.setProperty('--mx', `${(x + 0.5) * 100}%`);
+      el.style.setProperty('--my', `${(y + 0.5) * 100}%`);
+    });
+    shell.addEventListener('mouseleave', () => {
+      el.style.transform = '';
+      el.style.boxShadow = '';
     });
 
     return wrapper;
@@ -617,7 +640,7 @@ if (document.getElementById('cardsStage')) {
     const scrollY  = window.scrollY;
     const vh       = window.innerHeight;
     const rawIndex = scrollY / vh;
-    const SIDE     = window.innerWidth < 700 ? 80 : 220;
+    const SIDE     = window.innerWidth < 700 ? 90 : 290;
 
     const pct = Math.round(Math.min(rawIndex / TOTAL, 1) * 100);
     if (scrollPctEl) scrollPctEl.textContent = String(pct).padStart(2, '0') + '%';
@@ -676,9 +699,9 @@ if (document.getElementById('cardsStage')) {
 
     setTimeout(() => { clone.remove(); }, 700);
 
-    /* Mise à jour compteur */
-    collected = Math.max(collected, cardId + 1);
-    if (slotCount) slotCount.textContent = collected;
+    /* Mise à jour compteur — 1 par carte unique visitée */
+    visitedIds.add(cardId);
+    if (slotCount) slotCount.textContent = visitedIds.size;
     if (slotThumb) {
       slotThumb.textContent = card.emoji;
       slotThumb.classList.add('filled');
