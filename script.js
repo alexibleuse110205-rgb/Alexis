@@ -59,9 +59,17 @@ const CARDS = [
     tilt: -2.2,
   },
 
-  /* ── CARTE 8 : CONTACT ─────────────────────────────────── */
+  /* ── CARTE 8 : MON PROJET ─────────────────────────────── */
   {
-    id: 7, num: '08', type: 'CONTACT',
+    id: 7, num: '08', type: 'MON PROJET',
+    title: 'Mon\nProjet',
+    holo: false, visual: 'linear-gradient(145deg, #0a3d62 0%, #1e6fa8 100%)', emoji: '🚀',
+    tilt: -1.8,
+  },
+
+  /* ── CARTE 9 : CONTACT ─────────────────────────────────── */
+  {
+    id: 8, num: '09', type: 'CONTACT',
     title: 'Me\nContacter',
     holo: false, visual: 'linear-gradient(145deg, #111 0%, #333 100%)', emoji: '✉',
     tilt: 2,
@@ -113,7 +121,8 @@ function renderParcours() {
     <h2 class="detail-main-title">Mon<br>Parcours</h2>
     <div class="detail-divider"></div>
     <p class="detail-text" style="margin-bottom:2.5rem;">
-      Un chemin construit autour de la gestion, du commerce et du management.
+      De mes premières années scolaires jusqu'à mon BUT, voici le chemin qui m'a
+      menée là où j'en suis aujourd'hui.
     </p>
 
     <div class="timeline">
@@ -121,47 +130,60 @@ function renderParcours() {
       <div class="tl-item">
         <div class="tl-dot"></div>
         <p class="tl-date">[ 20XX – 20XX ]</p>
-        <h3 class="tl-title">Collège</h3>
-        <p class="tl-sub">[ Nom du collège ] — [ Ville ]</p>
-        <p class="tl-desc">[ Décris cette période si tu veux (optionnel). ]</p>
+        <h3 class="tl-title">Collège des Deux Baies — Carantec</h3>
+        <p class="tl-sub">Carantec, Bretagne</p>
+        <p class="tl-desc">
+          J'ai été scolarisée au collège des Deux Baies à Carantec, où j'ai obtenu
+          mon brevet avec la mention <strong>Très Bien</strong>. Cette période m'a
+          permis d'acquérir de bonnes bases, de la rigueur et une méthode de travail.
+        </p>
       </div>
 
       <div class="tl-item">
         <div class="tl-dot"></div>
         <p class="tl-date">[ 20XX – 20XX ]</p>
-        <h3 class="tl-title">Lycée — BAC STMG</h3>
-        <p class="tl-sub">[ Nom du lycée ] — [ Ville ]</p>
-        <p class="tl-desc">[ Décris ton bac, tes matières fortes, ta mention. ]</p>
+        <h3 class="tl-title">Lycée — Baccalauréat STMG</h3>
+        <p class="tl-sub">[ Nom du lycée ] — Bretagne</p>
+        <p class="tl-desc">
+          Baccalauréat obtenu avec la mention <strong>Bien</strong>.
+        </p>
         <div class="tl-why">
           <strong>Pourquoi le BAC STMG ?</strong><br>
-          [ Explique pourquoi tu as choisi cette filière au lycée,
-          ce que tu y as appris, comment ça t'a orienté vers le BUT GACO. ]
+          J'ai choisi cette filière pour son côté concret, tourné vers les entreprises,
+          la gestion, le management et l'économie. C'était une formation qui correspondait
+          à mon envie de mieux comprendre le fonctionnement des organisations.
         </div>
       </div>
 
       <div class="tl-item">
         <div class="tl-dot" style="background:var(--accent);outline-color:var(--accent);"></div>
-        <p class="tl-date">[ 20XX – En cours ]</p>
+        <p class="tl-date">[ 20XX ] — En cours</p>
         <h3 class="tl-title">BUT GACO — Parcours MRPE</h3>
-        <p class="tl-sub">IUT de Brest-Morlaix</p>
+        <p class="tl-sub">IUT de Brest-Morlaix — Morlaix, Bretagne</p>
         <p class="tl-desc">
-          Bachelor Universitaire de Technologie en Gestion Administrative et
-          Commerciale des Organisations, parcours MRPE —
-          <em>Management Responsable de Projet et Entrepreneuriat</em>.
-          En alternance depuis la 2<sup>e</sup> année au groupe Le Télégramme.
+          Bachelor Universitaire de Technologie en <strong>Gestion Administrative et
+          Commerciale des Organisations</strong>, parcours
+          <strong>Management des Relations avec les Partenaires et les Entreprises</strong>.
+          Depuis trois ans, cette formation me permet de développer des compétences variées
+          dans plusieurs domaines. Depuis la 2<sup>e</sup> année, je réalise mon parcours
+          en alternance au sein du groupe <strong>Le Télégramme</strong>.
         </p>
         <div class="tl-why">
           <strong>Pourquoi le BUT GACO ?</strong><br>
-          [ Explique ton choix du BUT GACO : le côté professionnalisant,
-          l'alternance, la polyvalence gestion/commerce/logistique... ]
+          J'ai choisi le BUT GACO pour sa polyvalence. Cette formation touche à plusieurs
+          matières comme le marketing, la communication, la gestion, le droit, l'économie,
+          la comptabilité, le management ou encore la gestion de projet. Cela m'a permis
+          de découvrir différents domaines avant de définir plus précisément mon projet
+          professionnel.
         </div>
         <div class="tl-why" style="margin-top:0.6rem;">
           <strong>Pourquoi le parcours MRPE ?</strong><br>
-          Le parcours <em>Management Responsable de Projet et Entrepreneuriat</em>
-          m'a attiré pour sa dimension concrète : piloter des projets, développer
-          une posture d'entrepreneur, et intégrer les enjeux de responsabilité
-          dans les organisations.
-          [ Complète avec ce qui t'a vraiment motivé dans ce parcours. ]
+          J'ai choisi le parcours MRPE car il correspondait davantage à mes centres
+          d'intérêt. Le côté <strong>RSE</strong> m'a particulièrement attirée, car
+          c'est un sujet essentiel aujourd'hui pour les entreprises — elles doivent
+          prendre en compte leur impact social, environnemental et économique. Ce parcours
+          m'intéressait aussi pour son côté entrepreneurial et le développement de
+          relations avec les partenaires et les entreprises.
         </div>
       </div>
 
@@ -534,6 +556,66 @@ function renderContact() {
   `;
 }
 
+function renderMonProjet() {
+  return `
+    <p class="detail-cat-label">Avenir</p>
+    <h2 class="detail-main-title">Mon<br>Projet</h2>
+    <div class="detail-divider"></div>
+
+    <!-- ── À COURT TERME ── -->
+    <div class="proj-section">
+      <div class="proj-section-badge">À court terme</div>
+      <h3 class="proj-section-title">CDD — Service ADV, Le Télégramme</h3>
+      <p class="detail-text" style="margin-bottom:1.2rem;">
+        L'année prochaine, je vais faire un <strong>CDD au sein du service Administration
+        des Ventes</strong>, dans la société Le Télégramme. Ce service fait partie de la
+        direction Logistique et Réseau. Ce contrat va me permettre de continuer à développer
+        mes compétences professionnelles et de mieux comprendre le fonctionnement d'une entreprise.
+      </p>
+      <p class="detail-text" style="margin-bottom:1.2rem;">
+        Mes missions seront variées : gestion de la distribution des titres accessoires
+        (<em>multi-titres</em>) auprès du réseau des vendeurs colporteurs de presse, traitement
+        des demandes de repérage, gestion des fichiers de distribution, suivi des réclamations
+        auprès des éditeurs, et participation à la logistique administrative des ventes.
+      </p>
+      <p class="detail-text" style="margin-bottom:1.2rem;">
+        Je m'occuperai aussi de la gestion de certaines commandes (Diverto, Version Femina,
+        Le Poher), de la préparation des fichiers de distribution pour les différents réseaux
+        (vente au numéro, VCP, partenariats), et de la gestion des abonnés postaux
+        (nouveaux clients, mises à jour, facturation, encaissements).
+      </p>
+      <div class="passion-points" style="margin-bottom:0;">
+        <span class="passion-point"><strong>Organisation</strong> · rigueur, méthode, priorités</span>
+        <span class="passion-point"><strong>Gestion administrative</strong> · fichiers, contrats, suivi</span>
+        <span class="passion-point"><strong>Relation professionnelle</strong> · éditeurs, clients, réseau</span>
+        <span class="passion-point"><strong>Autonomie</strong> · responsabilités, décisions, confiance</span>
+        <span class="passion-point"><strong>Analyse</strong> · statistiques, données, résultats</span>
+        <span class="passion-point"><strong>Logistique</strong> · distribution, commandes, coordination</span>
+      </div>
+    </div>
+
+    <!-- ── L'ANNÉE PROCHAINE ── -->
+    <div class="proj-section">
+      <div class="proj-section-badge proj-section-badge--long">À plus long terme</div>
+      <h3 class="proj-section-title">Une pause réfléchie… et l'entrepreneuriat</h3>
+      <p class="detail-text" style="margin-bottom:1.2rem;">
+        Pour la suite, je suis encore en réflexion. J'ai décidé de faire une
+        <strong>pause dans mes études</strong>, car je ne voulais pas faire un master
+        simplement pour faire un master. Je préfère prendre le temps de mieux me connaître,
+        de découvrir davantage le monde professionnel et de trouver une voie qui me correspond
+        vraiment.
+      </p>
+      <p class="detail-text">
+        À plus long terme, <strong>j'aimerais ouvrir ma propre entreprise</strong>. C'est un
+        projet qui m'attire, car j'aime l'idée de construire quelque chose par moi-même, de
+        prendre des responsabilités et de développer un projet qui me ressemble. Cette année
+        en CDD sera donc une étape importante pour gagner en expérience, en maturité et en
+        confiance avant de construire la suite de mon parcours.
+      </p>
+    </div>
+  `;
+}
+
 /* ── Dispatch ──────────────────────────────────────────────── */
 function renderDetail(card) {
   switch(card.id) {
@@ -544,7 +626,8 @@ function renderDetail(card) {
     case 4: return renderDossiers();
     case 5: return renderCompetences();
     case 6: return renderPassions();
-    case 7: return renderContact();
+    case 7: return renderMonProjet();
+    case 8: return renderContact();
     default: return '<p class="ph-block">Contenu à venir.</p>';
   }
 }
@@ -656,43 +739,44 @@ if (document.getElementById('cardsStage')) {
   function easeInCubic(t)  { return t * t * t; }
 
   /* ── Calcul de la position d'une carte ──────────────────── */
+  /* ── Calcul : les cartes restent FIXES, c'est le scroll qui "nous déplace" ──
+     Pas de translateY — seules opacity et scale changent.
+     Effet : on avance à travers un mur de cartes posées dans l'espace. */
   function applyCardStyle(wrapper, offset, tilt, sideX) {
-    let ty, sc, op, rot, zi;
-    const isActive = Math.abs(offset) < 0.12;
+    let sc, op, rot, zi;
+    /* Zone active élargie à 0.45 pour que le click soit facile */
+    const isActive = Math.abs(offset) < 0.45;
 
-    if (offset > 1.6) {
-      /* loin sous l'écran : invisible */
-      ty = 105; sc = 0.82; op = 0; rot = tilt * 1.5; zi = 1;
+    if (offset > 0.9) {
+      /* Carte suivante — totalement invisible, légèrement inclinée, "derrière" */
+      sc = 0.90; op = 0; rot = tilt * 1.2; zi = 1;
 
     } else if (offset > 0) {
-      /* ── carte qui monte du bas (paquet empilé) ──
-         Elle reste inclinée et visible derrière l'active → 2 cartes qui se chevauchent */
-      const t = easeOutCubic(1 - offset / 1.6);   /* 0→1 */
-      ty  = (1 - t) * 68;          /* 68vh → 0 */
-      sc  = 0.86 + t * 0.14;       /* 0.86 → 1 */
-      op  = 0.35 + t * 0.65;       /* visible plus tôt → effet de pile */
-      rot = tilt * (1 - t) * 1.4;  /* bien inclinée puis se redresse */
-      zi  = 8 + Math.round(t * 12);
+      /* Entrée : la carte arrive depuis "derrière" (scale 0.90→1, fade 0→1) */
+      const t = easeOutCubic(1 - offset / 0.9);
+      sc  = 0.90 + t * 0.10;       /* 0.90 → 1   */
+      op  = t * t;                  /* courbe quadratique : apparaît vite à la fin */
+      rot = tilt * (1 - t) * 1.3;
+      zi  = 5 + Math.round(t * 22);
 
-    } else if (offset >= -0.12) {
-      /* carte active, parfaitement centrée et droite */
-      ty = 0; sc = 1; op = 1; rot = 0; zi = 30;
+    } else if (offset >= -0.45) {
+      /* Active : parfaitement au centre, droite, pleine */
+      sc = 1; op = 1; rot = 0; zi = 30;
 
-    } else if (offset >= -1.3) {
-      /* ── carte qu'on retire du paquet vers le haut ──
-         Elle s'envole en s'inclinant et en reculant légèrement */
-      const t = easeInCubic(Math.min(-offset / 1.3, 1)); /* 0→1 */
-      ty  = -t * 82;               /* 0 → -82vh */
-      sc  = 1 - t * 0.14;          /* 1 → 0.86 */
-      op  = 1 - t * 1.05;          /* disparaît un peu avant le haut */
-      rot = -tilt * t * 1.6;       /* s'incline en sortant */
-      zi  = 25 - Math.round(t * 12);
+    } else if (offset >= -1.1) {
+      /* Sortie : la carte repart "en arrière" (scale 1→0.90, fade 1→0) */
+      const t = easeInCubic(Math.min((-offset - 0.45) / 0.65, 1));
+      sc  = 1 - t * 0.10;
+      op  = 1 - t * t;             /* disparaît vite dès le début de la sortie */
+      rot = -tilt * t * 1.3;
+      zi  = 28 - Math.round(t * 22);
 
     } else {
-      ty = -105; sc = 0.85; op = 0; rot = -tilt * 1.5; zi = 1;
+      sc = 0.90; op = 0; rot = -tilt * 1.2; zi = 1;
     }
 
-    wrapper.style.transform = `translate(${sideX}px, ${ty}vh) rotate(${rot}deg) scale(${sc})`;
+    /* translateX seulement — PAS de translateY */
+    wrapper.style.transform = `translateX(${sideX}px) rotate(${rot}deg) scale(${sc})`;
     wrapper.style.opacity   = String(Math.max(0, Math.min(1, op)));
     wrapper.style.zIndex    = String(zi);
     wrapper.classList.toggle('is-active', isActive);
