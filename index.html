@@ -65,35 +65,37 @@
        ===================================================== -->
   <div class="detail-view" id="detailView" role="dialog" aria-label="Détail de la carte" aria-modal="true">
 
-    <!-- Colonne gauche : mini-carte + navigation -->
-    <div class="detail-left">
-      <!-- Mini-carte de la catégorie sélectionnée -->
-      <div class="detail-mini">
-        <div class="detail-mini-visual" id="detailMiniVisual"></div>
-        <div class="detail-mini-name"   id="detailMiniName"></div>
+    <!-- ① Bande colorée haute — couleur de la carte -->
+    <div class="detail-hero" id="detailHero">
+
+      <!-- Carte inclinée + bouton ✕ -->
+      <div class="detail-hero-card-wrap">
+        <div class="detail-hero-mini-wrap">
+          <div class="detail-hero-mini-inner" id="detailHeroMiniInner"></div>
+        </div>
+        <button class="detail-hero-close" id="closeBtn" aria-label="Fermer">✕</button>
       </div>
 
-      <!-- Badge "Collectée" -->
-      <div class="detail-collected">Collectée</div>
+      <!-- Grand titre italic -->
+      <h1 class="detail-hero-title" id="detailHeroTitle"></h1>
 
-      <!-- Progression du scroll dans la colonne droite -->
-      <div class="detail-scroll-pct" id="detailScrollPct">00%</div>
+      <!-- Pied de la bande : logo · COLLECTED · type -->
+      <div class="detail-hero-foot">
+        <span class="detail-hero-logo">←®</span>
+        <span class="detail-hero-collected">COLLECTED</span>
+        <span class="detail-hero-type" id="detailHeroType"></span>
+      </div>
 
-      <!-- Bouton retour -->
-      <button class="detail-back" id="detailBackBtn">← Retour à la galerie</button>
-    </div>
+    </div><!-- fin .detail-hero -->
 
-    <!-- Colonne droite : contenu de la catégorie (injecté par script.js) -->
-    <div class="detail-right" id="detailRight">
+    <!-- ② Zone blanche scrollable — contenu de la carte -->
+    <div class="detail-content-wrap" id="detailRight">
       <div class="detail-body" id="detailContent">
-        <!-- Le contenu est injecté ici par renderDetail() dans script.js -->
+        <!-- contenu injecté par renderDetail() dans script.js -->
       </div>
     </div>
 
   </div><!-- fin .detail-view -->
-
-  <!-- Bouton ✕ fermer — visible seulement quand le détail est ouvert -->
-  <button class="close-x" id="closeBtn" aria-label="Fermer">✕</button>
 
   <script src="script.js"></script>
 </body>

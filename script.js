@@ -808,19 +808,20 @@ function renderDetail(card) {
    ============================================================ */
 if (document.getElementById('cardsStage')) {
 
-  const stage        = document.getElementById('cardsStage');
-  const scrollPctEl  = document.getElementById('scrollPct');
-  const cardCtrEl    = document.getElementById('cardCtr');
-  const slotThumb    = document.getElementById('slotThumb');
-  const slotCount    = document.getElementById('slotCount');
-  const detailView   = document.getElementById('detailView');
-  const detailMiniV  = document.getElementById('detailMiniVisual');
-  const detailMiniN  = document.getElementById('detailMiniName');
-  const detailRight  = document.getElementById('detailRight');
-  const detailCont   = document.getElementById('detailContent');
-  const detailProg   = document.getElementById('detailScrollPct');
-  const closeBtn     = document.getElementById('closeBtn');
-  const marqueeInner = document.querySelector('.marquee-inner');
+  const stage            = document.getElementById('cardsStage');
+  const scrollPctEl      = document.getElementById('scrollPct');
+  const cardCtrEl        = document.getElementById('cardCtr');
+  const slotThumb        = document.getElementById('slotThumb');
+  const slotCount        = document.getElementById('slotCount');
+  const detailView       = document.getElementById('detailView');
+  const detailHero       = document.getElementById('detailHero');
+  const detailHeroTitle  = document.getElementById('detailHeroTitle');
+  const detailHeroType   = document.getElementById('detailHeroType');
+  const detailHeroMini   = document.getElementById('detailHeroMiniInner');
+  const detailRight      = document.getElementById('detailRight');
+  const detailCont       = document.getElementById('detailContent');
+  const closeBtn         = document.getElementById('closeBtn');
+  const marqueeInner     = document.querySelector('.marquee-inner');
 
   let detailOpen = false;
   const visitedIds = new Set();
@@ -1058,11 +1059,11 @@ if (document.getElementById('cardsStage')) {
     const wrapper = wrapperEls[cardId];
     const shell   = wrapper.querySelector('.tcard-shell');
 
+    /* Animation : carte vole vers le slot collection */
     const slotRect  = slotThumb.getBoundingClientRect();
     const shellRect = shell.getBoundingClientRect();
-
-    const clone = shell.cloneNode(true);
-    clone.style.cssText = `
+    const flyClone  = shell.cloneNode(true);
+    flyClone.style.cssText = `
       position:fixed;
       left:${shellRect.left}px; top:${shellRect.top}px;
       width:${shellRect.width}px; height:${shellRect.height}px;
@@ -1070,34 +1071,49 @@ if (document.getElementById('cardsStage')) {
       transition:transform 0.65s cubic-bezier(0.4,0,0.2,1), opacity 0.65s ease;
       pointer-events:none; z-index:9999; transform-origin:top left;
     `;
-    document.body.appendChild(clone);
-    clone.getBoundingClientRect();
-    const sc = slotRect.width / shellRect.width;
-    const dx = slotRect.left - shellRect.left;
+    document.body.appendChild(flyClone);
+    flyClone.getBoundingClientRect();
+    const sc  = slotRect.width / shellRect.width;
+    const dx  = slotRect.left - shellRect.left;
     const dy2 = slotRect.top  - shellRect.top;
-    clone.style.transform = `translate(${dx}px,${dy2}px) scale(${sc})`;
-    clone.style.opacity   = '0.5';
-    setTimeout(() => clone.remove(), 700);
+    flyClone.style.transform = `translate(${dx}px,${dy2}px) scale(${sc})`;
+    flyClone.style.opacity   = '0.5';
+    setTimeout(() => flyClone.remove(), 700);
 
+    /* Collection */
     visitedIds.add(cardId);
     if (slotCount) slotCount.textContent = visitedIds.size;
     if (slotThumb) { slotThumb.textContent = card.emoji; slotThumb.classList.add('filled'); }
     updateCollPanel();
 
-    if (detailMiniV) {
-      detailMiniV.style.background = card.holo
-        ? 'linear-gradient(135deg,#ff9ff3,#feca57,#48dbfb,#ff6b6b,#54a0ff)'
+    /* Hero : couleur de fond */
+    if (detailHero) {
+      const heroBg = card.holo
+        ? 'linear-gradient(135deg,#7f6bbf,#c084fc,#818cf8)'
         : card.visual;
-      detailMiniV.textContent = card.holo ? '' : card.emoji;
+      detailHero.style.background = heroBg;
     }
-    if (detailMiniN) detailMiniN.textContent = card.title.replace('\n', ' ');
+
+    /* Mini carte dans le hero : clone du shell à l'échelle */
+    if (detailHeroMini) {
+      detailHeroMini.innerHTML = '';
+      const miniShell = shell.cloneNode(true);
+      miniShell.style.pointerEvents = 'none';
+      miniShell.style.width  = '310px';
+      miniShell.style.height = '470px';
+      detailHeroMini.appendChild(miniShell);
+    }
+
+    /* Grand titre */
+    if (detailHeroTitle) detailHeroTitle.textContent = card.title.replace('\n', ' ');
+    if (detailHeroType)  detailHeroType.textContent  = `(${card.type})`;
+
+    /* Contenu */
     if (detailCont)  detailCont.innerHTML  = renderDetail(card);
     if (detailRight) detailRight.scrollTop = 0;
-    if (detailProg)  detailProg.textContent = '00%';
 
     setTimeout(() => {
       detailView.classList.add('open');
-      if (closeBtn) closeBtn.style.display = 'flex';
       detailOpen = true;
       document.body.style.overflow = 'hidden';
     }, 280);
@@ -1106,23 +1122,13 @@ if (document.getElementById('cardsStage')) {
   /* ── Fermer le détail ────────────────────────────────────── */
   function closeDetail() {
     detailView.classList.remove('open');
-    if (closeBtn) closeBtn.style.display = 'none';
     detailOpen = false;
     document.body.style.overflow = '';
     requestAnimationFrame(updateCamera);
   }
 
   if (closeBtn) closeBtn.addEventListener('click', closeDetail);
-  document.getElementById('detailBackBtn')?.addEventListener('click', closeDetail);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
-
-  if (detailRight && detailProg) {
-    detailRight.addEventListener('scroll', () => {
-      const max = detailRight.scrollHeight - detailRight.clientHeight;
-      const pct = max > 0 ? Math.round(detailRight.scrollTop / max * 100) : 0;
-      detailProg.textContent = String(pct).padStart(2, '0') + '%';
-    });
-  }
 }
 
 /* ============================================================
