@@ -530,20 +530,32 @@ if (document.getElementById('cardsStage')) {
 
     const visualHtml = c.holo
       ? `<div class="tcard-visual"><div class="holo-avatar">AB</div></div>`
-      : `<div class="tcard-visual" style="background:${c.visual};">${c.emoji}</div>`;
+      : `<div class="tcard-visual">${c.emoji}</div>`;
+
+    /* Fond coloré directement sur la carte */
+    if (!c.holo) el.style.background = c.visual;
 
     el.innerHTML = `
       <div class="tcard-top">
-        <span class="tcard-logo">AB</span>
-        <span class="tcard-type">${c.type}</span>
+        <span class="tcard-logo"></span>
+        <span class="tcard-type">(${c.type})</span>
       </div>
       ${visualHtml}
-      <div class="tcard-name">${c.title.replace('\n', '<br>')}</div>
-      <div class="tcard-bottom">
-        <span class="tcard-year">YEAR 2026</span>
-        <span class="tcard-num">NUMBER ${c.num}/${String(TOTAL).padStart(2,'0')}</span>
+      <div class="tcard-name-block">
+        <span class="tcard-collected">Collected</span>
+        <span class="tcard-name">${c.title.replace('\n', ' ')}</span>
       </div>
-      <div class="tcard-copy">© 2026 ALEXIS BLEUSE — IUT BREST-MORLAIX — BUT GACO MRPE</div>
+      <div class="tcard-bottom">
+        <div class="tcard-bottom-col">
+          <span class="tcard-year-label">Year</span>
+          <span class="tcard-year-val">2026</span>
+        </div>
+        <div class="tcard-bottom-col">
+          <span class="tcard-num-label">Number</span>
+          <span class="tcard-num-val">${c.num}/${String(TOTAL).padStart(2,'0')}</span>
+        </div>
+      </div>
+      <div class="tcard-copy">© 2026 Alexis Bleuse / IUT Brest-Morlaix / BUT GACO MRPE</div>
     `;
 
     shell.appendChild(el);
@@ -605,7 +617,7 @@ if (document.getElementById('cardsStage')) {
     const scrollY  = window.scrollY;
     const vh       = window.innerHeight;
     const rawIndex = scrollY / vh;
-    const SIDE     = window.innerWidth < 700 ? 60 : 115;
+    const SIDE     = window.innerWidth < 700 ? 80 : 220;
 
     const pct = Math.round(Math.min(rawIndex / TOTAL, 1) * 100);
     if (scrollPctEl) scrollPctEl.textContent = String(pct).padStart(2, '0') + '%';
