@@ -389,36 +389,95 @@ function renderPassions() {
     <p class="detail-cat-label">Centres d'intérêt</p>
     <h2 class="detail-main-title">Mes<br>Passions</h2>
     <div class="detail-divider"></div>
-    <p class="detail-text" style="margin-bottom:2rem;">
-      Ce qui m'anime en dehors des études et du travail.
+    <p class="detail-text" style="margin-bottom:2.5rem;">
+      Ce qui m'anime en dehors des études et du travail — le sport, l'esprit
+      d'équipe et la découverte du monde.
     </p>
 
-    <div class="passions-grid">
-
-      <div class="passion-card">
-        <div class="passion-icon">⚽</div>
-        <p class="passion-name ph-block">[ Ta passion ]</p>
-        <p class="passion-desc ph-block">[ Courte description. ]</p>
+    <!-- ── HANDBALL ── -->
+    <div class="passion-feature">
+      <div class="passion-feature-photo">
+        <!-- ▼ Remplace ce bloc par <img src="handball.jpg" alt="Handball"> -->
+        <span class="passion-photo-ph">📷 PHOTO<br>Handball</span>
       </div>
-
-      <div class="passion-card">
-        <div class="passion-icon">🎵</div>
-        <p class="passion-name ph-block">[ Ta passion ]</p>
-        <p class="passion-desc ph-block">[ Courte description. ]</p>
+      <div class="passion-feature-body">
+        <div class="passion-feature-head">
+          <span class="passion-feature-icon">🤾</span>
+          <h3 class="passion-feature-title">Handball</h3>
+        </div>
+        <p class="detail-text">
+          Je joue actuellement au <strong>Morlaix-Plougonven Handball</strong>, en
+          senior prénational. Je pratique le handball depuis l'âge de 4 ans, c'est
+          donc un sport qui m'accompagne depuis longtemps. Cette pratique m'a permis
+          de développer un vrai esprit d'équipe, car le handball demande beaucoup de
+          communication, de solidarité et de confiance entre les joueurs. C'est aussi
+          un sport qui m'a donné un esprit compétiteur, avec l'envie de progresser,
+          de me dépasser et de toujours donner le meilleur de moi-même.
+        </p>
+        <div class="passion-points">
+          <span class="passion-point"><strong>Travail d'équipe</strong> · communication, entraide, cohésion</span>
+          <span class="passion-point"><strong>Compétition</strong> · motivation, dépassement, ambition</span>
+          <span class="passion-point"><strong>Mental</strong> · persévérance, confiance, gestion du stress</span>
+          <span class="passion-point"><strong>Discipline</strong> · entraînement, sérieux, régularité</span>
+        </div>
       </div>
+    </div>
 
-      <div class="passion-card">
-        <div class="passion-icon">✈️</div>
-        <p class="passion-name ph-block">[ Ta passion ]</p>
-        <p class="passion-desc ph-block">[ Courte description. ]</p>
+    <!-- ── FOOTBALL ── -->
+    <div class="passion-feature passion-feature--rev">
+      <div class="passion-feature-photo">
+        <!-- ▼ Remplace ce bloc par <img src="football.jpg" alt="Football"> -->
+        <span class="passion-photo-ph">📷 PHOTO<br>Football</span>
       </div>
-
-      <div class="passion-card">
-        <div class="passion-icon">📚</div>
-        <p class="passion-name ph-block">[ Ta passion ]</p>
-        <p class="passion-desc ph-block">[ Courte description. ]</p>
+      <div class="passion-feature-body">
+        <div class="passion-feature-head">
+          <span class="passion-feature-icon">⚽</span>
+          <h3 class="passion-feature-title">Football</h3>
+        </div>
+        <p class="detail-text">
+          Depuis deux saisons, j'ai commencé à jouer au football à
+          <strong>Carantec-Henvic, à l'ESCH</strong>. En plus du handball, le football
+          me permet de découvrir un autre sport collectif, avec d'autres règles,
+          d'autres efforts et une autre façon de jouer en équipe. Cela m'apporte de la
+          polyvalence et m'aide à m'adapter à un nouvel environnement sportif. Le
+          football me permet aussi de travailler mon endurance, ma vision du jeu et ma
+          capacité à progresser dans une discipline différente.
+        </p>
+        <div class="passion-points">
+          <span class="passion-point"><strong>Adaptation</strong> · nouveau sport, règles, progression</span>
+          <span class="passion-point"><strong>Polyvalence</strong> · endurance, technique, efforts</span>
+          <span class="passion-point"><strong>Collectif</strong> · entraide, communication, cohésion</span>
+          <span class="passion-point"><strong>Plaisir</strong> · découverte, partage, motivation</span>
+        </div>
       </div>
+    </div>
 
+    <!-- ── VOYAGES ── -->
+    <div class="passion-feature">
+      <div class="passion-feature-photo">
+        <!-- ▼ Remplace ce bloc par <img src="voyages.jpg" alt="Voyages"> -->
+        <span class="passion-photo-ph">📷 PHOTO<br>Voyages</span>
+      </div>
+      <div class="passion-feature-body">
+        <div class="passion-feature-head">
+          <span class="passion-feature-icon">✈️</span>
+          <h3 class="passion-feature-title">Voyages</h3>
+        </div>
+        <p class="detail-text">
+          J'aime beaucoup voyager. J'ai déjà eu la chance de découvrir plusieurs pays
+          comme le <strong>Maroc, l'Espagne, le Portugal et l'Angleterre</strong>.
+          Voyager est quelque chose que j'adore, car cela permet de sortir de son
+          quotidien, de découvrir de nouvelles cultures, de nouveaux paysages et de
+          nouvelles façons de vivre. Plus tard, j'aimerais voyager encore davantage,
+          notamment en <strong>Asie et au Brésil</strong>, avec mes deux meilleures amies.
+        </p>
+        <div class="passion-points">
+          <span class="passion-point"><strong>Ouverture d'esprit</strong> · cultures, rencontres, découvertes</span>
+          <span class="passion-point"><strong>Curiosité</strong> · paysages, traditions, expériences</span>
+          <span class="passion-point"><strong>Autonomie</strong> · organisation, adaptation, confiance</span>
+          <span class="passion-point"><strong>Partage</strong> · souvenirs, amitié, moments forts</span>
+        </div>
+      </div>
     </div>
   `;
 }
@@ -601,30 +660,36 @@ if (document.getElementById('cardsStage')) {
     let ty, sc, op, rot, zi;
     const isActive = Math.abs(offset) < 0.12;
 
-    if (offset > 1.4) {
-      ty = 110; sc = 0.88; op = 0; rot = tilt; zi = 1;
+    if (offset > 1.6) {
+      /* loin sous l'écran : invisible */
+      ty = 105; sc = 0.82; op = 0; rot = tilt * 1.5; zi = 1;
 
     } else if (offset > 0) {
-      const t = easeOutCubic(1 - offset / 1.4);
-      ty  = (1 - t) * 75;
-      sc  = 0.88 + t * 0.12;
-      op  = 0.15 + t * 0.85;
-      rot = tilt * (1 - t);
-      zi  = 10 + Math.round(t * 10);
+      /* ── carte qui monte du bas (paquet empilé) ──
+         Elle reste inclinée et visible derrière l'active → 2 cartes qui se chevauchent */
+      const t = easeOutCubic(1 - offset / 1.6);   /* 0→1 */
+      ty  = (1 - t) * 68;          /* 68vh → 0 */
+      sc  = 0.86 + t * 0.14;       /* 0.86 → 1 */
+      op  = 0.35 + t * 0.65;       /* visible plus tôt → effet de pile */
+      rot = tilt * (1 - t) * 1.4;  /* bien inclinée puis se redresse */
+      zi  = 8 + Math.round(t * 12);
 
     } else if (offset >= -0.12) {
-      ty = 0; sc = 1; op = 1; rot = 0; zi = 25;
+      /* carte active, parfaitement centrée et droite */
+      ty = 0; sc = 1; op = 1; rot = 0; zi = 30;
 
-    } else if (offset >= -1.2) {
-      const t = easeInCubic(Math.min(-offset / 1.2, 1));
-      ty  = -t * 75;
-      sc  = 1 - t * 0.1;
-      op  = 1 - t;
-      rot = -tilt * t * 0.4;
-      zi  = 20 - Math.round(t * 10);
+    } else if (offset >= -1.3) {
+      /* ── carte qu'on retire du paquet vers le haut ──
+         Elle s'envole en s'inclinant et en reculant légèrement */
+      const t = easeInCubic(Math.min(-offset / 1.3, 1)); /* 0→1 */
+      ty  = -t * 82;               /* 0 → -82vh */
+      sc  = 1 - t * 0.14;          /* 1 → 0.86 */
+      op  = 1 - t * 1.05;          /* disparaît un peu avant le haut */
+      rot = -tilt * t * 1.6;       /* s'incline en sortant */
+      zi  = 25 - Math.round(t * 12);
 
     } else {
-      ty = -110; sc = 0.85; op = 0; rot = 0; zi = 1;
+      ty = -105; sc = 0.85; op = 0; rot = -tilt * 1.5; zi = 1;
     }
 
     wrapper.style.transform = `translate(${sideX}px, ${ty}vh) rotate(${rot}deg) scale(${sc})`;
