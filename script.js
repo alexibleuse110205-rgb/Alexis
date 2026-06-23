@@ -1,6 +1,5 @@
 /* ============================================================
    DONNÉES DES CARTES — MODIFIE ICI LE CONTENU
-   Chaque objet = une catégorie du portfolio.
    ============================================================ */
 const CARDS = [
 
@@ -9,7 +8,7 @@ const CARDS = [
     id: 0, num: '01', type: 'QUI SUIS-JE ?',
     title: 'Alexis\nBleuse',
     holo: true, visual: null, emoji: '✦',
-    tilt: -1.5,   /* inclinaison de la carte en degrés (négatif = gauche) */
+    tilt: -1.5,
   },
 
   /* ── CARTE 2 : MON PARCOURS ────────────────────────────── */
@@ -59,19 +58,25 @@ const CARDS = [
     holo: false, visual: 'linear-gradient(145deg, #7f1d1d 0%, #e53e3e 100%)', emoji: '❤',
     tilt: -2.2,
   },
+
+  /* ── CARTE 8 : CONTACT ─────────────────────────────────── */
+  {
+    id: 7, num: '08', type: 'CONTACT',
+    title: 'Me\nContacter',
+    holo: false, visual: 'linear-gradient(145deg, #111 0%, #333 100%)', emoji: '✉',
+    tilt: 2,
+  },
 ];
 
-const TOTAL = CARDS.length; /* ← met à jour si tu ajoutes des cartes */
+const TOTAL = CARDS.length;
 
 /* ============================================================
-   CONTENU DES VUES DÉTAIL — MODIFIE ICI LES TEXTES
+   CONTENU DES VUES DÉTAIL
    ============================================================ */
 
-/* ── Qui suis-je ? ──────────────────────────────────────── */
 function renderProfil() {
   return `
     <div class="profil-photo">
-      <!-- ▼ Remplace l'emoji par une balise <img src="ta-photo.jpg"> -->
       <span style="font-size:0.55rem;color:rgba(255,255,255,0.8);font-weight:700;text-align:center;letter-spacing:0.5px;">
         PHOTO<br>À AJOUTER
       </span>
@@ -81,14 +86,12 @@ function renderProfil() {
     <h2 class="detail-main-title">Alexis<br>Bleuse<span style="color:var(--accent);">.</span></h2>
     <div class="detail-divider"></div>
 
-    <!-- ▼ Modifie l'accroche ici -->
     <p class="detail-text" style="margin-bottom:1.5rem;">
       Étudiant en 3<sup>e</sup> année de <strong>BUT GACO</strong> (parcours MRPE)
       à l'IUT de Brest-Morlaix, en alternance au service
       <strong>ADV Logistique</strong> du groupe <strong>Le Télégramme</strong>.
     </p>
 
-    <!-- ▼ Ajoute une description plus longue sur toi ici -->
     <p class="detail-text" style="margin-bottom:2rem;">
       [ Décris-toi en quelques phrases : ta personnalité, ce qui te motive,
       tes ambitions, ce que tu apportes dans un projet ou une équipe. ]
@@ -96,7 +99,6 @@ function renderProfil() {
 
     <div class="detail-actions">
       <a href="contact.html" class="btn btn-dark">Me contacter</a>
-      <!-- ▼ Remplace '#' par le lien de ton CV hébergé sur Google Drive -->
       <a href="#" class="btn btn-outline">
         Télécharger mon CV
         <span class="ph-block" style="display:inline;padding:0.1rem 0.4rem;font-size:0.65rem;margin-left:0.3rem;">lien à ajouter</span>
@@ -105,7 +107,6 @@ function renderProfil() {
   `;
 }
 
-/* ── Mon parcours ───────────────────────────────────────── */
 function renderParcours() {
   return `
     <p class="detail-cat-label">Formation</p>
@@ -117,7 +118,6 @@ function renderParcours() {
 
     <div class="timeline">
 
-      <!-- ▼ COLLÈGE : remplace les placeholders par tes vraies infos -->
       <div class="tl-item">
         <div class="tl-dot"></div>
         <p class="tl-date">[ 20XX – 20XX ]</p>
@@ -126,21 +126,19 @@ function renderParcours() {
         <p class="tl-desc">[ Décris cette période si tu veux (optionnel). ]</p>
       </div>
 
-      <!-- ▼ LYCÉE : remplace les placeholders -->
       <div class="tl-item">
         <div class="tl-dot"></div>
         <p class="tl-date">[ 20XX – 20XX ]</p>
-        <h3 class="tl-title">Lycée — BAC [ série à compléter ]</h3>
+        <h3 class="tl-title">Lycée — BAC STMG</h3>
         <p class="tl-sub">[ Nom du lycée ] — [ Ville ]</p>
         <p class="tl-desc">[ Décris ton bac, tes matières fortes, ta mention. ]</p>
         <div class="tl-why">
-          <strong>Pourquoi ce choix ?</strong><br>
+          <strong>Pourquoi le BAC STMG ?</strong><br>
           [ Explique pourquoi tu as choisi cette filière au lycée,
           ce que tu y as appris, comment ça t'a orienté vers le BUT GACO. ]
         </div>
       </div>
 
-      <!-- BUT GACO -->
       <div class="tl-item">
         <div class="tl-dot" style="background:var(--accent);outline-color:var(--accent);"></div>
         <p class="tl-date">[ 20XX – En cours ]</p>
@@ -167,28 +165,24 @@ function renderParcours() {
         </div>
       </div>
 
-    </div><!-- fin .timeline -->
+    </div>
   `;
 }
 
-/* ── Expériences pro ────────────────────────────────────── */
 function renderExperiences() {
   return `
     <p class="detail-cat-label">Terrain</p>
     <h2 class="detail-main-title">Expériences<br>Professionnelles</h2>
     <div class="detail-divider"></div>
 
-    <!-- ── ALTERNANCE (EN COURS) ── -->
     <div class="exp-card">
       <div class="exp-header">
         <h3 class="exp-company">Groupe Le Télégramme</h3>
         <span class="exp-badge badge-current">En cours</span>
       </div>
       <p class="exp-role">Alternant — Service ADV Logistique</p>
-      <!-- ▼ Remplace par tes dates exactes -->
       <p class="exp-dates">[ Mois 20XX ] → Aujourd'hui · Brest, Bretagne</p>
       <ul class="exp-missions">
-        <!-- ▼ Remplace par tes vraies missions -->
         <li>Gestion et suivi des commandes clients au sein du service ADV.</li>
         <li>Coordination avec les équipes logistiques pour l'acheminement des abonnements.</li>
         <li class="ph-block">[ Ajoute une mission ]</li>
@@ -196,7 +190,6 @@ function renderExperiences() {
       </ul>
     </div>
 
-    <!-- ── EXPÉRIENCE 2 (placeholder) — duplique ce bloc si besoin ── -->
     <div class="exp-card">
       <div class="exp-header">
         <h3 class="exp-company ph-block" style="display:inline-block;">[ Nom de l'entreprise ]</h3>
@@ -209,12 +202,9 @@ function renderExperiences() {
         <li class="ph-block">[ Description de ta mission ]</li>
       </ul>
     </div>
-
-    <!-- ▼ Ajoute d'autres expériences en copiant le bloc ci-dessus -->
   `;
 }
 
-/* ── Projets tutorés ────────────────────────────────────── */
 function renderProjets() {
   return `
     <p class="detail-cat-label">Académique</p>
@@ -225,7 +215,6 @@ function renderProjets() {
       seul ou en équipe, pour des entreprises réelles.
     </p>
 
-    <!-- ── PROJET 1 : Cerafel ── -->
     <div class="projet-card">
       <div class="projet-header">
         <h3 class="projet-title">Étude de marché — Cerafel / Prince de Bretagne</h3>
@@ -233,14 +222,12 @@ function renderProjets() {
       </div>
       <div class="projet-body">
         <p class="detail-section-title">Contexte</p>
-        <!-- ▼ Modifie la description ici -->
         <p class="detail-text">
           Réalisation d'une étude de marché complète pour Cerafel, la coopérative
           agricole bretonne derrière la marque Prince de Bretagne.
           Analyse du marché, segmentation, enquêtes consommateurs, étude concurrentielle.
         </p>
         <p class="detail-section-title">Ce que ça m'a apporté</p>
-        <!-- ▼ Modifie ce que ce projet t'a appris -->
         <p class="detail-text">
           [ Décris ce que ce projet t'a apporté : compétences développées,
           méthodes apprises, savoir-être renforcé, difficultés surmontées. ]
@@ -248,7 +235,6 @@ function renderProjets() {
       </div>
     </div>
 
-    <!-- ── PROJET 2 : Business Plan ── -->
     <div class="projet-card">
       <div class="projet-header">
         <h3 class="projet-title">Business Plan / Entrepreneuriat</h3>
@@ -257,18 +243,14 @@ function renderProjets() {
       <div class="projet-body">
         <p class="detail-section-title">Contexte</p>
         <p class="detail-text">
-          Élaboration d'un business plan complet dans le cadre du parcours MRPE
-          (Management Responsable de Projet et Entrepreneuriat) : analyse de marché,
-          modèle économique, prévisions financières, pitch devant un jury.
+          Élaboration d'un business plan complet dans le cadre du parcours MRPE :
+          analyse de marché, modèle économique, prévisions financières, pitch devant un jury.
         </p>
         <p class="detail-section-title">Ce que ça m'a apporté</p>
-        <p class="detail-text ph-block">
-          [ Décris ce que ce projet t'a apporté. ]
-        </p>
+        <p class="detail-text ph-block">[ Décris ce que ce projet t'a apporté. ]</p>
       </div>
     </div>
 
-    <!-- ▼ PROJET 3 (placeholder) — copie le bloc ci-dessus pour en ajouter -->
     <div class="projet-card">
       <div class="projet-header">
         <h3 class="projet-title ph-block">[ Nom du projet à compléter ]</h3>
@@ -281,11 +263,9 @@ function renderProjets() {
         <p class="detail-text ph-block">[ Ce que tu as appris / développé. ]</p>
       </div>
     </div>
-
   `;
 }
 
-/* ── Dossiers ───────────────────────────────────────────── */
 function renderDossiers() {
   return `
     <p class="detail-cat-label">Productions</p>
@@ -293,37 +273,30 @@ function renderDossiers() {
     <div class="detail-divider"></div>
     <p class="detail-text" style="margin-bottom:2rem;">
       Dossiers, rapports et mémoires produits au cours de ma formation.
-      Clique sur "Voir le dossier" pour accéder au document.
     </p>
 
-    <!-- ── DOSSIER 1 : Brasserie du Bout du Monde ── -->
     <div class="dossier-item">
       <div class="dossier-info">
         <h3 class="dossier-title">Dossier communication — Brasserie du Bout du Monde</h3>
-        <p class="dossier-desc">Stratégie et supports de communication pour une brasserie artisanale bretonne. [ Ajoute une courte description. ]</p>
+        <p class="dossier-desc">Stratégie et supports de communication pour une brasserie artisanale bretonne.</p>
       </div>
-      <!-- ▼ Remplace '#' par le lien Google Drive de ce dossier -->
       <a href="#" class="btn btn-accent" target="_blank" rel="noopener"
-         style="opacity:0.5;pointer-events:none;"
-         title="Lien à ajouter dans script.js">
+         style="opacity:0.5;pointer-events:none;" title="Lien à ajouter dans script.js">
         Voir ↗
       </a>
     </div>
 
-    <!-- ── DOSSIER 2 : Mémoire BUT3 ── -->
     <div class="dossier-item">
       <div class="dossier-info">
         <h3 class="dossier-title">Mémoire BUT3 — Qualité de service dans la distribution Le Télégramme</h3>
-        <p class="dossier-desc">Mémoire de 3<sup>e</sup> année portant sur la qualité de service logistique. [ Ajoute une courte description. ]</p>
+        <p class="dossier-desc">Mémoire de 3<sup>e</sup> année portant sur la qualité de service logistique.</p>
       </div>
-      <!-- ▼ Remplace '#' par le lien Google Drive de ce mémoire -->
       <a href="#" class="btn btn-accent" target="_blank" rel="noopener"
          style="opacity:0.5;pointer-events:none;">
         Voir ↗
       </a>
     </div>
 
-    <!-- ▼ DOSSIER 3 (placeholder) — copie le bloc ci-dessus pour en ajouter -->
     <div class="dossier-item">
       <div class="dossier-info">
         <h3 class="dossier-title ph-block">[ Nom du dossier à compléter ]</h3>
@@ -331,11 +304,9 @@ function renderDossiers() {
       </div>
       <a href="#" class="btn btn-outline" style="opacity:0.5;pointer-events:none;">Voir ↗</a>
     </div>
-
   `;
 }
 
-/* ── Compétences ────────────────────────────────────────── */
 function renderCompetences() {
   return `
     <p class="detail-cat-label">Savoir-faire</p>
@@ -352,7 +323,6 @@ function renderCompetences() {
           <span class="skill-tag">Gestion des commandes</span>
           <span class="skill-tag">Facturation</span>
           <span class="skill-tag">Suivi client</span>
-          <!-- ▼ Ajoute tes compétences -->
           <span class="skill-tag ph">[ à compléter ]</span>
         </div>
       </div>
@@ -386,8 +356,6 @@ function renderCompetences() {
           <span class="skill-tag">Excel</span>
           <span class="skill-tag">Word</span>
           <span class="skill-tag">PowerPoint</span>
-          <!-- ▼ Ajoute tes logiciels (ERP, CRM...) -->
-          <span class="skill-tag ph">[ logiciel ]</span>
           <span class="skill-tag ph">[ logiciel ]</span>
         </div>
       </div>
@@ -397,9 +365,7 @@ function renderCompetences() {
         <h3 class="skill-cat-name">Langues</h3>
         <div class="skill-tags">
           <span class="skill-tag">Français — Natif</span>
-          <!-- ▼ Ajoute tes langues et niveaux -->
           <span class="skill-tag ph">[ Anglais — niveau ]</span>
-          <span class="skill-tag ph">[ autre langue ]</span>
         </div>
       </div>
 
@@ -414,11 +380,10 @@ function renderCompetences() {
         </div>
       </div>
 
-    </div><!-- fin .skills-grid -->
+    </div>
   `;
 }
 
-/* ── Passions ───────────────────────────────────────────── */
 function renderPassions() {
   return `
     <p class="detail-cat-label">Centres d'intérêt</p>
@@ -430,7 +395,6 @@ function renderPassions() {
 
     <div class="passions-grid">
 
-      <!-- ▼ Modifie les icônes et textes pour les adapter à tes vraies passions -->
       <div class="passion-card">
         <div class="passion-icon">⚽</div>
         <p class="passion-name ph-block">[ Ta passion ]</p>
@@ -455,15 +419,63 @@ function renderPassions() {
         <p class="passion-desc ph-block">[ Courte description. ]</p>
       </div>
 
-      <!-- ▼ Ajoute autant de passion-card que tu veux -->
-
-    </div><!-- fin .passions-grid -->
+    </div>
   `;
 }
 
-/* ============================================================
-   DISPATCH — choisit le bon rendu selon la carte
-   ============================================================ */
+function renderContact() {
+  return `
+    <p class="detail-cat-label">Me joindre</p>
+    <h2 class="detail-main-title">Contact</h2>
+    <div class="detail-divider"></div>
+    <p class="detail-text" style="margin-bottom:2rem;">
+      Tu veux me contacter pour une opportunité, un projet ou juste discuter ?
+    </p>
+
+    <div class="contact-links" style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem;">
+
+      <a href="mailto:alexibleuse110205@gmail.com" class="contact-item">
+        <span class="contact-item-icon">✉</span>
+        <div>
+          <p class="contact-item-label">Email</p>
+          <p class="contact-item-value">alexibleuse110205@gmail.com</p>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="noopener" class="contact-item">
+        <span class="contact-item-icon">🔗</span>
+        <div>
+          <p class="contact-item-label">LinkedIn</p>
+          <p class="contact-item-value">
+            [ Ton profil LinkedIn ]
+            <span class="ph-block" style="display:inline;font-size:0.7rem;margin-left:0.4rem;">lien à ajouter</span>
+          </p>
+        </div>
+      </a>
+
+      <a href="https://github.com/alexibleuse110205-rgb" target="_blank" rel="noopener" class="contact-item">
+        <span class="contact-item-icon">⌥</span>
+        <div>
+          <p class="contact-item-label">GitHub</p>
+          <p class="contact-item-value">alexibleuse110205-rgb</p>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="cv-section">
+      <div style="font-size:2.5rem;margin-bottom:1rem;">📄</div>
+      <h2 style="font-family:var(--font-serif);font-size:1.3rem;font-weight:700;margin-bottom:0.7rem;">Mon CV</h2>
+      <p style="margin-bottom:1rem;">Télécharge mon CV au format PDF.</p>
+      <a href="#" class="btn btn-dark" download style="margin:0 auto;width:fit-content;">
+        Télécharger le CV
+        <span class="ph-block" style="display:inline;font-size:0.7rem;margin-left:0.4rem;">lien à ajouter</span>
+      </a>
+    </div>
+  `;
+}
+
+/* ── Dispatch ──────────────────────────────────────────────── */
 function renderDetail(card) {
   switch(card.id) {
     case 0: return renderProfil();
@@ -473,6 +485,7 @@ function renderDetail(card) {
     case 4: return renderDossiers();
     case 5: return renderCompetences();
     case 6: return renderPassions();
+    case 7: return renderContact();
     default: return '<p class="ph-block">Contenu à venir.</p>';
   }
 }
@@ -482,7 +495,6 @@ function renderDetail(card) {
    ============================================================ */
 if (document.getElementById('cardsStage')) {
 
-  /* Références DOM */
   const stage      = document.getElementById('cardsStage');
   const scrollPctEl= document.getElementById('scrollPct');
   const cardCtrEl  = document.getElementById('cardCtr');
@@ -499,11 +511,19 @@ if (document.getElementById('cardsStage')) {
   let detailOpen = false;
   let collected  = 0;
 
-  /* Hauteur de scroll : chaque carte occupe 100vh, + 60vh à la fin */
   document.body.style.minHeight = (TOTAL + 0.6) * 100 + 'vh';
 
-  /* ── Création des éléments cartes ──────────────────────── */
-  const cardEls = CARDS.map(c => {
+  /* ── Création des éléments — structure : wrapper > shell > tcard ── */
+  const wrapperEls = CARDS.map(c => {
+    /* wrapper — JS anime cet élément */
+    const wrapper = document.createElement('div');
+    wrapper.className = 'card-wrapper';
+
+    /* shell — porte les encoches via ::before/::after */
+    const shell = document.createElement('div');
+    shell.className = 'tcard-shell';
+
+    /* tcard — la carte visuelle */
     const el = document.createElement('article');
     el.className = 'tcard' + (c.holo ? ' tcard--holo' : '');
     el.setAttribute('aria-label', c.type);
@@ -526,9 +546,15 @@ if (document.getElementById('cardsStage')) {
       <div class="tcard-copy">© 2026 ALEXIS BLEUSE — IUT BREST-MORLAIX — BUT GACO MRPE</div>
     `;
 
-    el.addEventListener('click', () => { if (el.classList.contains('is-active')) openDetail(c.id); });
-    stage.appendChild(el);
-    return el;
+    shell.appendChild(el);
+    wrapper.appendChild(shell);
+    stage.appendChild(wrapper);
+
+    wrapper.addEventListener('click', () => {
+      if (wrapper.classList.contains('is-active')) openDetail(c.id);
+    });
+
+    return wrapper;
   });
 
   /* ── Easing ─────────────────────────────────────────────── */
@@ -536,54 +562,40 @@ if (document.getElementById('cardsStage')) {
   function easeInCubic(t)  { return t * t * t; }
 
   /* ── Calcul de la position d'une carte ──────────────────── */
-  /* offset = i - rawIndex
-       > 0  : carte en dessous du centre (arrive du bas)
-       ≈ 0  : carte au centre (active)
-       < 0  : carte au-dessus du centre (sort par le haut)
-  */
-  function applyCardStyle(el, offset, tilt) {
-    let tx = 0, ty, sc, op, rot, zi;
+  function applyCardStyle(wrapper, offset, tilt, sideX) {
+    let ty, sc, op, rot, zi;
     const isActive = Math.abs(offset) < 0.12;
 
     if (offset > 1.4) {
-      /* ── Loin en dessous : invisible ── */
       ty = 110; sc = 0.88; op = 0; rot = tilt; zi = 1;
 
     } else if (offset > 0) {
-      /* ── Entrée depuis le bas (offset 1.4 → 0) ──
-         La carte monte, se redresse et grossit légèrement.
-         On voit aussi la prochaine carte pointer depuis le bas → effet empilé. */
-      const t = easeOutCubic(1 - offset / 1.4); /* 0→1 */
-      ty  = (1 - t) * 75;          /* 75vh → 0 */
-      sc  = 0.88 + t * 0.12;       /* 0.88 → 1 */
-      op  = 0.15 + t * 0.85;       /* 0.15 → 1 */
-      rot = tilt * (1 - t);        /* incliné → droit */
+      const t = easeOutCubic(1 - offset / 1.4);
+      ty  = (1 - t) * 75;
+      sc  = 0.88 + t * 0.12;
+      op  = 0.15 + t * 0.85;
+      rot = tilt * (1 - t);
       zi  = 10 + Math.round(t * 10);
 
     } else if (offset >= -0.12) {
-      /* ── Zone active (centré) ── */
       ty = 0; sc = 1; op = 1; rot = 0; zi = 25;
 
     } else if (offset >= -1.2) {
-      /* ── Sortie vers le haut (offset 0 → -1.2) ──
-         La carte accélère vers le haut et disparaît. */
-      const t = easeInCubic(Math.min(-offset / 1.2, 1)); /* 0→1 */
-      ty  = -t * 75;               /* 0 → -75vh */
-      sc  = 1 - t * 0.1;          /* 1 → 0.9 */
-      op  = 1 - t;                 /* 1 → 0 */
-      rot = -tilt * t * 0.4;      /* légère contre-rotation en sortant */
+      const t = easeInCubic(Math.min(-offset / 1.2, 1));
+      ty  = -t * 75;
+      sc  = 1 - t * 0.1;
+      op  = 1 - t;
+      rot = -tilt * t * 0.4;
       zi  = 20 - Math.round(t * 10);
 
     } else {
-      /* ── Loin au-dessus : invisible ── */
       ty = -110; sc = 0.85; op = 0; rot = 0; zi = 1;
     }
 
-    el.style.transform = `translateY(${ty}vh) rotate(${rot}deg) scale(${sc})`;
-    el.style.opacity   = String(Math.max(0, Math.min(1, op)));
-    el.style.zIndex    = String(zi);
-    el.classList.toggle('is-active', isActive);
-    el.style.cursor    = isActive ? 'pointer' : 'default';
+    wrapper.style.transform = `translate(${sideX}px, ${ty}vh) rotate(${rot}deg) scale(${sc})`;
+    wrapper.style.opacity   = String(Math.max(0, Math.min(1, op)));
+    wrapper.style.zIndex    = String(zi);
+    wrapper.classList.toggle('is-active', isActive);
   }
 
   /* ── Boucle de mise à jour au scroll ────────────────────── */
@@ -592,50 +604,67 @@ if (document.getElementById('cardsStage')) {
 
     const scrollY  = window.scrollY;
     const vh       = window.innerHeight;
-    const rawIndex = scrollY / vh; /* 0 à TOTAL */
+    const rawIndex = scrollY / vh;
+    const SIDE     = window.innerWidth < 700 ? 60 : 115;
 
-    /* Affichage du pourcentage */
     const pct = Math.round(Math.min(rawIndex / TOTAL, 1) * 100);
     if (scrollPctEl) scrollPctEl.textContent = String(pct).padStart(2, '0') + '%';
 
-    /* Numéro de carte active */
     const activeIdx = Math.min(Math.floor(rawIndex + 0.12), TOTAL - 1);
     if (cardCtrEl) cardCtrEl.textContent =
       String(activeIdx + 1).padStart(2, '0') + ' / ' + String(TOTAL).padStart(2, '0');
 
-    /* Position de chaque carte */
-    cardEls.forEach((el, i) => {
+    wrapperEls.forEach((wrapper, i) => {
       const offset = i - rawIndex;
-      applyCardStyle(el, offset, CARDS[i].tilt);
+      const sideX  = (i % 2 === 0) ? SIDE : -SIDE;
+      applyCardStyle(wrapper, offset, CARDS[i].tilt, sideX);
     });
   }
 
-  /* Utilise requestAnimationFrame pour que l'animation soit fluide */
   let rafId = null;
   window.addEventListener('scroll', () => {
     if (rafId) cancelAnimationFrame(rafId);
     rafId = requestAnimationFrame(updateGallery);
   }, { passive: true });
 
-  updateGallery(); /* initialisation */
+  updateGallery();
 
   /* ── Ouvrir le détail d'une carte ───────────────────────── */
   function openDetail(cardId) {
-    const card = CARDS[cardId];
-    const el   = cardEls[cardId];
+    const card    = CARDS[cardId];
+    const wrapper = wrapperEls[cardId];
+    const shell   = wrapper.querySelector('.tcard-shell');
 
-    /* Animation : la carte vole vers le slot collection (coin haut gauche) */
-    const cardRect = el.getBoundingClientRect();
-    const slotRect = slotThumb.getBoundingClientRect();
-    const dx = slotRect.left + slotRect.width  / 2 - (cardRect.left + cardRect.width  / 2);
-    const dy = slotRect.top  + slotRect.height / 2 - (cardRect.top  + cardRect.height / 2);
-    const sc = slotRect.width / cardRect.width;
+    /* Clone la shell pour l'animation de vol */
+    const slotRect  = slotThumb.getBoundingClientRect();
+    const shellRect = shell.getBoundingClientRect();
 
-    el.classList.add('collecting');
-    el.style.transform = `translate(${dx}px, ${dy}px) scale(${sc})`;
-    el.style.opacity   = '0.6';
+    const clone = shell.cloneNode(true);
+    clone.style.cssText = `
+      position:fixed;
+      left:${shellRect.left}px;
+      top:${shellRect.top}px;
+      width:${shellRect.width}px;
+      height:${shellRect.height}px;
+      margin:0;
+      transition:transform 0.65s cubic-bezier(0.4,0,0.2,1), opacity 0.65s ease;
+      pointer-events:none;
+      z-index:9999;
+      transform-origin:top left;
+    `;
+    document.body.appendChild(clone);
 
-    /* Mise à jour du compteur */
+    /* Force reflow puis anime */
+    clone.getBoundingClientRect();
+    const sc = slotRect.width / shellRect.width;
+    const dx = slotRect.left - shellRect.left;
+    const dy = slotRect.top  - shellRect.top;
+    clone.style.transform = `translate(${dx}px,${dy}px) scale(${sc})`;
+    clone.style.opacity   = '0.5';
+
+    setTimeout(() => { clone.remove(); }, 700);
+
+    /* Mise à jour compteur */
     collected = Math.max(collected, cardId + 1);
     if (slotCount) slotCount.textContent = collected;
     if (slotThumb) {
@@ -643,7 +672,7 @@ if (document.getElementById('cardsStage')) {
       slotThumb.classList.add('filled');
     }
 
-    /* Remplissage de la vue détail */
+    /* Remplissage vue détail */
     if (detailMiniV) {
       detailMiniV.style.background = card.holo
         ? 'linear-gradient(135deg,#ff9ff3,#feca57,#48dbfb,#ff6b6b,#54a0ff)'
@@ -655,7 +684,6 @@ if (document.getElementById('cardsStage')) {
     if (detailRight) detailRight.scrollTop = 0;
     if (detailProg)  detailProg.textContent = '00%';
 
-    /* Ouverture avec un léger délai pour laisser l'animation démarrer */
     setTimeout(() => {
       detailView.classList.add('open');
       if (closeBtn) closeBtn.style.display = 'flex';
@@ -670,12 +698,6 @@ if (document.getElementById('cardsStage')) {
     if (closeBtn) closeBtn.style.display = 'none';
     detailOpen = false;
     document.body.style.overflow = '';
-
-    /* Réinitialise les cartes sans transition brusque */
-    cardEls.forEach(el => {
-      el.classList.remove('collecting', 'smooth');
-      el.style.transition = '';
-    });
     requestAnimationFrame(updateGallery);
   }
 
@@ -683,7 +705,6 @@ if (document.getElementById('cardsStage')) {
   document.getElementById('detailBackBtn')?.addEventListener('click', closeDetail);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
 
-  /* Progression du scroll dans la colonne droite du détail */
   if (detailRight && detailProg) {
     detailRight.addEventListener('scroll', () => {
       const max = detailRight.scrollHeight - detailRight.clientHeight;
@@ -694,7 +715,7 @@ if (document.getElementById('cardsStage')) {
 }
 
 /* ============================================================
-   NAV (pages secondaires : parcours.html, contact.html…)
+   NAV (pages secondaires)
    ============================================================ */
 const nav    = document.getElementById('nav');
 const toggle = document.getElementById('navToggle');
@@ -712,13 +733,11 @@ if (toggle && menu) {
   });
 }
 
-/* Lien actif */
 const cp = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-link').forEach(a => {
   if (a.getAttribute('href') === cp) a.classList.add('active');
 });
 
-/* Animations au scroll sur les pages secondaires */
 const revObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
 }, { threshold: 0.1 });
