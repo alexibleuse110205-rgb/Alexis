@@ -849,12 +849,13 @@ if (document.getElementById('cardsStage')) {
     if (!c.holo) el.style.background = c.visual;
 
     el.innerHTML = `
+      <div class="tcard-edges"></div>
       <div class="tcard-bg-num">${c.num}</div>
       <div class="tcard-top">
         <span class="tcard-logo-txt">←®</span>
-        <span class="tcard-type">${c.type}</span>
+        <span class="tcard-feat">✦ FEATURED ✦</span>
+        <span class="tcard-type">(${c.type})</span>
       </div>
-      <div class="tcard-top-line"></div>
       ${visualHtml}
       <div class="tcard-name-block">
         <span class="tcard-collected-badge">Collected</span>
