@@ -633,48 +633,42 @@ function renderDetail(card) {
 }
 
 /* ============================================================
-   GALERIE — ANIMATION DES CARTES AU SCROLL
+   GALERIE — TRAVELLING À TRAVERS LES CARTES
+   Principe : les cartes sont fixes dans une grande scène.
+   Au scroll, c'est la scène entière (caméra) qui se déplace.
    ============================================================ */
 if (document.getElementById('cardsStage')) {
 
-  const stage      = document.getElementById('cardsStage');
-  const scrollPctEl= document.getElementById('scrollPct');
-  const cardCtrEl  = document.getElementById('cardCtr');
-  const slotThumb  = document.getElementById('slotThumb');
-  const slotCount  = document.getElementById('slotCount');
-  const detailView = document.getElementById('detailView');
-  const detailMiniV= document.getElementById('detailMiniVisual');
-  const detailMiniN= document.getElementById('detailMiniName');
-  const detailRight= document.getElementById('detailRight');
-  const detailCont = document.getElementById('detailContent');
-  const detailProg = document.getElementById('detailScrollPct');
-  const closeBtn   = document.getElementById('closeBtn');
-
-  let detailOpen  = false;
-  const visitedIds = new Set(); /* cartes visitées (compteur réel) */
-
-  /* ──────────────────────────────────────────────────────────
-     BOUCLE INFINIE — le corps fait 3× la hauteur normale.
-     On démarre au milieu (section 2 sur 3).
-     Quand on sort de la section centrale, on téléporte de ±TOTAL*vh.
-     La rawIndex est modulaire → même visuel avant/après téléport.
-     ────────────────────────────────────────────────────────── */
-  document.body.style.minHeight = (TOTAL * 3 + 1) * 100 + 'vh';
-
-  /* Référence marquee (piloté par scroll en JS) */
+  const stage       = document.getElementById('cardsStage');
+  const scrollPctEl = document.getElementById('scrollPct');
+  const cardCtrEl   = document.getElementById('cardCtr');
+  const slotThumb   = document.getElementById('slotThumb');
+  const slotCount   = document.getElementById('slotCount');
+  const detailView  = document.getElementById('detailView');
+  const detailMiniV = document.getElementById('detailMiniVisual');
+  const detailMiniN = document.getElementById('detailMiniName');
+  const detailRight = document.getElementById('detailRight');
+  const detailCont  = document.getElementById('detailContent');
+  const detailProg  = document.getElementById('detailScrollPct');
+  const closeBtn    = document.getElementById('closeBtn');
   const marqueeInner = document.querySelector('.marquee-inner');
 
-  /* ── Création des éléments — structure : wrapper > shell > tcard ── */
+  let detailOpen = false;
+  const visitedIds = new Set();
+
+  /* Scène — grand décor, translate comme une caméra */
+  const scene = document.createElement('div');
+  scene.className = 'scene';
+  stage.appendChild(scene);
+
+  /* ── Création des cartes dans la scène ─────────────────── */
   const wrapperEls = CARDS.map(c => {
-    /* wrapper — JS anime cet élément */
     const wrapper = document.createElement('div');
     wrapper.className = 'card-wrapper';
 
-    /* shell — porte les encoches via ::before/::after */
     const shell = document.createElement('div');
     shell.className = 'tcard-shell';
 
-    /* tcard — la carte visuelle */
     const el = document.createElement('article');
     el.className = 'tcard' + (c.holo ? ' tcard--holo' : '');
     el.setAttribute('aria-label', c.type);
@@ -683,7 +677,6 @@ if (document.getElementById('cardsStage')) {
       ? `<div class="tcard-visual"><div class="tcard-visual-ring"><div class="holo-avatar">AB</div></div></div>`
       : `<div class="tcard-visual"><div class="tcard-visual-ring">${c.emoji}</div></div>`;
 
-    /* Fond coloré directement sur la carte */
     if (!c.holo) el.style.background = c.visual;
 
     el.innerHTML = `
@@ -714,26 +707,20 @@ if (document.getElementById('cardsStage')) {
 
     shell.appendChild(el);
     wrapper.appendChild(shell);
-    stage.appendChild(wrapper);
+    scene.appendChild(wrapper);
 
     wrapper.addEventListener('click', () => {
       if (wrapper.classList.contains('is-active')) openDetail(c.id);
     });
 
-    /* ── Tilt 3D au survol ─────────────────────────────────── */
+    /* Tilt 3D au survol */
     shell.addEventListener('mousemove', e => {
       if (!wrapper.classList.contains('is-active')) return;
-      const r  = shell.getBoundingClientRect();
-      const x  = (e.clientX - r.left)  / r.width  - 0.5; /* -0.5 → +0.5 */
-      const y  = (e.clientY - r.top)   / r.height - 0.5;
-      /* Tilt : max ±18° Y, ±14° X */
-      el.style.transform = `perspective(900px) rotateY(${x * 18}deg) rotateX(${-y * 14}deg) scale(1.045)`;
-      el.style.boxShadow = `
-        ${x * -18}px ${y * 14}px 60px rgba(0,0,0,0.4),
-        0 40px 100px rgba(0,0,0,0.28),
-        inset 0 1px 0 rgba(255,255,255,0.28)
-      `;
-      /* Reflet dynamique via custom property CSS */
+      const r = shell.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - 0.5;
+      const y = (e.clientY - r.top)  / r.height - 0.5;
+      el.style.transform = `perspective(900px) rotateY(${x * 18}deg) rotateX(${-y * 14}deg) scale(1.05)`;
+      el.style.boxShadow = `${x * -18}px ${y * 14}px 60px rgba(0,0,0,0.4), 0 40px 100px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.28)`;
       el.style.setProperty('--mx', `${(x + 0.5) * 100}%`);
       el.style.setProperty('--my', `${(y + 0.5) * 100}%`);
     });
@@ -745,103 +732,82 @@ if (document.getElementById('cardsStage')) {
     return wrapper;
   });
 
-  /* ── Easing ─────────────────────────────────────────────── */
-  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
-  function easeInCubic(t)  { return t * t * t; }
+  /* ── État interne ───────────────────────────────────────── */
+  let STEP = 0, LOOP = 0;
 
-  /* ── Offset avec wrapping pour la boucle infinie ────────── */
-  function getOffset(cardIndex, rawIndex) {
-    const N = TOTAL;
-    let off = ((cardIndex - rawIndex) % N + N) % N;
-    if (off > N / 2) off -= N;
-    return off;
+  /* ── Initialisation / redimensionnement ─────────────────── */
+  function init() {
+    const vh = window.innerHeight;
+    const vw = window.innerWidth;
+    const isMobile = vw < 700;
+    const cardW = isMobile ? 250 : 310;
+    const cardH = isMobile ? 350 : 470;
+    const SIDE  = isMobile ?  60 : 260;
+
+    /* Espacement : garantit ~100px de la carte suivante visible en bas */
+    STEP = Math.max(Math.round(vh / 2 + cardH / 2 - 110), Math.round(vh * 0.62));
+    LOOP = TOTAL * STEP;
+
+    /* Corps suffisamment long pour 3 boucles (téléportation) */
+    document.body.style.minHeight = (3 * LOOP + vh) + 'px';
+
+    /* Hauteur de la scène */
+    scene.style.height = ((TOTAL - 1) * STEP + cardH + 80) + 'px';
+
+    /* Placement fixe de chaque carte en quinconce */
+    wrapperEls.forEach((wrapper, i) => {
+      const xLeft = vw / 2 + (i % 2 === 0 ? SIDE : -SIDE) - cardW / 2;
+      wrapper.style.left      = xLeft + 'px';
+      wrapper.style.top       = (i * STEP) + 'px';
+      wrapper.style.transform = `rotate(${CARDS[i].tilt}deg)`;
+    });
+
+    window.scrollTo(0, LOOP);
+    updateCamera();
   }
 
-  /* ── Animation : cartes montent depuis le bas, sortent par le haut ──
-     offset > 0 = carte en dessous (arrive)
-     offset ≈ 0 = carte active (centre)
-     offset < 0 = carte au dessus (sort) */
-  function applyCardStyle(wrapper, offset, tilt, sideX) {
-    let ty, sc, op, rot, zi;
-    const isActive = Math.abs(offset) < 0.45;
-
-    if (offset > 1.7) {
-      /* Loin en dessous — invisible */
-      ty = 85; sc = 0.82; op = 0; rot = tilt * 1.3; zi = 1;
-
-    } else if (offset > 0) {
-      /* Monte depuis le bas vers le centre */
-      const t = easeOutCubic(1 - offset / 1.7);
-      ty  = (1 - t) * 80;
-      sc  = 0.82 + t * 0.18;
-      op  = 0.25 + t * 0.75;
-      rot = tilt * (1 - t) * 1.3;
-      zi  = 8 + Math.round(t * 24);
-
-    } else if (offset >= -0.45) {
-      /* Active — plein centre */
-      ty = 0; sc = 1; op = 1; rot = 0; zi = 34;
-
-    } else if (offset >= -1.5) {
-      /* Sort par le haut */
-      const t = easeInCubic(Math.min((-offset - 0.45) / 1.05, 1));
-      ty  = -t * 85;
-      sc  = 1 - t * 0.18;
-      op  = 1 - t;
-      rot = -tilt * t;
-      zi  = 32 - Math.round(t * 24);
-
-    } else {
-      /* Loin au dessus — invisible */
-      ty = -85; sc = 0.82; op = 0; rot = 0; zi = 1;
-    }
-
-    wrapper.style.transform = `translate(${sideX}px, ${ty}vh) rotate(${rot}deg) scale(${sc})`;
-    wrapper.style.opacity   = String(Math.max(0, Math.min(1, op)));
-    wrapper.style.zIndex    = String(zi);
-    wrapper.classList.toggle('is-active', isActive);
-  }
-
-  /* ── Boucle de mise à jour au scroll ────────────────────── */
-  function updateGallery() {
+  /* ── Caméra : translateY de la scène ────────────────────── */
+  function updateCamera() {
     if (detailOpen) return;
 
-    const scroll = window.scrollY;
-    const vh     = window.innerHeight;
-    const SIDE   = window.innerWidth < 700 ? 90 : 290;
+    const vh      = window.innerHeight;
+    const isMobile = window.innerWidth < 700;
+    const cardH   = isMobile ? 350 : 470;
+    const rawScroll = window.scrollY - LOOP;
 
-    /* rawIndex modulaire → identique à n'importe quel TOTAL*vh d'écart */
-    const rawIndex = ((scroll / vh) % TOTAL + TOTAL) % TOTAL;
-    const activeIdx = Math.round(rawIndex) % TOTAL;
+    /* Déplace la scène : à rawScroll=0 la carte 0 est au centre du viewport */
+    scene.style.transform = `translateY(${-rawScroll + (vh - cardH) / 2}px)`;
 
-    const pct = Math.round(rawIndex / TOTAL * 100) % 100;
-    if (scrollPctEl) scrollPctEl.textContent = String(pct).padStart(2, '0') + '%';
+    /* Carte active = la plus proche du centre */
+    const rawIndex  = rawScroll / STEP;
+    const activeIdx = ((Math.round(rawIndex) % TOTAL) + TOTAL) % TOTAL;
+
+    wrapperEls.forEach((w, i) => {
+      let dist = rawIndex - i;
+      dist = ((dist % TOTAL) + TOTAL) % TOTAL;
+      if (dist > TOTAL / 2) dist -= TOTAL;
+      w.classList.toggle('is-active', Math.abs(dist) < 0.5);
+    });
+
+    /* UI */
+    const normIdx = ((rawIndex % TOTAL) + TOTAL) % TOTAL;
+    if (scrollPctEl) scrollPctEl.textContent =
+      String(Math.round(normIdx / TOTAL * 100) % 100).padStart(2, '0') + '%';
     if (cardCtrEl) cardCtrEl.textContent =
       String(activeIdx + 1).padStart(2, '0') + ' / ' + String(TOTAL).padStart(2, '0');
 
-    wrapperEls.forEach((wrapper, i) => {
-      const sideX = (i % 2 === 0) ? SIDE : -SIDE;
-      applyCardStyle(wrapper, getOffset(i, rawIndex), CARDS[i].tilt, sideX);
-    });
-
-    /* Marquee piloté par scroll — -50% = retour au début (contenu doublé) */
+    /* Marquee : parallaxe horizontal (vitesse différente des cartes) */
     if (marqueeInner) {
-      marqueeInner.style.transform = `translateX(${-(rawIndex / TOTAL) * 50}%)`;
+      marqueeInner.style.transform = `translateX(${-(normIdx / TOTAL) * 50}%)`;
     }
   }
 
-  /* ── Téléport pour boucle infinie ───────────────────────── */
+  /* ── Boucle infinie : téléportation invisible ────────────── */
   let teleporting = false;
   function checkLoop() {
-    const s    = window.scrollY;
-    const loop = TOTAL * window.innerHeight;
-    if (s < loop * 0.5) {
-      teleporting = true;
-      window.scrollTo(0, s + loop);
-    } else if (s > loop * 2.5) {
-      teleporting = true;
-      window.scrollTo(0, s - loop);
-    }
+    const rawScroll = window.scrollY - LOOP;
+    if (rawScroll < 0)       { teleporting = true; window.scrollTo(0, window.scrollY + LOOP); }
+    else if (rawScroll >= LOOP) { teleporting = true; window.scrollTo(0, window.scrollY - LOOP); }
   }
 
   let rafId = null;
@@ -849,12 +815,12 @@ if (document.getElementById('cardsStage')) {
     if (teleporting) { teleporting = false; return; }
     checkLoop();
     if (rafId) cancelAnimationFrame(rafId);
-    rafId = requestAnimationFrame(updateGallery);
+    rafId = requestAnimationFrame(updateCamera);
   }, { passive: true });
 
-  /* Démarrer au milieu de la zone (section centrale des 3) */
-  window.scrollTo(0, TOTAL * window.innerHeight);
-  updateGallery();
+  window.addEventListener('resize', init, { passive: true });
+
+  init();
 
   /* ── Ouvrir le détail d'une carte ───────────────────────── */
   function openDetail(cardId) {

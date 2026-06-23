@@ -170,26 +170,40 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ============================================================
    SCÈNE DES CARTES
+   La stage est une fenêtre fixe (viewport).
+   La scene est le grand décor qui se déplace (caméra).
    ============================================================ */
 .cards-stage {
   position: fixed;
   inset: 0;
   z-index: 10;
-  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Grand conteneur déplacé par JS comme une caméra */
+.scene {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  will-change: transform;
   pointer-events: none;
 }
 
 /* ============================================================
-   WRAPPER — JS anime cet élément (transform / opacity / z-index)
+   WRAPPER — position fixe dans la scène (définie par JS)
    ============================================================ */
 .card-wrapper {
-  position: absolute;   /* centré par le conteneur flex */
+  position: absolute;
   pointer-events: none;
-  will-change: transform, opacity;
-  transform-origin: center center;
   user-select: none;
 }
 .card-wrapper.is-active { pointer-events: all; }
+
+/* Léger zoom au survol de la carte active */
+.card-wrapper.is-active .tcard-shell:hover .tcard {
+  transform: scale(1.04);
+}
 
 /* ============================================================
    SHELL — contient les encoches haut/bas (pseudo-éléments)
