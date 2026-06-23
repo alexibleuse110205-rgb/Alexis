@@ -653,7 +653,16 @@ if (document.getElementById('cardsStage')) {
   let detailOpen  = false;
   const visitedIds = new Set(); /* cartes visitées (compteur réel) */
 
-  document.body.style.minHeight = (TOTAL + 0.6) * 100 + 'vh';
+  /* ──────────────────────────────────────────────────────────
+     BOUCLE INFINIE — le corps fait 3× la hauteur normale.
+     On démarre au milieu (section 2 sur 3).
+     Quand on sort de la section centrale, on téléporte de ±TOTAL*vh.
+     La rawIndex est modulaire → même visuel avant/après téléport.
+     ────────────────────────────────────────────────────────── */
+  document.body.style.minHeight = (TOTAL * 3 + 1) * 100 + 'vh';
+
+  /* Référence marquee (piloté par scroll en JS) */
+  const marqueeInner = document.querySelector('.marquee-inner');
 
   /* ── Création des éléments — structure : wrapper > shell > tcard ── */
   const wrapperEls = CARDS.map(c => {
@@ -740,47 +749,54 @@ if (document.getElementById('cardsStage')) {
   function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
   function easeInCubic(t)  { return t * t * t; }
 
-  /* ── Animation : effet de vol à travers les cartes ────────
-     Les cartes sont fixes dans l'espace 3D.
-     En scrollant on s'en approche (scale ↑) puis on les dépasse (scale ↓ rapide).
-     Aucune translation Y — seulement scale + opacity + Z simulé.
-     La sensation : on "vole" le long d'un couloir de cartes. */
-  function applyCardStyle(wrapper, offset, tilt, sideX) {
-    let sc, op, rot, zi;
-    const isActive = Math.abs(offset) < 0.4;
+  /* ── Offset avec wrapping pour la boucle infinie ────────── */
+  function getOffset(cardIndex, rawIndex) {
+    const N = TOTAL;
+    let off = ((cardIndex - rawIndex) % N + N) % N;
+    if (off > N / 2) off -= N;
+    return off;
+  }
 
-    if (offset > 2.2) {
-      /* Très loin devant — minuscule, invisible */
-      sc = 0.28; op = 0; rot = tilt * 1.5; zi = 1;
+  /* ── Animation : cartes montent depuis le bas, sortent par le haut ──
+     offset > 0 = carte en dessous (arrive)
+     offset ≈ 0 = carte active (centre)
+     offset < 0 = carte au dessus (sort) */
+  function applyCardStyle(wrapper, offset, tilt, sideX) {
+    let ty, sc, op, rot, zi;
+    const isActive = Math.abs(offset) < 0.45;
+
+    if (offset > 1.7) {
+      /* Loin en dessous — invisible */
+      ty = 85; sc = 0.82; op = 0; rot = tilt * 1.3; zi = 1;
 
     } else if (offset > 0) {
-      /* ── On s'approche — carte qui grossit progressivement ──
-         0 = on est dessus (sc=1), 2.2 = très loin (sc=0.28) */
-      const t = easeOutCubic(1 - offset / 2.2);  /* 0 → 1 quand on arrive */
-      sc  = 0.28 + t * 0.72;          /* 0.28 → 1.0  (grossit en s'approchant) */
-      op  = Math.pow(t, 1.8);          /* fade in assez tard pour qu'elle surgisse */
-      rot = tilt * (1 - t) * 1.2;
-      zi  = 2 + Math.round(t * 28);
+      /* Monte depuis le bas vers le centre */
+      const t = easeOutCubic(1 - offset / 1.7);
+      ty  = (1 - t) * 80;
+      sc  = 0.82 + t * 0.18;
+      op  = 0.25 + t * 0.75;
+      rot = tilt * (1 - t) * 1.3;
+      zi  = 8 + Math.round(t * 24);
 
-    } else if (offset >= -0.4) {
-      /* ── On est dessus — pleine taille, pleine opacité ── */
-      sc = 1; op = 1; rot = 0; zi = 32;
+    } else if (offset >= -0.45) {
+      /* Active — plein centre */
+      ty = 0; sc = 1; op = 1; rot = 0; zi = 34;
 
-    } else if (offset >= -1.0) {
-      /* ── On dépasse — s'éloigne très vite derrière nous ──
-         Rétrécit et disparaît rapidement (on l'a dépassée) */
-      const t = easeInCubic(Math.min((-offset - 0.4) / 0.6, 1));
-      sc  = 1 - t * 0.55;             /* 1.0 → 0.45 (rétrécit = elle est derrière) */
+    } else if (offset >= -1.5) {
+      /* Sort par le haut */
+      const t = easeInCubic(Math.min((-offset - 0.45) / 1.05, 1));
+      ty  = -t * 85;
+      sc  = 1 - t * 0.18;
       op  = 1 - t;
-      rot = -tilt * t * 0.8;
-      zi  = 30 - Math.round(t * 28);
+      rot = -tilt * t;
+      zi  = 32 - Math.round(t * 24);
 
     } else {
-      /* Loin derrière — tout petite, invisible */
-      sc = 0.45; op = 0; rot = 0; zi = 1;
+      /* Loin au dessus — invisible */
+      ty = -85; sc = 0.82; op = 0; rot = 0; zi = 1;
     }
 
-    wrapper.style.transform = `translateX(${sideX}px) rotate(${rot}deg) scale(${sc})`;
+    wrapper.style.transform = `translate(${sideX}px, ${ty}vh) rotate(${rot}deg) scale(${sc})`;
     wrapper.style.opacity   = String(Math.max(0, Math.min(1, op)));
     wrapper.style.zIndex    = String(zi);
     wrapper.classList.toggle('is-active', isActive);
@@ -790,31 +806,54 @@ if (document.getElementById('cardsStage')) {
   function updateGallery() {
     if (detailOpen) return;
 
-    const scrollY  = window.scrollY;
-    const vh       = window.innerHeight;
-    const rawIndex = scrollY / vh;
-    const SIDE     = window.innerWidth < 700 ? 90 : 290;
+    const scroll = window.scrollY;
+    const vh     = window.innerHeight;
+    const SIDE   = window.innerWidth < 700 ? 90 : 290;
 
-    const pct = Math.round(Math.min(rawIndex / TOTAL, 1) * 100);
+    /* rawIndex modulaire → identique à n'importe quel TOTAL*vh d'écart */
+    const rawIndex = ((scroll / vh) % TOTAL + TOTAL) % TOTAL;
+    const activeIdx = Math.round(rawIndex) % TOTAL;
+
+    const pct = Math.round(rawIndex / TOTAL * 100) % 100;
     if (scrollPctEl) scrollPctEl.textContent = String(pct).padStart(2, '0') + '%';
-
-    const activeIdx = Math.min(Math.floor(rawIndex + 0.12), TOTAL - 1);
     if (cardCtrEl) cardCtrEl.textContent =
       String(activeIdx + 1).padStart(2, '0') + ' / ' + String(TOTAL).padStart(2, '0');
 
     wrapperEls.forEach((wrapper, i) => {
-      const offset = i - rawIndex;
-      const sideX  = (i % 2 === 0) ? SIDE : -SIDE;
-      applyCardStyle(wrapper, offset, CARDS[i].tilt, sideX);
+      const sideX = (i % 2 === 0) ? SIDE : -SIDE;
+      applyCardStyle(wrapper, getOffset(i, rawIndex), CARDS[i].tilt, sideX);
     });
+
+    /* Marquee piloté par scroll — -50% = retour au début (contenu doublé) */
+    if (marqueeInner) {
+      marqueeInner.style.transform = `translateX(${-(rawIndex / TOTAL) * 50}%)`;
+    }
+  }
+
+  /* ── Téléport pour boucle infinie ───────────────────────── */
+  let teleporting = false;
+  function checkLoop() {
+    const s    = window.scrollY;
+    const loop = TOTAL * window.innerHeight;
+    if (s < loop * 0.5) {
+      teleporting = true;
+      window.scrollTo(0, s + loop);
+    } else if (s > loop * 2.5) {
+      teleporting = true;
+      window.scrollTo(0, s - loop);
+    }
   }
 
   let rafId = null;
   window.addEventListener('scroll', () => {
+    if (teleporting) { teleporting = false; return; }
+    checkLoop();
     if (rafId) cancelAnimationFrame(rafId);
     rafId = requestAnimationFrame(updateGallery);
   }, { passive: true });
 
+  /* Démarrer au milieu de la zone (section centrale des 3) */
+  window.scrollTo(0, TOTAL * window.innerHeight);
   updateGallery();
 
   /* ── Ouvrir le détail d'une carte ───────────────────────── */
