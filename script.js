@@ -1111,12 +1111,11 @@ if (document.getElementById('cardsStage')) {
     if (slotThumb) { slotThumb.textContent = card.emoji; slotThumb.classList.add('filled'); }
     updateCollPanel();
 
-    /* Hero + sidebar : même couleur de fond */
+    /* Hero : couleur de fond de la carte */
     const heroBg = card.holo
       ? 'linear-gradient(135deg,#7f6bbf,#c084fc,#818cf8)'
       : card.visual;
-    if (detailHero)    detailHero.style.background    = heroBg;
-    if (detailSidebar) detailSidebar.style.background = heroBg;
+    if (detailHero) detailHero.style.background = heroBg;
 
     /* Emojis qui tombent */
     spawnFallingEmojis(card);

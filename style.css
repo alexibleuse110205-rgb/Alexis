@@ -483,7 +483,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   flex-shrink: 0;
   min-height: 200px;
   display: flex; align-items: flex-end;
-  padding: 1.8rem 2.5rem 3rem;
+  /* Réserve 255px à gauche pour la carte dans la sidebar */
+  padding: 1.8rem 2.5rem 3rem 265px;
   overflow: hidden;
 }
 .detail-hero::after {
@@ -515,7 +516,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .detail-hero-foot {
   position: absolute;
-  bottom: 0.9rem; left: 2.2rem; right: 2.2rem;
+  bottom: 0.9rem; left: 265px; right: 2.2rem;
   display: flex; align-items: center; justify-content: space-between;
   z-index: 2;
 }
@@ -537,9 +538,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   flex: 1; display: flex; overflow: hidden;
 }
 
-/* Sidebar gauche — même couleur que le hero, carte sticky */
+/* Sidebar gauche — fond blanc (même que la page), carte toujours visible */
 .detail-sidebar {
-  width: 250px; flex-shrink: 0;
+  width: 255px; flex-shrink: 0;
+  background: var(--bg);
   display: flex; flex-direction: column; align-items: center;
   padding: 2rem 0 2rem;
   position: relative; overflow: visible;
@@ -984,15 +986,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .card-ctr   { bottom: 1.2rem; right: 1.2rem; font-size: 0.6rem; }
   .pill-btn   { bottom: 1.2rem; font-size: 0.7rem; padding: 0.5rem 1.1rem; }
 
-  /* Vue détail mobile : hero + sidebar horizontal compact */
-  .detail-hero { min-height: 140px; padding: 1.2rem 1.2rem 2.5rem; }
-  .detail-hero-title { font-size: 2rem; }
-  .detail-sidebar { width: 110px; padding: 1rem 0; }
+  /* Vue détail mobile : hero compact + sidebar réduite */
+  .detail-hero { min-height: 120px; padding: 1rem 1.2rem 2.4rem 125px; }
+  .detail-hero-title { font-size: 1.8rem; }
+  .detail-hero-foot { left: 125px; }
+  .detail-sidebar { width: 118px; padding: 1rem 0; }
   .detail-sidebar-mini {
-    transform: scale(0.30) rotate(-4deg);
+    transform: scale(0.32) rotate(-4deg);
     transform-origin: top left;
   }
-  .detail-hero-close { top: 12px; right: -20px; width: 36px; height: 36px; font-size: 0.8rem; }
+  .detail-hero-close { top: 10px; right: -18px; width: 34px; height: 34px; font-size: 0.8rem; }
   .detail-body { padding: 1.5rem 1.2rem 3rem; }
   .detail-main-title { font-size: 1.6rem; }
 
