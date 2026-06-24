@@ -815,6 +815,7 @@ if (document.getElementById('cardsStage')) {
   const slotCount        = document.getElementById('slotCount');
   const detailView       = document.getElementById('detailView');
   const detailHero       = document.getElementById('detailHero');
+  const detailSidebar    = document.getElementById('detailSidebar');
   const detailHeroTitle  = document.getElementById('detailHeroTitle');
   const detailHeroType   = document.getElementById('detailHeroType');
   const detailHeroMini   = document.getElementById('detailHeroMiniInner');
@@ -822,6 +823,30 @@ if (document.getElementById('cardsStage')) {
   const detailCont       = document.getElementById('detailContent');
   const closeBtn         = document.getElementById('closeBtn');
   const marqueeInner     = document.querySelector('.marquee-inner');
+
+  /* ── Emojis qui tombent lors de l'ouverture ─────────────── */
+  function spawnFallingEmojis(card) {
+    if (!detailHero) return;
+    /* Nettoyer les anciens */
+    detailHero.querySelectorAll('.fall-emoji').forEach(e => e.remove());
+    const count = 14;
+    for (let i = 0; i < count; i++) {
+      const el  = document.createElement('span');
+      el.className = 'fall-emoji';
+      const size  = 1.4 + Math.random() * 2.8;
+      const x     = 3 + Math.random() * 88;
+      const delay = (Math.random() * 400).toFixed(0) + 'ms';
+      const dur   = (550 + Math.random() * 600).toFixed(0) + 'ms';
+      const rot   = (-200 + Math.random() * 400).toFixed(0) + 'deg';
+      const op    = (0.25 + Math.random() * 0.55).toFixed(2);
+      el.textContent = card.emoji;
+      el.style.cssText = `left:${x}%;font-size:${size}rem;opacity:${op};--dur:${dur};--delay:${delay};--rot:${rot};`;
+      el.style.animationDelay = delay;
+      detailHero.appendChild(el);
+      const total = parseInt(dur) + parseInt(delay) + 150;
+      setTimeout(() => el.remove(), total);
+    }
+  }
 
   let detailOpen = false;
   const visitedIds = new Set();
@@ -1086,21 +1111,21 @@ if (document.getElementById('cardsStage')) {
     if (slotThumb) { slotThumb.textContent = card.emoji; slotThumb.classList.add('filled'); }
     updateCollPanel();
 
-    /* Hero : couleur de fond */
-    if (detailHero) {
-      const heroBg = card.holo
-        ? 'linear-gradient(135deg,#7f6bbf,#c084fc,#818cf8)'
-        : card.visual;
-      detailHero.style.background = heroBg;
-    }
+    /* Hero + sidebar : même couleur de fond */
+    const heroBg = card.holo
+      ? 'linear-gradient(135deg,#7f6bbf,#c084fc,#818cf8)'
+      : card.visual;
+    if (detailHero)    detailHero.style.background    = heroBg;
+    if (detailSidebar) detailSidebar.style.background = heroBg;
 
-    /* Mini carte dans le hero : clone du shell à l'échelle */
+    /* Emojis qui tombent */
+    spawnFallingEmojis(card);
+
+    /* Mini carte dans la sidebar : clone du shell à l'échelle */
     if (detailHeroMini) {
       detailHeroMini.innerHTML = '';
       const miniShell = shell.cloneNode(true);
-      miniShell.style.pointerEvents = 'none';
-      miniShell.style.width  = '310px';
-      miniShell.style.height = '470px';
+      miniShell.style.cssText = 'pointer-events:none;width:310px;height:470px;';
       detailHeroMini.appendChild(miniShell);
     }
 

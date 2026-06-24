@@ -65,35 +65,35 @@
        ===================================================== -->
   <div class="detail-view" id="detailView" role="dialog" aria-label="Détail de la carte" aria-modal="true">
 
-    <!-- ① Bande colorée haute — couleur de la carte -->
+    <!-- ① Bande colorée haute — titre + labels (emojis qui tombent injectés par JS) -->
     <div class="detail-hero" id="detailHero">
-
-      <!-- Carte inclinée + bouton ✕ -->
-      <div class="detail-hero-card-wrap">
-        <div class="detail-hero-mini-wrap">
-          <div class="detail-hero-mini-inner" id="detailHeroMiniInner"></div>
-        </div>
-        <button class="detail-hero-close" id="closeBtn" aria-label="Fermer">✕</button>
-      </div>
-
-      <!-- Grand titre italic -->
       <h1 class="detail-hero-title" id="detailHeroTitle"></h1>
-
-      <!-- Pied de la bande : logo · COLLECTED · type -->
       <div class="detail-hero-foot">
         <span class="detail-hero-logo">←®</span>
         <span class="detail-hero-collected">COLLECTED</span>
         <span class="detail-hero-type" id="detailHeroType"></span>
       </div>
-
-    </div><!-- fin .detail-hero -->
-
-    <!-- ② Zone blanche scrollable — contenu de la carte -->
-    <div class="detail-content-wrap" id="detailRight">
-      <div class="detail-body" id="detailContent">
-        <!-- contenu injecté par renderDetail() dans script.js -->
-      </div>
     </div>
+
+    <!-- ② Zone principale : carte à gauche (sticky) + contenu à droite -->
+    <div class="detail-main">
+
+      <!-- Sidebar gauche — carte inclinée qui reste en place au scroll -->
+      <div class="detail-sidebar" id="detailSidebar">
+        <div class="detail-sidebar-card-wrap">
+          <div class="detail-sidebar-mini" id="detailHeroMiniInner"></div>
+          <button class="detail-hero-close" id="closeBtn" aria-label="Fermer">✕</button>
+        </div>
+      </div>
+
+      <!-- Contenu scrollable à droite -->
+      <div class="detail-content-wrap" id="detailRight">
+        <div class="detail-body" id="detailContent">
+          <!-- contenu injecté par renderDetail() dans script.js -->
+        </div>
+      </div>
+
+    </div><!-- fin .detail-main -->
 
   </div><!-- fin .detail-view -->
 
