@@ -513,6 +513,9 @@ function renderSAE() {
     </div>
 
     <div class="sae-fave">
+      <div class="exp-photo">
+        <img src="./images/barbertruck.jpg" alt="Barbertruck" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>barbertruck.jpg</small>'" />
+      </div>
       <h4 class="sae-fave-title">SAE 4.MRPE.01 — Créa IUT · Barbertruck</h4>
       <p class="detail-text" style="margin-bottom:0.9rem;">
         En équipe de trois, nous avons imaginé <strong>Barbertruck</strong> — un concept
@@ -528,6 +531,9 @@ function renderSAE() {
     </div>
 
     <div class="sae-fave">
+      <div class="exp-photo">
+        <img src="./images/kavaton.jpg" alt="Kavaton" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>kavaton.jpg</small>'" />
+      </div>
       <h4 class="sae-fave-title">SAE 5 / 6 — Kavaton</h4>
       <p class="detail-text" style="margin-bottom:0.9rem;">
         En 3<sup>e</sup> année, nous avons travaillé sur le projet <strong>Kavaton</strong>
@@ -569,6 +575,9 @@ function renderProjetTutore() {
     </p>
 
     <div class="pt-card">
+      <div class="exp-photo">
+        <img src="./images/tendouck.jpg" alt="Projet Tendouck" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>tendouck.jpg</small>'" />
+      </div>
       <div class="pt-header">
         <h3 class="pt-title">Projet Tendouck</h3>
         <span class="pt-badge">1ère année</span>
@@ -594,6 +603,9 @@ function renderProjetTutore() {
     </div>
 
     <div class="pt-card">
+      <div class="exp-photo">
+        <img src="./images/alternants.jpg" alt="Événement Alternants" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>alternants.jpg</small>'" />
+      </div>
       <div class="pt-header">
         <h3 class="pt-title">Événement Alternants BUT GACO</h3>
         <span class="pt-badge">2ème année</span>
@@ -619,6 +631,9 @@ function renderProjetTutore() {
     </div>
 
     <div class="pt-card">
+      <div class="exp-photo">
+        <img src="./images/cerafel.jpg" alt="Étude de marché Cerafel" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>cerafel.jpg</small>'" />
+      </div>
       <div class="pt-header">
         <h3 class="pt-title">Étude de marché — Cerafel / Prince de Bretagne</h3>
         <span class="pt-badge">3ème année</span>
@@ -823,10 +838,18 @@ function renderContact() {
     <p class="detail-cat-label">Me joindre</p>
     <h2 class="detail-main-title">Me<br>Contacter</h2>
     <div class="detail-divider"></div>
-    <p class="detail-text" style="margin-bottom:2rem;">
-      Disponible pour toute opportunité professionnelle, stage, alternance ou
-      simplement pour échanger. N'hésite pas à me contacter via l'un de ces canaux.
-    </p>
+
+    <div class="profil-layout" style="margin-bottom:2rem;">
+      <div class="profil-photo">
+        <img src="./images/profil.jpg" alt="Alexis Bleuse" onerror="this.style.display='none'" />
+      </div>
+      <div>
+        <p class="detail-text">
+          Disponible pour toute opportunité professionnelle, stage, alternance ou
+          simplement pour échanger. N'hésite pas à me contacter via l'un de ces canaux.
+        </p>
+      </div>
+    </div>
 
     <div style="display:flex;flex-direction:column;gap:0.8rem;margin-bottom:2rem;">
 
