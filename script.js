@@ -146,84 +146,83 @@ function renderParcours() {
 
     <div class="timeline">
 
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <p class="tl-date">Collège</p>
-        <h3 class="tl-title">Collège des Deux Baies — Carantec</h3>
-        <p class="tl-sub">Carantec, Bretagne</p>
-        <p class="tl-desc">
-          Scolarisé au collège des Deux Baies à Carantec, où j'ai obtenu
-          mon brevet avec la mention <strong>Très Bien</strong>. Cette période
-          m'a permis d'acquérir de la rigueur et une méthode de travail solides.
-        </p>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <p class="tl-date">Lycée</p>
-        <h3 class="tl-title">Baccalauréat STMG</h3>
-        <p class="tl-sub">Bretagne</p>
-        <p class="tl-desc">
-          Baccalauréat obtenu avec la mention <strong>Bien</strong>.
-        </p>
-        <div class="tl-why">
-          <strong>Pourquoi le BAC STMG ?</strong><br>
-          J'ai choisi cette filière pour son côté concret, tourné vers les entreprises,
-          la gestion, le management et l'économie.
+      <div class="tl-item tl-item--with-map">
+        <div class="tl-item-content">
+          <div class="tl-dot"></div>
+          <p class="tl-date">Collège</p>
+          <h3 class="tl-title">Collège des Deux Baies</h3>
+          <p class="tl-sub">Carantec, Bretagne</p>
+          <p class="tl-desc">
+            Scolarisé au collège des Deux Baies à Carantec, où j'ai obtenu
+            mon brevet avec la mention <strong>Très Bien</strong>. Cette période
+            m'a permis d'acquérir de la rigueur et une méthode de travail solides.
+          </p>
+        </div>
+        <div class="tl-map">
+          <iframe
+            src="https://maps.google.com/maps?q=Coll%C3%A8ge+des+Deux+Baies+Carantec&z=14&output=embed"
+            width="100%" height="180" style="border:0;border-radius:12px;" loading="lazy"
+            allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
 
-      <div class="tl-item">
-        <div class="tl-dot" style="background:var(--accent);outline-color:var(--accent);"></div>
-        <p class="tl-date">Aujourd'hui</p>
-        <h3 class="tl-title">BUT GACO — Parcours MRPE</h3>
-        <p class="tl-sub">IUT de Brest-Morlaix — Morlaix, Bretagne</p>
-        <p class="tl-desc">
-          Bachelor Universitaire de Technologie en <strong>Gestion Administrative et
-          Commerciale des Organisations</strong>, parcours
-          <strong>Management des Relations avec les Partenaires et les Entreprises</strong>.
-          Depuis la 2<sup>e</sup> année, je réalise mon parcours en alternance
-          au sein du groupe <strong>Le Télégramme</strong>.
-        </p>
-        <div class="tl-why">
-          <strong>Pourquoi le BUT GACO ?</strong><br>
-          Sa polyvalence : marketing, gestion, droit, économie, comptabilité,
-          management, logistique, développement durable. Une vraie diversité
-          qui m'a permis de trouver mes centres d'intérêt professionnels.
+      <div class="tl-item tl-item--with-map">
+        <div class="tl-item-content">
+          <div class="tl-dot"></div>
+          <p class="tl-date">Lycée</p>
+          <h3 class="tl-title">Lycée Tristan Corbière — Bac STMG</h3>
+          <p class="tl-sub">Morlaix, Bretagne</p>
+          <p class="tl-desc">
+            Baccalauréat STMG obtenu avec la mention <strong>Bien</strong>
+            au lycée Tristan Corbière à Morlaix.
+          </p>
+          <div class="tl-why">
+            <strong>Pourquoi le BAC STMG ?</strong><br>
+            J'ai choisi cette filière pour son côté concret, tourné vers les entreprises,
+            la gestion, le management et l'économie.
+          </div>
         </div>
-        <div class="tl-why" style="margin-top:0.6rem;">
-          <strong>Pourquoi le parcours MRPE ?</strong><br>
-          Le côté <strong>RSE</strong> m'a particulièrement attiré, ainsi que
-          l'entrepreneuriat et le développement des relations avec les partenaires.
-          Ce parcours m'a permis d'aller plus loin dans la compréhension des enjeux
-          sociaux, environnementaux et économiques des entreprises.
+        <div class="tl-map">
+          <iframe
+            src="https://maps.google.com/maps?q=Lyc%C3%A9e+Tristan+Corbi%C3%A8re+Morlaix&z=14&output=embed"
+            width="100%" height="180" style="border:0;border-radius:12px;" loading="lazy"
+            allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
 
-    </div>
+      <div class="tl-item tl-item--with-map">
+        <div class="tl-item-content">
+          <div class="tl-dot" style="background:var(--accent);outline-color:var(--accent);"></div>
+          <p class="tl-date">Aujourd'hui</p>
+          <h3 class="tl-title">BUT GACO — Parcours MRPE</h3>
+          <p class="tl-sub">IUT de Brest-Morlaix — Morlaix, Bretagne</p>
+          <p class="tl-desc">
+            Bachelor Universitaire de Technologie en <strong>Gestion Administrative et
+            Commerciale des Organisations</strong>, parcours
+            <strong>Management des Relations avec les Partenaires et les Entreprises</strong>.
+            Depuis la 2<sup>e</sup> année, je réalise mon parcours en alternance
+            au sein du groupe <strong>Le Télégramme</strong>.
+          </p>
+          <div class="tl-why">
+            <strong>Pourquoi le BUT GACO ?</strong><br>
+            Sa polyvalence : marketing, gestion, droit, économie, comptabilité,
+            management, logistique, développement durable. Une vraie diversité
+            qui m'a permis de trouver mes centres d'intérêt professionnels.
+          </div>
+          <div class="tl-why" style="margin-top:0.6rem;">
+            <strong>Pourquoi le parcours MRPE ?</strong><br>
+            Le côté <strong>RSE</strong> m'a particulièrement attiré, ainsi que
+            l'entrepreneuriat et le développement des relations avec les partenaires.
+          </div>
+        </div>
+        <div class="tl-map">
+          <iframe
+            src="https://maps.google.com/maps?q=IUT+Morlaix+Bretagne&z=14&output=embed"
+            width="100%" height="180" style="border:0;border-radius:12px;" loading="lazy"
+            allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
 
-    <div class="map-cards-row">
-      <div class="map-card">
-        <div class="map-card-pin">📍</div>
-        <div class="map-card-info">
-          <span class="map-card-place">Carantec</span>
-          <span class="map-card-detail">Collège des Deux Baies</span>
-        </div>
-      </div>
-      <div class="map-card">
-        <div class="map-card-pin">📍</div>
-        <div class="map-card-info">
-          <span class="map-card-place">Morlaix</span>
-          <span class="map-card-detail">IUT Brest-Morlaix<br>BUT GACO MRPE</span>
-        </div>
-      </div>
-      <div class="map-card">
-        <div class="map-card-pin">📍</div>
-        <div class="map-card-info">
-          <span class="map-card-place">Brest</span>
-          <span class="map-card-detail">Le Télégramme<br>Alternance ADV</span>
-        </div>
-      </div>
     </div>
   `;
 }

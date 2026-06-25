@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- ▼ Modifie le titre de l'onglet ici -->
   <title>Alexis Bleuse — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -11,9 +10,6 @@
 </head>
 <body>
 
-  <!-- =====================================================
-       FOND — Texte géant qui défile vers la gauche
-       ===================================================== -->
   <div class="marquee-bg" aria-hidden="true">
     <div class="marquee-inner">
       <span>PORTFOLIO — ALEXIS BLEUSE ←&nbsp;&nbsp;&nbsp;</span>
@@ -22,10 +18,6 @@
       <span>PORTFOLIO — ALEXIS BLEUSE ←&nbsp;&nbsp;&nbsp;</span>
     </div>
   </div>
-
-  <!-- =====================================================
-       UI FIXE — toujours visible
-       ===================================================== -->
 
   <div class="collection-ui" id="collectionUi" role="button" aria-label="Voir ma collection" tabindex="0">
     <div class="slot-thumb" id="slotThumb" aria-label="Dernière carte collectée">✦</div>
@@ -43,9 +35,6 @@
     Ouvert aux opportunités · Me contacter
   </a>
 
-  <!-- =====================================================
-       SCÈNE — Les cartes sont créées ici par script.js
-       ===================================================== -->
   <div class="cards-stage" id="cardsStage" aria-label="Galerie de cartes"></div>
 
   <!-- =====================================================
@@ -53,23 +42,23 @@
        ===================================================== -->
   <div class="detail-view" id="detailView" role="dialog" aria-label="Détail de la carte" aria-modal="true">
 
-    <!-- Hero : fond coloré fixe derrière le scroll -->
-    <div class="detail-hero" id="detailHero">
-      <h1 class="detail-hero-title" id="detailHeroTitle"></h1>
-      <div class="detail-hero-foot">
-        <span class="detail-hero-logo">←®</span>
-        <span class="detail-hero-collected">COLLECTED</span>
-        <span class="detail-hero-type" id="detailHeroType"></span>
-      </div>
-    </div>
-
-    <!-- Zone scrollable transparente par-dessus le hero -->
+    <!-- Zone scrollable -->
     <div class="detail-scroll" id="detailRight">
 
-      <!-- Deux colonnes sur TOUTE la hauteur scrollable -->
+      <!-- Hero DANS le flux du scroll (pleine largeur, défile vers le haut) -->
+      <div class="detail-hero" id="detailHero">
+        <h1 class="detail-hero-title" id="detailHeroTitle"></h1>
+        <div class="detail-hero-foot">
+          <span class="detail-hero-logo">←®</span>
+          <span class="detail-hero-collected">COLLECTED</span>
+          <span class="detail-hero-type" id="detailHeroType"></span>
+        </div>
+      </div>
+
+      <!-- Deux colonnes — remontent sur le hero via margin-top négatif -->
       <div class="detail-scroll-inner">
 
-        <!-- Colonne gauche : sidebar sticky — carte + ✕ restent visibles en scrollant -->
+        <!-- Colonne gauche : sidebar sticky (carte + ✕ visibles en scrollant) -->
         <div class="detail-sidebar-col">
           <div class="detail-sidebar" id="detailSidebar">
             <button class="detail-hero-close" id="closeBtn" aria-label="Fermer">✕</button>
@@ -79,9 +68,9 @@
           </div>
         </div>
 
-        <!-- Colonne droite : spacer transparent (hero visible) puis contenu blanc -->
+        <!-- Colonne droite : spacer transparent (laisse voir hero) + contenu blanc -->
         <div class="detail-main-col">
-          <div class="detail-scroll-spacer"></div>
+          <div class="detail-main-spacer"></div>
           <div class="detail-content-wrap">
             <div class="detail-body" id="detailContent"></div>
           </div>

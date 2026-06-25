@@ -472,18 +472,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 300;
   opacity: 0; pointer-events: none;
   transition: opacity 0.4s var(--ease);
-  /* Transparent sur la zone hero (58vh), beige en-dessous */
-  background: linear-gradient(to bottom, transparent 58vh, var(--bg) 58vh);
+  background: var(--bg); /* fond beige solide (visible quand hero est parti) */
 }
 .detail-view.open { opacity: 1; pointer-events: all; }
 
-/* ── Hero : fond coloré fixe, affiché derrière le scroll ── */
+/* ── Hero : DANS le flux du scroll — défile vers le haut quand on scrolle ── */
 .detail-hero {
-  position: absolute; top: 0; left: 0; right: 0;
+  position: relative; /* plus position:absolute — dans le flux */
   height: 58vh; min-height: 300px;
-  z-index: 1;
   display: flex; align-items: center;
-  /* 295px réservés à gauche pour la colonne carte */
   padding: 2.5rem 3rem 4.5rem 310px;
   overflow: hidden;
 }
@@ -548,31 +545,32 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .detail-hero-close:hover { transform: rotate(90deg) scale(1.1); background: #fff; }
 
-/* ── Zone scrollable — glisse par-dessus le hero ── */
+/* ── Zone scrollable ── */
 .detail-scroll {
   position: absolute; inset: 0;
-  z-index: 2;
   overflow-y: auto;
   scroll-behavior: smooth;
-  background: transparent; /* transparent → hero coloré visible en pleine largeur */
+  background: transparent;
 }
 .detail-scroll::-webkit-scrollbar { width: 4px; }
 .detail-scroll::-webkit-scrollbar-track { background: transparent; }
 .detail-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 2px; }
 
-/* Conteneur flex 2 colonnes sur toute la hauteur du scroll */
+/* Deux colonnes remontent sur le hero grâce au margin-top négatif.
+   La sidebar sticky reste visible au scroll pendant que le hero défile vers le haut. */
 .detail-scroll-inner {
   display: flex;
-  min-height: 100%;
+  margin-top: -58vh; /* chevauche le hero pour que la carte démarre sur la couleur */
+  min-height: 100vh;
 }
 
-/* Colonne gauche : transparente — laisse voir la couleur du hero puis le beige du detail-view */
+/* Colonne gauche : transparente (hero coloré visible derrière, puis beige de detail-view) */
 .detail-sidebar-col {
   width: 295px; flex-shrink: 0;
   background: transparent;
 }
 
-/* Sidebar sticky : reste à l'écran quand on scrolle */
+/* Sidebar sticky — part sur fond coloré, reste visible, passe sur fond beige au scroll */
 .detail-sidebar {
   position: sticky;
   top: 1.5rem;
@@ -582,9 +580,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding-top: 1.5rem;
   pointer-events: all;
 }
-.detail-sidebar-card-wrap {
-  position: relative;
-}
+.detail-sidebar-card-wrap { position: relative; }
 .detail-sidebar-mini {
   width: 310px; height: 470px;
   transform: scale(0.62) rotate(-4deg);
@@ -592,25 +588,25 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   pointer-events: none;
 }
 
-/* Colonne droite : spacer transparent + contenu blanc */
+/* Colonne droite */
 .detail-main-col {
   flex: 1; min-width: 0;
   display: flex; flex-direction: column;
 }
 
-/* Spacer transparent = hauteur du hero → laisse voir la couleur derrière */
-.detail-scroll-spacer {
+/* Spacer transparent = hauteur hero → laisse voir la couleur sur la droite */
+.detail-main-spacer {
   height: 58vh; min-height: 300px;
   flex-shrink: 0;
   background: transparent;
   pointer-events: none;
 }
 
-/* Contenu blanc qui recouvre le hero en scrollant */
+/* Contenu blanc */
 .detail-content-wrap {
   flex: 1;
   background: var(--bg);
-  min-height: calc(100vh - 58vh + 50px);
+  min-height: 60vh;
 }
 .detail-body { padding: 3rem 4.5rem 5rem 3rem; }
 
@@ -660,11 +656,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* --- Timeline parcours --- */
 .timeline { padding-left: 2.5rem; border-left: 2px solid var(--border); display: flex; flex-direction: column; gap: 3rem; margin-top: 0.5rem; }
 .tl-item { position: relative; }
+.tl-item--with-map { display: flex; gap: 2rem; align-items: flex-start; }
+.tl-item-content { flex: 1; min-width: 0; position: relative; }
+.tl-map { width: 260px; flex-shrink: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.1); margin-top: 0.35rem; }
 .tl-dot { position: absolute; left: calc(-2.5rem - 6px); top: 0.35rem; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); outline: 2px solid var(--accent); }
 .tl-date { font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.3rem; }
 .tl-title { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem; }
 .tl-sub { color: var(--muted); font-size: 0.86rem; margin-bottom: 0.5rem; }
-.tl-desc { font-size: 0.9rem; color: #555; line-height: 1.75; max-width: 520px; }
+.tl-desc { font-size: 0.9rem; color: #555; line-height: 1.75; }
 .tl-why { margin-top: 0.7rem; padding: 0.8rem 1.1rem; background: var(--accent-light); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; font-size: 0.86rem; color: #555; line-height: 1.75; }
 .tl-why strong { color: var(--accent); font-weight: 700; }
 
