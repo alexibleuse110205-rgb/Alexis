@@ -558,22 +558,27 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .detail-scroll::-webkit-scrollbar-track { background: transparent; }
 .detail-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 2px; }
 
-/* Spacer transparent = même hauteur que le hero
-   La carte flotte ici et défile avec le scroll */
-.detail-scroll-spacer {
-  height: 58vh; min-height: 300px;
+/* Conteneur flex 2 colonnes sur toute la hauteur du scroll */
+.detail-scroll-inner {
   display: flex;
-  background: transparent;
-  pointer-events: none;
+  min-height: 100%;
 }
 
-/* Sidebar dans le spacer : bouton ✕ en haut puis carte */
-.detail-sidebar {
+/* Colonne gauche : largeur fixe, fond beige permanent, contient la sidebar sticky */
+.detail-sidebar-col {
   width: 295px; flex-shrink: 0;
+  background: var(--bg);
+}
+
+/* Sidebar sticky : reste à l'écran quand on scrolle */
+.detail-sidebar {
+  position: sticky;
+  top: 1.5rem;
   display: flex; flex-direction: column;
-  align-items: flex-start; justify-content: center;
-  pointer-events: all;
+  align-items: flex-start;
   padding-left: 38px;
+  padding-top: 1.5rem;
+  pointer-events: all;
 }
 .detail-sidebar-card-wrap {
   position: relative;
@@ -585,20 +590,25 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   pointer-events: none;
 }
 
-/* Rangée sous le spacer : colonne gauche blanche + contenu à droite */
-.detail-content-row {
-  display: flex;
-  position: relative; z-index: 1;
-  min-height: calc(100vh - 58vh + 50px);
+/* Colonne droite : spacer transparent + contenu blanc */
+.detail-main-col {
+  flex: 1; min-width: 0;
+  display: flex; flex-direction: column;
 }
-.detail-content-left {
-  width: 295px; flex-shrink: 0;
-  background: var(--bg);
+
+/* Spacer transparent = hauteur du hero → laisse voir la couleur derrière */
+.detail-scroll-spacer {
+  height: 58vh; min-height: 300px;
+  flex-shrink: 0;
+  background: transparent;
+  pointer-events: none;
 }
+
+/* Contenu blanc qui recouvre le hero en scrollant */
 .detail-content-wrap {
   flex: 1;
   background: var(--bg);
-  min-width: 0;
+  min-height: calc(100vh - 58vh + 50px);
 }
 .detail-body { padding: 3rem 4.5rem 5rem 3rem; }
 
