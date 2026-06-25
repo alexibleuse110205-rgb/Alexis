@@ -21,21 +21,25 @@ const TOTAL = CARDS.length;
 
 function renderProfil() {
   return `
-    <div class="profil-photo">
-      <img src="./images/profil.jpg" alt="Alexis Bleuse" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" onerror="this.parentElement.innerHTML='<span style=\'font-size:0.55rem;color:rgba(255,255,255,0.8);font-weight:700;text-align:center;letter-spacing:0.5px;\'>PHOTO<br>À AJOUTER</span>'" />
-    </div>
     <p class="detail-cat-label">À propos</p>
     <h2 class="detail-main-title">Alexis<br>Bleuse<span style="color:var(--accent);">.</span></h2>
     <div class="detail-divider"></div>
-    <p class="detail-text" style="margin-bottom:2rem;">
-      Je m'appelle <strong>Alexis Bleuse</strong>, j'ai <strong>21 ans</strong>,
-      je suis étudiant en <strong>BUT GACO</strong> (Gestion Administrative et
-      Commerciale des Organisations) à l'IUT de Brest-Morlaix. En alternance
-      depuis deux ans chez <strong>Le Télégramme</strong> dans le
-      <strong>Pôle Logistique Réseaux</strong>.
-    </p>
-    <div class="detail-actions">
-      <a href="mailto:alexis.bleuse6@gmail.com" class="btn btn-dark">Me contacter</a>
+    <div class="profil-layout">
+      <div class="profil-photo">
+        <img src="./images/profil.jpg" alt="Alexis Bleuse" onerror="this.style.display='none'" />
+      </div>
+      <div>
+        <p class="detail-text" style="margin-bottom:2rem;">
+          Je m'appelle <strong>Alexis Bleuse</strong>, j'ai <strong>21 ans</strong>,
+          je suis étudiant en <strong>BUT GACO</strong> (Gestion Administrative et
+          Commerciale des Organisations) à l'IUT de Brest-Morlaix. En alternance
+          depuis deux ans chez <strong>Le Télégramme</strong> dans le
+          <strong>Pôle Logistique Réseaux</strong>.
+        </p>
+        <div class="detail-actions">
+          <a href="mailto:alexis.bleuse6@gmail.com" class="btn btn-dark">Me contacter</a>
+        </div>
+      </div>
     </div>
   `;
 }
@@ -154,6 +158,9 @@ function renderParcours() {
           </p>
         </div>
         <div class="tl-map">
+          <div class="tl-photo">
+            <img src="./images/college.jpg" alt="Collège des Deux Baies" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>college.jpg</small>'" />
+          </div>
           <iframe
             src="https://maps.google.com/maps?q=Coll%C3%A8ge+des+Deux+Baies+Carantec&z=14&output=embed"
             width="100%" height="180" style="border:0;border-radius:12px;" loading="lazy"
@@ -178,6 +185,9 @@ function renderParcours() {
           </div>
         </div>
         <div class="tl-map">
+          <div class="tl-photo">
+            <img src="./images/lycee.jpg" alt="Lycée Tristan Corbière" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>lycee.jpg</small>'" />
+          </div>
           <iframe
             src="https://maps.google.com/maps?q=Lyc%C3%A9e+Tristan+Corbi%C3%A8re+Morlaix&z=14&output=embed"
             width="100%" height="180" style="border:0;border-radius:12px;" loading="lazy"
@@ -198,7 +208,6 @@ function renderParcours() {
             Depuis la 2<sup>e</sup> année, je réalise mon parcours en alternance
             au sein du groupe <strong>Le Télégramme</strong>.
           </p>
-          <img src="./images/telegramme.jpg" alt="Le Télégramme" style="width:100%;height:140px;object-fit:cover;border-radius:10px;margin:0.7rem 0;" onerror="this.style.display='none'" />
           <div class="tl-why">
             <strong>Pourquoi le BUT GACO ?</strong><br>
             Sa polyvalence : marketing, gestion, droit, économie, comptabilité,
@@ -212,6 +221,9 @@ function renderParcours() {
           </div>
         </div>
         <div class="tl-map">
+          <div class="tl-photo">
+            <img src="./images/iut.jpg" alt="IUT Morlaix" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>iut.jpg</small>'" />
+          </div>
           <iframe
             src="https://maps.google.com/maps?q=IUT+Morlaix+Bretagne&z=14&output=embed"
             width="100%" height="180" style="border:0;border-radius:12px;" loading="lazy"
@@ -231,6 +243,9 @@ function renderExperiences() {
     <div class="detail-divider"></div>
 
     <div class="exp-card">
+      <div class="exp-photo">
+        <img src="./images/jobs.jpg" alt="Premières expériences" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>jobs.jpg</small>'" />
+      </div>
       <div class="exp-header">
         <h3 class="exp-company">Mes premières expériences</h3>
         <span class="exp-badge badge-past">Saisonnier</span>
@@ -252,6 +267,9 @@ function renderExperiences() {
     </div>
 
     <div class="exp-card">
+      <div class="exp-photo">
+        <img src="./images/telegramme.jpg" alt="Le Télégramme" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>telegramme.jpg</small>'" />
+      </div>
       <div class="exp-header">
         <h3 class="exp-company">Groupe Le Télégramme</h3>
         <span class="exp-badge badge-current">En cours</span>
@@ -734,13 +752,17 @@ function renderMonProjet() {
     <div class="proj-section">
       <div class="proj-section-badge">À court terme</div>
       <h3 class="proj-section-title">CDD — Service ADV, Le Télégramme</h3>
+      <div class="exp-photo" style="margin-bottom:1.4rem;">
+        <img src="./images/telegramme.jpg" alt="Le Télégramme" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>telegramme.jpg</small>'" />
+      </div>
       <p class="detail-text" style="margin-bottom:1.2rem;">
         Dès septembre, je vais réaliser un <strong>CDD au sein du service
         Administration des Ventes</strong> du groupe Le Télégramme (direction
-        Logistique et Réseau). Cette expérience me permettra de continuer à développer
-        mes compétences professionnelles tout en approfondissant ma compréhension
-        du fonctionnement d'une entreprise dans les domaines de la logistique,
-        de l'ADV et de la relation partenaires.
+        Logistique et Réseau). J'ai fait ce choix pour apprendre un métier
+        plus technique et concret — mon alternance dans le pôle logistique
+        était davantage axée sur l'optimisation et l'analyse des processus
+        (il n'y avait pas vraiment de partie technique au quotidien), et je
+        souhaitais acquérir une vraie maîtrise opérationnelle d'un métier.
       </p>
       <p class="detail-text" style="margin-bottom:1.2rem;">
         Mes missions seront variées : gestion de la distribution des titres accessoires
@@ -832,27 +854,6 @@ function renderContact() {
         </div>
       </a>
 
-      <a href="https://github.com/alexibleuse110205-rgb" target="_blank" rel="noopener" class="contact-item">
-        <span class="contact-item-icon">🐙</span>
-        <div>
-          <p class="contact-item-label">GitHub</p>
-          <p class="contact-item-value">alexibleuse110205-rgb</p>
-        </div>
-      </a>
-
-    </div>
-
-    <div class="cv-section">
-      <div style="font-size:2.8rem;margin-bottom:0.9rem;">📄</div>
-      <h3 style="font-family:var(--font-serif);font-size:1.25rem;font-weight:700;margin-bottom:0.55rem;">Mon CV</h3>
-      <p class="detail-text" style="margin-bottom:1.3rem;font-size:0.87rem;">
-        Retrouve l'ensemble de mon parcours, mes expériences et mes compétences
-        au format PDF.
-      </p>
-      <a href="#" class="btn btn-dark" style="margin:0 auto;width:fit-content;">
-        Télécharger mon CV ↓
-      </a>
-      <p style="font-size:0.7rem;color:var(--muted);margin-top:0.7rem;font-style:italic;">lien à ajouter</p>
     </div>
 
     <div style="margin-top:1.5rem;padding:1.2rem 1.5rem;background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;">
