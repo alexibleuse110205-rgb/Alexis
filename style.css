@@ -551,9 +551,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 2;
   overflow-y: auto;
   scroll-behavior: smooth;
-  /* Colonne gauche 295px = toujours fond beige (la carte scrolle dedans)
-     Partie droite = transparente → le hero coloré apparaît derrière */
-  background: linear-gradient(to right, var(--bg) 295px, transparent 295px);
+  background: transparent; /* transparent → hero coloré visible en pleine largeur */
 }
 .detail-scroll::-webkit-scrollbar { width: 4px; }
 .detail-scroll::-webkit-scrollbar-track { background: transparent; }
@@ -585,12 +583,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   pointer-events: none;
 }
 
-/* Contenu blanc qui recouvre le hero progressivement (droite uniquement) */
-.detail-content-wrap {
-  background: var(--bg);
+/* Rangée sous le spacer : colonne gauche blanche + contenu à droite */
+.detail-content-row {
+  display: flex;
   position: relative; z-index: 1;
   min-height: calc(100vh - 58vh + 50px);
-  margin-left: 295px; /* laisse la colonne gauche ouverte pour la carte */
+}
+.detail-content-left {
+  width: 295px; flex-shrink: 0;
+  background: var(--bg);
+}
+.detail-content-wrap {
+  flex: 1;
+  background: var(--bg);
+  min-width: 0;
 }
 .detail-body { padding: 3rem 4.5rem 5rem 3rem; }
 
