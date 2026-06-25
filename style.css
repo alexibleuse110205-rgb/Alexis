@@ -465,58 +465,56 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ============================================================
-   VUE DÉTAIL — bande colorée + sidebar carte sticky + contenu
+   VUE DÉTAIL — hero fixe + scroll glissant par-dessus
    ============================================================ */
 .detail-view {
   position: fixed; inset: 0;
   z-index: 300;
-  display: flex; flex-direction: column;
   opacity: 0; pointer-events: none;
   transition: opacity 0.4s var(--ease);
-  overflow: hidden;
 }
 .detail-view.open { opacity: 1; pointer-events: all; }
 
-/* ── ① Bande colorée haute — titre uniquement ── */
+/* ── Hero : fond coloré fixe, affiché derrière le scroll ── */
 .detail-hero {
-  position: relative;
-  flex-shrink: 0;
-  min-height: 200px;
-  display: flex; align-items: flex-end;
-  /* Réserve 255px à gauche pour la carte dans la sidebar */
-  padding: 1.8rem 2.5rem 3rem 265px;
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 58vh; min-height: 300px;
+  z-index: 1;
+  display: flex; align-items: center;
+  /* 270px réservés à gauche pour la carte */
+  padding: 2.5rem 3rem 4.5rem 285px;
   overflow: hidden;
 }
 .detail-hero::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.30) 100%);
+  background: linear-gradient(to bottom,
+    rgba(0,0,0,0.04) 0%,
+    rgba(0,0,0,0.28) 100%);
   pointer-events: none; z-index: 1;
 }
 
 /* Emojis qui tombent (injectés par JS) */
 .fall-emoji {
   position: absolute; top: -60px;
-  pointer-events: none; user-select: none;
-  z-index: 0;
+  pointer-events: none; user-select: none; z-index: 0;
   animation: fallDown var(--dur, 0.8s) ease-in var(--delay, 0s) forwards;
 }
 @keyframes fallDown {
   0%   { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(340px) rotate(var(--rot, 200deg)); opacity: 0; }
+  100% { transform: translateY(380px) rotate(var(--rot, 200deg)); opacity: 0; }
 }
 
 .detail-hero-title {
   font-family: var(--font-serif); font-style: italic;
-  font-size: clamp(3.2rem, 6.5vw, 5.8rem);
+  font-size: clamp(3rem, 7vw, 6rem);
   font-weight: 400; line-height: 1.0; color: #fff;
   text-shadow: 0 4px 30px rgba(0,0,0,0.22);
-  position: relative; z-index: 2;
-  flex: 1;
+  position: relative; z-index: 2; flex: 1;
 }
 .detail-hero-foot {
   position: absolute;
-  bottom: 0.9rem; left: 265px; right: 2.2rem;
+  bottom: 1rem; left: 285px; right: 2.5rem;
   display: flex; align-items: center; justify-content: space-between;
   z-index: 2;
 }
@@ -533,58 +531,65 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-transform: uppercase; color: rgba(255,255,255,0.48);
 }
 
-/* ── ② Zone principale : sidebar + contenu ── */
-.detail-main {
-  flex: 1; display: flex; overflow: hidden;
+/* Bouton ✕ — fixe en haut à droite */
+.detail-hero-close {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  z-index: 400;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; font-weight: 700; cursor: pointer;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.28);
+  border: none; color: var(--text); font-family: inherit;
+  transition: transform 0.25s, background 0.2s;
+}
+.detail-hero-close:hover { transform: rotate(90deg) scale(1.1); background: #fff; }
+
+/* ── Zone scrollable — glisse par-dessus le hero ── */
+.detail-scroll {
+  position: absolute; inset: 0;
+  z-index: 2;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  background: transparent; /* transparent pour laisser voir le hero derrière */
+}
+.detail-scroll::-webkit-scrollbar { width: 4px; }
+.detail-scroll::-webkit-scrollbar-track { background: transparent; }
+.detail-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 2px; }
+
+/* Spacer transparent = même hauteur que le hero
+   La carte flotte ici et défile avec le scroll */
+.detail-scroll-spacer {
+  height: 58vh; min-height: 300px;
+  display: flex;
+  background: transparent;
+  pointer-events: none;
 }
 
-/* Sidebar gauche — fond blanc (même que la page), carte toujours visible */
+/* Sidebar dans le spacer : carte inclinée, fond transparent */
 .detail-sidebar {
-  width: 255px; flex-shrink: 0;
-  background: var(--bg);
-  display: flex; flex-direction: column; align-items: center;
-  padding: 2rem 0 2rem;
-  position: relative; overflow: visible;
+  width: 270px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: all;
 }
 .detail-sidebar-card-wrap {
-  position: relative; margin-top: 0.5rem;
+  position: relative;
+  margin-left: 22px; /* léger décalage depuis le bord gauche */
 }
-/* Card clonée, à l'échelle */
 .detail-sidebar-mini {
   width: 310px; height: 470px;
-  transform: scale(0.65) rotate(-4deg);
+  transform: scale(0.62) rotate(-4deg);
   transform-origin: top left;
   pointer-events: none;
 }
 
-/* Bouton ✕ rond blanc — à droite de la carte */
-.detail-hero-close {
-  position: absolute;
-  top: 30px; right: -30px;
-  width: 46px; height: 46px; border-radius: 50%;
-  background: rgba(255,255,255,0.96);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1rem; font-weight: 700; cursor: pointer;
-  box-shadow: 0 6px 22px rgba(0,0,0,0.30);
-  border: none; color: var(--text); font-family: inherit;
-  transition: transform 0.25s, background 0.2s;
-  z-index: 10;
-}
-.detail-hero-close:hover {
-  transform: rotate(90deg) scale(1.1);
-  background: #fff;
-}
-
-/* Contenu scrollable à droite */
+/* Contenu blanc qui recouvre le hero progressivement */
 .detail-content-wrap {
-  flex: 1; background: var(--bg);
-  overflow-y: auto; scroll-behavior: smooth;
+  background: var(--bg);
+  position: relative; z-index: 1;
+  min-height: calc(100vh - 58vh + 50px);
 }
-.detail-content-wrap::-webkit-scrollbar { width: 4px; }
-.detail-content-wrap::-webkit-scrollbar-track { background: transparent; }
-.detail-content-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
-.detail-body { padding: 3rem 4rem 4.5rem 2.5rem; }
+.detail-body { padding: 3rem 4.5rem 5rem 3rem; }
 
 /* Titres et textes dans la vue détail */
 .detail-cat-label {

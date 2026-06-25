@@ -65,7 +65,7 @@
        ===================================================== -->
   <div class="detail-view" id="detailView" role="dialog" aria-label="Détail de la carte" aria-modal="true">
 
-    <!-- ① Bande colorée haute — titre + labels (emojis qui tombent injectés par JS) -->
+    <!-- Hero fixe en fond : couleur de la carte, titre à droite de la carte -->
     <div class="detail-hero" id="detailHero">
       <h1 class="detail-hero-title" id="detailHeroTitle"></h1>
       <div class="detail-hero-foot">
@@ -75,25 +75,28 @@
       </div>
     </div>
 
-    <!-- ② Zone principale : carte à gauche (sticky) + contenu à droite -->
-    <div class="detail-main">
+    <!-- Bouton fermer — fixe en haut à droite -->
+    <button class="detail-hero-close" id="closeBtn" aria-label="Fermer">✕</button>
 
-      <!-- Sidebar gauche — carte inclinée qui reste en place au scroll -->
-      <div class="detail-sidebar" id="detailSidebar">
-        <div class="detail-sidebar-card-wrap">
-          <div class="detail-sidebar-mini" id="detailHeroMiniInner"></div>
-          <button class="detail-hero-close" id="closeBtn" aria-label="Fermer">✕</button>
+    <!-- Zone scrollable qui glisse PAR-DESSUS le hero -->
+    <div class="detail-scroll" id="detailRight">
+
+      <!-- Spacer transparent = même hauteur que le hero
+           La carte flotte ici, à côté du titre, et défile avec le scroll -->
+      <div class="detail-scroll-spacer">
+        <div class="detail-sidebar" id="detailSidebar">
+          <div class="detail-sidebar-card-wrap">
+            <div class="detail-sidebar-mini" id="detailHeroMiniInner"></div>
+          </div>
         </div>
       </div>
 
-      <!-- Contenu scrollable à droite -->
-      <div class="detail-content-wrap" id="detailRight">
-        <div class="detail-body" id="detailContent">
-          <!-- contenu injecté par renderDetail() dans script.js -->
-        </div>
+      <!-- Contenu blanc qui recouvre progressivement le hero en scrollant -->
+      <div class="detail-content-wrap">
+        <div class="detail-body" id="detailContent"></div>
       </div>
 
-    </div><!-- fin .detail-main -->
+    </div>
 
   </div><!-- fin .detail-view -->
 
