@@ -75,16 +75,15 @@
       </div>
     </div>
 
-    <!-- Bouton fermer — fixe en haut à droite -->
-    <button class="detail-hero-close" id="closeBtn" aria-label="Fermer">✕</button>
-
     <!-- Zone scrollable qui glisse PAR-DESSUS le hero -->
     <div class="detail-scroll" id="detailRight">
 
       <!-- Spacer transparent = même hauteur que le hero
-           La carte flotte ici, à côté du titre, et défile avec le scroll -->
+           La carte et le bouton fermer flottent ici et défilent avec le scroll -->
       <div class="detail-scroll-spacer">
         <div class="detail-sidebar" id="detailSidebar">
+          <!-- Bouton ✕ positionné en haut de la colonne, scroll avec la carte -->
+          <button class="detail-hero-close" id="closeBtn" aria-label="Fermer">✕</button>
           <div class="detail-sidebar-card-wrap">
             <div class="detail-sidebar-mini" id="detailHeroMiniInner"></div>
           </div>
