@@ -287,7 +287,7 @@ function coursCard(code, name, link) {
     return `<a href="${link}" target="_blank" rel="noopener" class="cours-item cours-item--link">
       <span class="cours-code">${code}</span>
       <span class="cours-name">${name}</span>
-      <span class="cours-ext">Voir le dossier ↗</span>
+      <span class="cours-ext">Ouvrir le dossier ↗</span>
     </a>`;
   }
   return `<div class="cours-item">
@@ -666,14 +666,14 @@ function renderBilanCompetences() {
     <!-- SAVOIR-FAIRE -->
     <p class="detail-section-title" style="margin-top:2.5rem;">🛠️ Savoir-faire — Ce que je sais faire</p>
     <div class="bilan-grid">
-      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📋</span><span class="bilan-card-label">Étude de marché</span><span class="bilan-card-sub">Analyse concurrentielle, enquête, synthèse</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📋</span><span class="bilan-card-label">Étude de marché</span><span class="bilan-card-sub">Analyse concurrentielle, enquête consommateurs, synthèse</span></div>
       <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📝</span><span class="bilan-card-label">Cahier des charges</span><span class="bilan-card-sub">Rédaction, cadrage, spécifications fonctionnelles</span></div>
-      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">⚙️</span><span class="bilan-card-label">Automatisation</span><span class="bilan-card-sub">Google Script, macros, outils bureautiques</span></div>
-      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🎨</span><span class="bilan-card-label">Canva</span><span class="bilan-card-sub">Présentation, communication visuelle, design</span></div>
-      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📑</span><span class="bilan-card-label">Excel / Sheets</span><span class="bilan-card-sub">Tableaux de bord, formules, analyse de données</span></div>
-      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">💻</span><span class="bilan-card-label">GitHub</span><span class="bilan-card-sub">Versioning, dépôt, collaboration</span></div>
-      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🗣️</span><span class="bilan-card-label">Présentation orale</span><span class="bilan-card-sub">Argumentation, prise de parole, conviction</span></div>
-      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📦</span><span class="bilan-card-label">Gestion de projet</span><span class="bilan-card-sub">Planning, délais, coordination d'équipe</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">⚙️</span><span class="bilan-card-label">Automatisation bureautique</span><span class="bilan-card-sub">Création de scripts Google Apps pour automatiser des tâches répétitives</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📊</span><span class="bilan-card-label">Analyse financière</span><span class="bilan-card-sub">Lecture de bilan, compte de résultat, interprétation des ratios</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🎪</span><span class="bilan-card-label">Organisation d'événements</span><span class="bilan-card-sub">Planification, logistique, communication, gestion du budget</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📄</span><span class="bilan-card-label">Rédaction & synthèse</span><span class="bilan-card-sub">Rapports, dossiers, comptes-rendus professionnels</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🗣️</span><span class="bilan-card-label">Présentation orale</span><span class="bilan-card-sub">Argumentation, prise de parole devant un jury, conviction</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📦</span><span class="bilan-card-label">Gestion de projet</span><span class="bilan-card-sub">Planification, répartition des tâches, respect des délais</span></div>
     </div>
 
     <!-- SAVOIR-ÊTRE -->
