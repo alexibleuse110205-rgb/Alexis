@@ -481,8 +481,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   height: 58vh; min-height: 300px;
   z-index: 1;
   display: flex; align-items: center;
-  /* 270px réservés à gauche pour la carte */
-  padding: 2.5rem 3rem 4.5rem 285px;
+  /* 295px réservés à gauche pour la colonne carte */
+  padding: 2.5rem 3rem 4.5rem 310px;
   overflow: hidden;
 }
 .detail-hero::after {
@@ -514,7 +514,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .detail-hero-foot {
   position: absolute;
-  bottom: 1rem; left: 285px; right: 2.5rem;
+  bottom: 1rem; left: 310px; right: 2.5rem;
   display: flex; align-items: center; justify-content: space-between;
   z-index: 2;
 }
@@ -551,7 +551,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 2;
   overflow-y: auto;
   scroll-behavior: smooth;
-  background: transparent; /* transparent pour laisser voir le hero derrière */
+  /* Colonne gauche 295px = toujours fond beige (la carte scrolle dedans)
+     Partie droite = transparente → le hero coloré apparaît derrière */
+  background: linear-gradient(to right, var(--bg) 295px, transparent 295px);
 }
 .detail-scroll::-webkit-scrollbar { width: 4px; }
 .detail-scroll::-webkit-scrollbar-track { background: transparent; }
@@ -566,15 +568,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   pointer-events: none;
 }
 
-/* Sidebar dans le spacer : carte inclinée, fond transparent */
+/* Sidebar dans le spacer : carte inclinée */
 .detail-sidebar {
-  width: 270px; flex-shrink: 0;
+  width: 295px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
   pointer-events: all;
 }
 .detail-sidebar-card-wrap {
   position: relative;
-  margin-left: 22px; /* léger décalage depuis le bord gauche */
+  margin-left: 38px; /* espace visible depuis le bord gauche */
 }
 .detail-sidebar-mini {
   width: 310px; height: 470px;
@@ -583,11 +585,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   pointer-events: none;
 }
 
-/* Contenu blanc qui recouvre le hero progressivement */
+/* Contenu blanc qui recouvre le hero progressivement (droite uniquement) */
 .detail-content-wrap {
   background: var(--bg);
   position: relative; z-index: 1;
   min-height: calc(100vh - 58vh + 50px);
+  margin-left: 295px; /* laisse la colonne gauche ouverte pour la carte */
 }
 .detail-body { padding: 3rem 4.5rem 5rem 3rem; }
 
