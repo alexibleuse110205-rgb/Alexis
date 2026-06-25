@@ -22,22 +22,17 @@ const TOTAL = CARDS.length;
 function renderProfil() {
   return `
     <div class="profil-photo">
-      <span style="font-size:0.55rem;color:rgba(255,255,255,0.8);font-weight:700;text-align:center;letter-spacing:0.5px;">
-        PHOTO<br>À AJOUTER
-      </span>
+      <img src="./images/profil.jpg" alt="Alexis Bleuse" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" onerror="this.parentElement.innerHTML='<span style=\'font-size:0.55rem;color:rgba(255,255,255,0.8);font-weight:700;text-align:center;letter-spacing:0.5px;\'>PHOTO<br>À AJOUTER</span>'" />
     </div>
     <p class="detail-cat-label">À propos</p>
     <h2 class="detail-main-title">Alexis<br>Bleuse<span style="color:var(--accent);">.</span></h2>
     <div class="detail-divider"></div>
-    <p class="detail-text" style="margin-bottom:1.5rem;">
-      Étudiant en 3<sup>e</sup> année de <strong>BUT GACO</strong> (parcours MRPE)
-      à l'IUT de Brest-Morlaix, en alternance au service
-      <strong>ADV Logistique</strong> du groupe <strong>Le Télégramme</strong>.
-    </p>
     <p class="detail-text" style="margin-bottom:2rem;">
-      Sportif, curieux et rigoureux, j'aime comprendre le fonctionnement
-      des organisations et créer de la valeur à travers l'action concrète.
-      À terme, j'aspire à créer ma propre entreprise.
+      Je m'appelle <strong>Alexis Bleuse</strong>, j'ai <strong>21 ans</strong>,
+      je suis étudiant en <strong>BUT GACO</strong> (Gestion Administrative et
+      Commerciale des Organisations) à l'IUT de Brest-Morlaix. En alternance
+      depuis deux ans chez <strong>Le Télégramme</strong> dans le
+      <strong>Pôle Logistique Réseaux</strong>.
     </p>
     <div class="detail-actions">
       <a href="mailto:alexis.bleuse6@gmail.com" class="btn btn-dark">Me contacter</a>
@@ -58,7 +53,7 @@ function renderPassions() {
 
     <div class="passion-feature">
       <div class="passion-feature-photo">
-        <span class="passion-photo-ph">📷 PHOTO<br>Handball</span>
+        <img src="./images/handball.jpg" alt="Handball" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" onerror="this.style.display='none'" />
       </div>
       <div class="passion-feature-body">
         <div class="passion-feature-head">
@@ -83,7 +78,7 @@ function renderPassions() {
 
     <div class="passion-feature passion-feature--rev">
       <div class="passion-feature-photo">
-        <span class="passion-photo-ph">📷 PHOTO<br>Football</span>
+        <img src="./images/football.jpg" alt="Football" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" onerror="this.style.display='none'" />
       </div>
       <div class="passion-feature-body">
         <div class="passion-feature-head">
@@ -108,7 +103,7 @@ function renderPassions() {
 
     <div class="passion-feature">
       <div class="passion-feature-photo">
-        <span class="passion-photo-ph">📷 PHOTO<br>Voyages</span>
+        <img src="./images/voyage.jpg" alt="Voyage Portugal" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" onerror="this.style.display='none'" />
       </div>
       <div class="passion-feature-body">
         <div class="passion-feature-head">
@@ -203,6 +198,7 @@ function renderParcours() {
             Depuis la 2<sup>e</sup> année, je réalise mon parcours en alternance
             au sein du groupe <strong>Le Télégramme</strong>.
           </p>
+          <img src="./images/telegramme.jpg" alt="Le Télégramme" style="width:100%;height:140px;object-fit:cover;border-radius:10px;margin:0.7rem 0;" onerror="this.style.display='none'" />
           <div class="tl-why">
             <strong>Pourquoi le BUT GACO ?</strong><br>
             Sa polyvalence : marketing, gestion, droit, économie, comptabilité,
@@ -331,7 +327,7 @@ function renderCours() {
       <div class="cours-sem">
         <p class="cours-sem-label">2e Semestre</p>
         <div class="cours-grid">
-          ${coursCard('R2.01','PPP2')}
+          ${coursCard('R2.01','PPP2','https://docs.google.com/document/d/19_8xTtB2RbufPA2LD9pCD1tTPcyoW4rxqap1yPPgOps/edit?usp=sharing')}
           ${coursCard('R2.02','LV1 Anglais')}
           ${coursCard('R2.03-12','LV2 Espagnol')}
           ${coursCard('R2.04','Droit de l\'entreprise')}
@@ -355,12 +351,12 @@ function renderCours() {
           ${coursCard('R3.03-A','LV2 Espagnol')}
           ${coursCard('R3.04','Droit du travail')}
           ${coursCard('R3.05','Stratégie d\'entreprise')}
-          ${coursCard('R3.06','Marketing')}
-          ${coursCard('R3.07','Ressources Humaines')}
+          ${coursCard('R3.06','Marketing','https://canva.link/pjkhsdo2ondi2xs')}
+          ${coursCard('R3.07','Ressources Humaines','https://canva.link/y7hwb0pn8w2vt0l')}
           ${coursCard('R3.08','Expression et Communication')}
           ${coursCard('R3.MRPE.10','Nouvelles approches de l\'entreprise')}
-          ${coursCard('R3.MRPE.11','Management global du développement durable')}
-          ${coursCard('R3.MRPE.99','Logistique')}
+          ${coursCard('R3.MRPE.11','Management global du développement durable','https://docs.google.com/document/d/1Y0-ui77xCbmo4I_P4JCyvzIQ9uMjhtjZJ7VaecgFcBw/edit?usp=sharing')}
+          ${coursCard('R3.MRPE.99','Logistique','https://docs.google.com/document/d/12BFD01_Zil_XSc6niE1GztKjgd3SPn8LtwELpfBwXtc/edit?usp=sharing')}
         </div>
       </div>
       <div class="cours-sem">
@@ -372,9 +368,9 @@ function renderCours() {
           ${coursCard('R4.04','Droit des affaires')}
           ${coursCard('R4.05','Outils de pilotage')}
           ${coursCard('R4.06','Expression et communication')}
-          ${coursCard('R4.MRPE.07','Commerce éco-responsable')}
+          ${coursCard('R4.MRPE.07','Commerce éco-responsable','https://docs.google.com/document/d/1dgnCIw8VWP97y2HATxr3EfoYijkQeu6zm8_ozHqPmMM/edit?usp=sharing')}
           ${coursCard('R4.MRPE.08','Responsabilité sociale et environnementale de l\'organisation')}
-          ${coursCard('R4.MRPE.09','Entrepreneuriat et intraprenariat responsable')}
+          ${coursCard('R4.MRPE.09','Entrepreneuriat et intraprenariat responsable','https://docs.google.com/document/d/12jMT99dYT__5lchVtj4a5DI1qngFh28n4ZjFYUhXyeg/edit?usp=sharing')}
           ${coursCard('R4.MRPE.10','Tourisme')}
         </div>
       </div>
@@ -388,9 +384,9 @@ function renderCours() {
           ${coursCard('R5.01','Projet personnel et Professionnel')}
           ${coursCard('R5.02','Anglais des affaires')}
           ${coursCard('R5.03 A','Espagnol')}
-          ${coursCard('R5.04','Achats')}
-          ${coursCard('R5.05','Logistique')}
-          ${coursCard('R5.MRPE.06','Reporting et achats')}
+          ${coursCard('R5.04','Achats','https://docs.google.com/document/d/1SBw-09q62CVsq_bKIUb9IZ9z5-ezhPh1908pVNKpvP8/edit?usp=sharing')}
+          ${coursCard('R5.05','Logistique','https://canva.link/kjve4i0r0msgqw3')}
+          ${coursCard('R5.MRPE.06','Reporting et achats','https://canva.link/rsv2akw8h0y7a1r')}
           ${coursCard('R5.MRPE.07','Management et reporting')}
           ${coursCard('R5.MRPE.08','Entrepreneuriat et Intrapreneuriat resp.')}
           ${coursCard('R5.MRPE.09','Management responsable d\'équipe')}
@@ -479,7 +475,7 @@ function renderSAE() {
       <p class="sae-sem-label">5e Semestre</p>
       ${saeItem('SAE 5.02','Conduire un projet de développement commercial dans un contexte international','https://docs.google.com/document/d/1Jqvaco7bihIsaaLKY2hJrOZ3hNoOPZH-fxjqXBPm2hQ/edit?tab=t.0')}
       <p class="sae-sem-label">6e Semestre</p>
-      ${saeItem('SAE 6.0','Piloter et rendre compte d\'un projet (Adaptation locale S6)','https://www.notion.so/Second-Souffle-3278adcbd1528082b70aec60b99b20af')}
+      ${saeItem('SAE 6.0','Piloter et rendre compte d\'un projet — Adaptation locale S6','https://drive.google.com/file/d/15eqW4iVubhCZOpwGT7XrpHk-FMERgO7b/view?usp=sharing')}
     </div>
 
     <p class="detail-section-title">Les SAE qui m'ont le plus plu</p>
@@ -583,6 +579,7 @@ function renderProjetTutore() {
       <div class="pt-header">
         <h3 class="pt-title">Événement Alternants BUT GACO</h3>
         <span class="pt-badge">2ème année</span>
+        <a href="https://canva.link/s7kf991qmkqf7kh" target="_blank" rel="noopener" class="sae-link" style="margin-left:auto;">Voir ↗</a>
       </div>
       <div class="pt-body">
         <p class="detail-text" style="margin-bottom:0.9rem;">
@@ -645,14 +642,85 @@ function renderProjetTutore() {
 /* ── Bilan des compétences ─────────────────────────────────── */
 function renderBilanCompetences() {
   return `
-    <p class="detail-cat-label">Savoir-faire</p>
+    <p class="detail-cat-label">Savoir · Savoir-faire · Savoir-être</p>
     <h2 class="detail-main-title">Bilan des<br>Compétences</h2>
     <div class="detail-divider"></div>
-    <p class="detail-text" style="margin-bottom:2rem;">
-      Cette section présentera mon bilan de compétences détaillé.
-      Contenu à venir.
+    <p class="detail-text" style="margin-bottom:2.5rem;">
+      Trois ans de BUT GACO, deux ans d'alternance et une vie sportive intense —
+      voici ce que j'ai acquis, ce que je sais faire et qui je suis.
     </p>
-    <div class="ph-block">[ Bilan des compétences — contenu à compléter ]</div>
+
+    <!-- SAVOIRS -->
+    <p class="detail-section-title">📚 Savoirs — Ce que je connais</p>
+    <div class="bilan-grid">
+      <div class="bilan-card"><span class="bilan-card-icon">⚖️</span><span class="bilan-card-label">Droit</span><span class="bilan-card-sub">Droit du travail, des affaires, de l'entreprise</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">📊</span><span class="bilan-card-label">Comptabilité</span><span class="bilan-card-sub">Bilan, compte de résultat, analyse financière</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">📈</span><span class="bilan-card-label">Marketing</span><span class="bilan-card-sub">Études de marché, segmentation, stratégie</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">🏭</span><span class="bilan-card-label">Logistique</span><span class="bilan-card-sub">Supply chain, distribution, gestion des flux</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">👥</span><span class="bilan-card-label">Management</span><span class="bilan-card-sub">Gestion d'équipe, reporting, organisation</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">🌱</span><span class="bilan-card-label">RSE</span><span class="bilan-card-sub">Développement durable, enjeux sociaux et environnementaux</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">💰</span><span class="bilan-card-label">Économie</span><span class="bilan-card-sub">Micro/macro économie, organisations, marchés</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">🚀</span><span class="bilan-card-label">Entrepreneuriat</span><span class="bilan-card-sub">Business plan, création d'activité, intrapreneuriat</span></div>
+    </div>
+
+    <!-- SAVOIR-FAIRE -->
+    <p class="detail-section-title" style="margin-top:2.5rem;">🛠️ Savoir-faire — Ce que je sais faire</p>
+    <div class="bilan-grid">
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📋</span><span class="bilan-card-label">Étude de marché</span><span class="bilan-card-sub">Analyse concurrentielle, enquête, synthèse</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📝</span><span class="bilan-card-label">Cahier des charges</span><span class="bilan-card-sub">Rédaction, cadrage, spécifications fonctionnelles</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">⚙️</span><span class="bilan-card-label">Automatisation</span><span class="bilan-card-sub">Google Script, macros, outils bureautiques</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🎨</span><span class="bilan-card-label">Canva</span><span class="bilan-card-sub">Présentation, communication visuelle, design</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📑</span><span class="bilan-card-label">Excel / Sheets</span><span class="bilan-card-sub">Tableaux de bord, formules, analyse de données</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">💻</span><span class="bilan-card-label">GitHub</span><span class="bilan-card-sub">Versioning, dépôt, collaboration</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🗣️</span><span class="bilan-card-label">Présentation orale</span><span class="bilan-card-sub">Argumentation, prise de parole, conviction</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📦</span><span class="bilan-card-label">Gestion de projet</span><span class="bilan-card-sub">Planning, délais, coordination d'équipe</span></div>
+    </div>
+
+    <!-- SAVOIR-ÊTRE -->
+    <p class="detail-section-title" style="margin-top:2.5rem;">🌟 Savoir-être — Qui je suis</p>
+    <div class="bilan-grid">
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">🎯</span><span class="bilan-card-label">Autonomie</span><span class="bilan-card-sub">Je sais travailler seul et prendre des initiatives</span></div>
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">👂</span><span class="bilan-card-label">Écoute active</span><span class="bilan-card-sub">Comprendre les besoins, reformuler, s'adapter</span></div>
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">🤝</span><span class="bilan-card-label">Esprit d'équipe</span><span class="bilan-card-sub">Collaboration, entraide, cohésion de groupe</span></div>
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">💪</span><span class="bilan-card-label">Persévérance</span><span class="bilan-card-sub">Ne pas abandonner face aux difficultés</span></div>
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">🔄</span><span class="bilan-card-label">Adaptabilité</span><span class="bilan-card-sub">Nouveaux environnements, imprévus, changements</span></div>
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">🧠</span><span class="bilan-card-label">Esprit d'analyse</span><span class="bilan-card-sub">Recul, synthèse, prise de décision raisonnée</span></div>
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">⏰</span><span class="bilan-card-label">Rigueur</span><span class="bilan-card-sub">Organisation, respect des délais, sérieux</span></div>
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">🔥</span><span class="bilan-card-label">Motivation</span><span class="bilan-card-sub">Engagement, implication, volonté d'apprendre</span></div>
+    </div>
+
+    <!-- LOGICIELS -->
+    <p class="detail-section-title" style="margin-top:2.5rem;">🖥️ Logiciels maîtrisés</p>
+    <div class="bilan-tools">
+      <span class="bilan-tool">Canva</span>
+      <span class="bilan-tool">Excel</span>
+      <span class="bilan-tool">Google Sheets</span>
+      <span class="bilan-tool">Google Script</span>
+      <span class="bilan-tool">GitHub</span>
+      <span class="bilan-tool">Google Docs</span>
+      <span class="bilan-tool">Google Slides</span>
+      <span class="bilan-tool">PowerPoint</span>
+      <span class="bilan-tool">Word</span>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <p class="detail-section-title" style="margin-top:2rem;">🏅 Certifications</p>
+    <div class="bilan-certs">
+      <div class="bilan-cert">
+        <span class="bilan-cert-icon">🏆</span>
+        <div>
+          <p class="bilan-cert-name">PIX</p>
+          <p class="bilan-cert-desc">Certification nationale des compétences numériques</p>
+        </div>
+      </div>
+      <div class="bilan-cert">
+        <span class="bilan-cert-icon">✍️</span>
+        <div>
+          <p class="bilan-cert-name">Certificat Voltaire</p>
+          <p class="bilan-cert-desc">Orthographe et expression écrite en français</p>
+        </div>
+      </div>
+    </div>
   `;
 }
 
@@ -731,16 +799,17 @@ function renderMonProjet() {
 function renderContact() {
   return `
     <p class="detail-cat-label">Me joindre</p>
-    <h2 class="detail-main-title">Contact</h2>
+    <h2 class="detail-main-title">Me<br>Contacter</h2>
     <div class="detail-divider"></div>
     <p class="detail-text" style="margin-bottom:2rem;">
-      Tu veux me contacter pour une opportunité, un projet ou juste discuter ?
+      Disponible pour toute opportunité professionnelle, stage, alternance ou
+      simplement pour échanger. N'hésite pas à me contacter via l'un de ces canaux.
     </p>
 
-    <div class="contact-links" style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem;">
+    <div style="display:flex;flex-direction:column;gap:0.8rem;margin-bottom:2rem;">
 
       <a href="mailto:alexis.bleuse6@gmail.com" class="contact-item">
-        <span class="contact-item-icon">✉</span>
+        <span class="contact-item-icon">✉️</span>
         <div>
           <p class="contact-item-label">Email</p>
           <p class="contact-item-value">alexis.bleuse6@gmail.com</p>
@@ -756,15 +825,15 @@ function renderContact() {
       </a>
 
       <a href="https://www.linkedin.com/in/alexis-bleuse-054bb3271/" target="_blank" rel="noopener" class="contact-item">
-        <span class="contact-item-icon">🔗</span>
+        <span class="contact-item-icon">💼</span>
         <div>
           <p class="contact-item-label">LinkedIn</p>
-          <p class="contact-item-value">Alexis Bleuse</p>
+          <p class="contact-item-value">Alexis Bleuse — linkedin.com/in/alexis-bleuse-054bb3271</p>
         </div>
       </a>
 
       <a href="https://github.com/alexibleuse110205-rgb" target="_blank" rel="noopener" class="contact-item">
-        <span class="contact-item-icon">⌥</span>
+        <span class="contact-item-icon">🐙</span>
         <div>
           <p class="contact-item-label">GitHub</p>
           <p class="contact-item-value">alexibleuse110205-rgb</p>
@@ -774,13 +843,25 @@ function renderContact() {
     </div>
 
     <div class="cv-section">
-      <div style="font-size:2.5rem;margin-bottom:1rem;">📄</div>
-      <h2 style="font-family:var(--font-serif);font-size:1.3rem;font-weight:700;margin-bottom:0.7rem;">Mon CV</h2>
-      <p style="margin-bottom:1rem;">Télécharge mon CV au format PDF.</p>
-      <a href="#" class="btn btn-dark" download style="margin:0 auto;width:fit-content;">
-        Télécharger le CV
-        <span class="ph-block" style="display:inline;font-size:0.7rem;margin-left:0.4rem;">lien à ajouter</span>
+      <div style="font-size:2.8rem;margin-bottom:0.9rem;">📄</div>
+      <h3 style="font-family:var(--font-serif);font-size:1.25rem;font-weight:700;margin-bottom:0.55rem;">Mon CV</h3>
+      <p class="detail-text" style="margin-bottom:1.3rem;font-size:0.87rem;">
+        Retrouve l'ensemble de mon parcours, mes expériences et mes compétences
+        au format PDF.
+      </p>
+      <a href="#" class="btn btn-dark" style="margin:0 auto;width:fit-content;">
+        Télécharger mon CV ↓
       </a>
+      <p style="font-size:0.7rem;color:var(--muted);margin-top:0.7rem;font-style:italic;">lien à ajouter</p>
+    </div>
+
+    <div style="margin-top:1.5rem;padding:1.2rem 1.5rem;background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;">
+      <p style="font-size:0.82rem;color:#555;line-height:1.75;">
+        <strong style="color:var(--accent);">Ouvert aux opportunités</strong> —
+        À la recherche d'un poste en CDI à partir de septembre 2025, idéalement
+        dans les domaines de la <strong>logistique, du management ou de l'administration
+        des ventes</strong> en Bretagne.
+      </p>
     </div>
   `;
 }

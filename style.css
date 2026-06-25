@@ -578,7 +578,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: flex-start;
   padding-left: 38px;
   padding-top: 1.5rem;
-  pointer-events: all;
 }
 .detail-sidebar-card-wrap { position: relative; }
 .detail-sidebar-mini {
@@ -995,6 +994,96 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .map-card-info { display: flex; flex-direction: column; }
 .map-card-place { font-weight: 700; font-size: 0.88rem; }
 .map-card-detail { font-size: 0.72rem; color: var(--muted); line-height: 1.4; }
+
+/* ============================================================
+   BILAN DES COMPÉTENCES
+   ============================================================ */
+.bilan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.7rem;
+  margin-top: 0.8rem;
+}
+.bilan-card {
+  background: rgba(255,255,255,0.75);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1rem;
+  display: flex; flex-direction: column; gap: 0.3rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.bilan-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+.bilan-card--blue {
+  background: rgba(21,101,192,0.07);
+  border-color: rgba(21,101,192,0.2);
+}
+.bilan-card--blue:hover { box-shadow: 0 6px 20px rgba(21,101,192,0.15); }
+.bilan-card--green {
+  background: rgba(27,67,50,0.07);
+  border-color: rgba(27,67,50,0.2);
+}
+.bilan-card--green:hover { box-shadow: 0 6px 20px rgba(27,67,50,0.15); }
+.bilan-card-icon { font-size: 1.4rem; }
+.bilan-card-label { font-weight: 700; font-size: 0.88rem; }
+.bilan-card-sub { font-size: 0.74rem; color: var(--muted); line-height: 1.45; }
+
+.bilan-tools {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+.bilan-tool {
+  background: var(--text); color: #fff;
+  font-size: 0.75rem; font-weight: 600;
+  padding: 0.3rem 0.9rem; border-radius: 99px;
+  letter-spacing: 0.3px;
+}
+
+.bilan-certs {
+  display: flex; flex-direction: column; gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+.bilan-cert {
+  display: flex; align-items: center; gap: 1rem;
+  background: rgba(255,255,255,0.75); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1rem 1.2rem;
+}
+.bilan-cert-icon { font-size: 1.8rem; flex-shrink: 0; }
+.bilan-cert-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.15rem; }
+.bilan-cert-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
+
+/* ============================================================
+   CONTACT — CARTE AMÉLIORÉE
+   ============================================================ */
+.contact-item {
+  display: flex; align-items: center; gap: 1.1rem;
+  padding: 1.1rem 1.3rem;
+  background: rgba(255,255,255,0.75); border: 1px solid var(--border);
+  border-radius: 14px; text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.contact-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+.contact-item-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--accent-light); border: 1.5px solid rgba(200,81,42,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; flex-shrink: 0;
+}
+.contact-item-label {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 0.15rem;
+}
+.contact-item-value {
+  font-weight: 600; font-size: 0.9rem;
+}
+.cv-section {
+  background: rgba(255,255,255,0.75); border: 1px solid var(--border);
+  border-radius: 16px; padding: 2rem 1.8rem;
+  text-align: center; margin-top: 1rem;
+}
 
 /* ============================================================
    RESPONSIVE MOBILE
