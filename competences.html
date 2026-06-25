@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compétences — Bleuse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">Bleuse<span class="dot">.</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+      <span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Accueil</a></li>
+      <li><a href="parcours.html" class="nav-link">Parcours</a></li>
+      <li><a href="competences.html" class="nav-link">Compétences</a></li>
+      <li><a href="experiences.html" class="nav-link">Expériences</a></li>
+      <li><a href="projets.html" class="nav-link">Projets</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== CONTENU ===== -->
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <p class="section-label reveal">Savoir-faire</p>
+        <h1 class="section-title reveal reveal-delay-1">Mes compétences</h1>
+        <p class="section-sub reveal reveal-delay-2">
+          Compétences acquises en formation et en alternance, regroupées par domaine.
+        </p>
+
+        <!-- ===== GRILLE DE COMPÉTENCES ===== -->
+        <!-- ▼ Modifie, ajoute ou supprime des .skill-cat selon tes besoins -->
+        <div class="skills-grid">
+
+          <!-- CATÉGORIE 1 -->
+          <div class="skill-cat reveal">
+            <div class="skill-cat-icon">📊</div>
+            <h2 class="skill-cat-title">Gestion & Administration</h2>
+            <div class="skill-tags">
+              <span class="skill-tag">Administration des ventes</span>
+              <span class="skill-tag">Gestion des commandes</span>
+              <span class="skill-tag">Facturation</span>
+              <span class="skill-tag">Suivi client</span>
+              <!-- ▼ Ajoute tes compétences ici -->
+              <span class="skill-tag placeholder">[ à compléter ]</span>
+            </div>
+          </div>
+
+          <!-- CATÉGORIE 2 -->
+          <div class="skill-cat reveal reveal-delay-1">
+            <div class="skill-cat-icon">🚚</div>
+            <h2 class="skill-cat-title">Logistique</h2>
+            <div class="skill-tags">
+              <span class="skill-tag">Gestion des flux</span>
+              <span class="skill-tag">Coordination logistique</span>
+              <span class="skill-tag">Suivi des livraisons</span>
+              <span class="skill-tag placeholder">[ à compléter ]</span>
+            </div>
+          </div>
+
+          <!-- CATÉGORIE 3 -->
+          <div class="skill-cat reveal reveal-delay-2">
+            <div class="skill-cat-icon">💼</div>
+            <h2 class="skill-cat-title">Commercial & Marketing</h2>
+            <div class="skill-tags">
+              <span class="skill-tag">Étude de marché</span>
+              <span class="skill-tag">Communication</span>
+              <span class="skill-tag">Relation client</span>
+              <span class="skill-tag">Analyse des données</span>
+              <span class="skill-tag placeholder">[ à compléter ]</span>
+            </div>
+          </div>
+
+          <!-- CATÉGORIE 4 -->
+          <div class="skill-cat reveal reveal-delay-3">
+            <div class="skill-cat-icon">🖥️</div>
+            <h2 class="skill-cat-title">Outils bureautiques</h2>
+            <div class="skill-tags">
+              <span class="skill-tag">Excel</span>
+              <span class="skill-tag">Word</span>
+              <span class="skill-tag">PowerPoint</span>
+              <!-- ▼ Ajoute tes logiciels (ERP, CRM, etc.) -->
+              <span class="skill-tag placeholder">[ logiciel à ajouter ]</span>
+              <span class="skill-tag placeholder">[ logiciel à ajouter ]</span>
+            </div>
+          </div>
+
+          <!-- CATÉGORIE 5 -->
+          <div class="skill-cat reveal">
+            <div class="skill-cat-icon">🤝</div>
+            <h2 class="skill-cat-title">Savoir-être</h2>
+            <div class="skill-tags">
+              <span class="skill-tag">Rigueur</span>
+              <span class="skill-tag">Autonomie</span>
+              <span class="skill-tag">Adaptabilité</span>
+              <span class="skill-tag">Esprit d'équipe</span>
+              <span class="skill-tag placeholder">[ à compléter ]</span>
+            </div>
+          </div>
+
+          <!-- CATÉGORIE 6 — optionnelle, supprime si pas besoin -->
+          <div class="skill-cat reveal reveal-delay-1">
+            <div class="skill-cat-icon">🌐</div>
+            <h2 class="skill-cat-title">Langues</h2>
+            <div class="skill-tags">
+              <span class="skill-tag">Français — Natif</span>
+              <!-- ▼ Ajoute tes langues et niveaux -->
+              <span class="skill-tag placeholder">[ Anglais — niveau à indiquer ]</span>
+              <span class="skill-tag placeholder">[ autre langue ]</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <span>© 2026 Bleuse</span>
+    <span>BUT GACO · IUT Brest-Morlaix</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
