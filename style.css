@@ -472,6 +472,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 300;
   opacity: 0; pointer-events: none;
   transition: opacity 0.4s var(--ease);
+  /* Transparent sur la zone hero (58vh), beige en-dessous */
+  background: linear-gradient(to bottom, transparent 58vh, var(--bg) 58vh);
 }
 .detail-view.open { opacity: 1; pointer-events: all; }
 
@@ -564,10 +566,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   min-height: 100%;
 }
 
-/* Colonne gauche : largeur fixe, fond beige permanent, contient la sidebar sticky */
+/* Colonne gauche : transparente — laisse voir la couleur du hero puis le beige du detail-view */
 .detail-sidebar-col {
   width: 295px; flex-shrink: 0;
-  background: var(--bg);
+  background: transparent;
 }
 
 /* Sidebar sticky : reste à l'écran quand on scrolle */
