@@ -536,9 +536,6 @@ function renderSAE() {
     </div>
 
     <div class="sae-fave">
-      <div class="exp-photo">
-        <img src="./images/kavaton.jpg" alt="Kavaton" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>kavaton.jpg</small>'" />
-      </div>
       <h4 class="sae-fave-title">SAE 5 / 6 — Kavaton 🏆</h4>
       <p class="detail-text" style="margin-bottom:0.9rem;">
         Même principe que Barbertruck : un concours inter-équipes à l'IUT, avec un
