@@ -296,6 +296,40 @@ function renderExperiences() {
         <span class="passion-point"><strong>Notions de codage</strong> · Automatisation bureautique (Google Script)</span>
       </div>
     </div>
+
+    <!-- MÉMOIRES -->
+    <p class="detail-section-title" style="margin-top:2.5rem;">📖 Mémoires d'alternance</p>
+    <p class="detail-text" style="margin-bottom:1.5rem;">
+      Chaque année d'alternance donne lieu à la rédaction d'un mémoire académique
+      croisant mes missions terrain et les concepts théoriques vus en cours.
+    </p>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <h3 class="exp-company">Mémoire — 3ème année GACO</h3>
+        <span class="exp-badge badge-current">2ème année alternance</span>
+      </div>
+      <p class="exp-role" style="font-style:italic;font-size:0.85rem;line-height:1.5;margin-top:0.3rem;">
+        « En quoi la théorie de l'agence peut-elle apporter des réponses managériales
+        pour obtenir un bon niveau de qualité de service dans le cas de la livraison
+        de journaux ? »
+      </p>
+      <div style="margin-top:1rem;">
+        <a href="https://docs.google.com/document/d/1P3_S4CQ7pzj1QaYG95ItQ8aGT7tGJOwVfwbEhvFMBqU/edit?usp=sharing"
+           target="_blank" rel="noopener" class="sae-link">Lire le mémoire ↗</a>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <h3 class="exp-company">Mémoire — 2ème année GACO</h3>
+        <span class="exp-badge badge-past">1ère année alternance</span>
+      </div>
+      <div style="margin-top:1rem;">
+        <a href="https://docs.google.com/document/d/14ElwlCP_AxFo9XhddKms7bZ6NfikMnDk8iGvjuH_2Ug/edit?usp=sharing"
+           target="_blank" rel="noopener" class="sae-link">Lire le mémoire ↗</a>
+      </div>
+    </div>
   `;
 }
 
@@ -608,7 +642,7 @@ function renderProjetTutore() {
 
     <div class="pt-card">
       <div class="exp-photo">
-        <img src="./images/alternants.jpg" alt="Événement Alternants" onerror="this.parentElement.style.display='none'" />
+        <img src="./images/alternants.png" alt="Événement Alternants" onerror="this.parentElement.style.display='none'" />
       </div>
       <div class="pt-header">
         <h3 class="pt-title">Temps fort Alternants BUT GACO</h3>
