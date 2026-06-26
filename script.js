@@ -325,6 +325,11 @@ function renderExperiences() {
         <h3 class="exp-company">Mémoire — 2ème année GACO</h3>
         <span class="exp-badge badge-past">1ère année alternance</span>
       </div>
+      <p class="exp-role" style="font-style:italic;font-size:0.85rem;line-height:1.5;margin-top:0.3rem;">
+        « En quoi la faible adoption du portail diffuseur numérique constitue-t-elle
+        un frein à l'optimisation de la gestion des invendus au Télégramme, et comment
+        renforcer son appropriation par les diffuseurs ? »
+      </p>
       <div style="margin-top:1rem;">
         <a href="https://docs.google.com/document/d/14ElwlCP_AxFo9XhddKms7bZ6NfikMnDk8iGvjuH_2Ug/edit?usp=sharing"
            target="_blank" rel="noopener" class="sae-link">Lire le mémoire ↗</a>
