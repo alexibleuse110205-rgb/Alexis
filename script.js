@@ -21,26 +21,25 @@ const TOTAL = CARDS.length;
 
 function renderProfil() {
   return `
-    <div class="profil-photo">
-      <span style="font-size:0.55rem;color:rgba(255,255,255,0.8);font-weight:700;text-align:center;letter-spacing:0.5px;">
-        PHOTO<br>À AJOUTER
-      </span>
-    </div>
     <p class="detail-cat-label">À propos</p>
     <h2 class="detail-main-title">Alexis<br>Bleuse<span style="color:var(--accent);">.</span></h2>
     <div class="detail-divider"></div>
-    <p class="detail-text" style="margin-bottom:1.5rem;">
-      Étudiant en 3<sup>e</sup> année de <strong>BUT GACO</strong> (parcours MRPE)
-      à l'IUT de Brest-Morlaix, en alternance au service
-      <strong>ADV Logistique</strong> du groupe <strong>Le Télégramme</strong>.
-    </p>
-    <p class="detail-text" style="margin-bottom:2rem;">
-      Sportif, curieux et rigoureux, j'aime comprendre le fonctionnement
-      des organisations et créer de la valeur à travers l'action concrète.
-      À terme, j'aspire à créer ma propre entreprise.
-    </p>
-    <div class="detail-actions">
-      <a href="mailto:alexis.bleuse6@gmail.com" class="btn btn-dark">Me contacter</a>
+    <div class="profil-layout">
+      <div class="profil-photo">
+        <img src="./images/profil.jpg" alt="Alexis Bleuse" onerror="this.style.display='none'" />
+      </div>
+      <div>
+        <p class="detail-text" style="margin-bottom:2rem;">
+          Je m'appelle <strong>Alexis Bleuse</strong>, j'ai <strong>21 ans</strong>,
+          je suis étudiant en <strong>BUT GACO</strong> (Gestion Administrative et
+          Commerciale des Organisations) à l'IUT de Brest-Morlaix. En alternance
+          depuis deux ans chez <strong>Le Télégramme</strong> dans le
+          <strong>Pôle Logistique Réseaux</strong>.
+        </p>
+        <div class="detail-actions">
+          <a href="mailto:alexis.bleuse6@gmail.com" class="btn btn-dark">Me contacter</a>
+        </div>
+      </div>
     </div>
   `;
 }
@@ -58,7 +57,7 @@ function renderPassions() {
 
     <div class="passion-feature">
       <div class="passion-feature-photo">
-        <span class="passion-photo-ph">📷 PHOTO<br>Handball</span>
+        <img src="./images/handball.jpg" alt="Handball" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" onerror="this.style.display='none'" />
       </div>
       <div class="passion-feature-body">
         <div class="passion-feature-head">
@@ -83,7 +82,7 @@ function renderPassions() {
 
     <div class="passion-feature passion-feature--rev">
       <div class="passion-feature-photo">
-        <span class="passion-photo-ph">📷 PHOTO<br>Football</span>
+        <img src="./images/football.jpg" alt="Football" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" onerror="this.style.display='none'" />
       </div>
       <div class="passion-feature-body">
         <div class="passion-feature-head">
@@ -108,7 +107,7 @@ function renderPassions() {
 
     <div class="passion-feature">
       <div class="passion-feature-photo">
-        <span class="passion-photo-ph">📷 PHOTO<br>Voyages</span>
+        <img src="./images/voyage.jpg" alt="Voyage Portugal" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" onerror="this.style.display='none'" />
       </div>
       <div class="passion-feature-body">
         <div class="passion-feature-head">
@@ -159,6 +158,9 @@ function renderParcours() {
           </p>
         </div>
         <div class="tl-map">
+          <div class="tl-photo">
+            <img src="./images/college.jpg" alt="Collège des Deux Baies" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>college.jpg</small>'" />
+          </div>
           <iframe
             src="https://maps.google.com/maps?q=Coll%C3%A8ge+des+Deux+Baies+Carantec&z=14&output=embed"
             width="100%" height="180" style="border:0;border-radius:12px;" loading="lazy"
@@ -183,6 +185,9 @@ function renderParcours() {
           </div>
         </div>
         <div class="tl-map">
+          <div class="tl-photo">
+            <img src="./images/lycee.jpg" alt="Lycée Tristan Corbière" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>lycee.jpg</small>'" />
+          </div>
           <iframe
             src="https://maps.google.com/maps?q=Lyc%C3%A9e+Tristan+Corbi%C3%A8re+Morlaix&z=14&output=embed"
             width="100%" height="180" style="border:0;border-radius:12px;" loading="lazy"
@@ -216,6 +221,9 @@ function renderParcours() {
           </div>
         </div>
         <div class="tl-map">
+          <div class="tl-photo">
+            <img src="./images/iut.jpg" alt="IUT Morlaix" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>iut.jpg</small>'" />
+          </div>
           <iframe
             src="https://maps.google.com/maps?q=IUT+Morlaix+Bretagne&z=14&output=embed"
             width="100%" height="180" style="border:0;border-radius:12px;" loading="lazy"
@@ -235,6 +243,9 @@ function renderExperiences() {
     <div class="detail-divider"></div>
 
     <div class="exp-card">
+      <div class="exp-photo">
+        <img src="./images/jobs.jpg" alt="Premières expériences" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>jobs.jpg</small>'" />
+      </div>
       <div class="exp-header">
         <h3 class="exp-company">Mes premières expériences</h3>
         <span class="exp-badge badge-past">Saisonnier</span>
@@ -256,6 +267,9 @@ function renderExperiences() {
     </div>
 
     <div class="exp-card">
+      <div class="exp-photo">
+        <img src="./images/telegramme.jpg" alt="Le Télégramme" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>telegramme.jpg</small>'" />
+      </div>
       <div class="exp-header">
         <h3 class="exp-company">Groupe Le Télégramme</h3>
         <span class="exp-badge badge-current">En cours</span>
@@ -291,7 +305,7 @@ function coursCard(code, name, link) {
     return `<a href="${link}" target="_blank" rel="noopener" class="cours-item cours-item--link">
       <span class="cours-code">${code}</span>
       <span class="cours-name">${name}</span>
-      <span class="cours-ext">Voir le dossier ↗</span>
+      <span class="cours-ext">Ouvrir le dossier ↗</span>
     </a>`;
   }
   return `<div class="cours-item">
@@ -331,7 +345,7 @@ function renderCours() {
       <div class="cours-sem">
         <p class="cours-sem-label">2e Semestre</p>
         <div class="cours-grid">
-          ${coursCard('R2.01','PPP2')}
+          ${coursCard('R2.01','PPP2','https://docs.google.com/document/d/19_8xTtB2RbufPA2LD9pCD1tTPcyoW4rxqap1yPPgOps/edit?usp=sharing')}
           ${coursCard('R2.02','LV1 Anglais')}
           ${coursCard('R2.03-12','LV2 Espagnol')}
           ${coursCard('R2.04','Droit de l\'entreprise')}
@@ -355,12 +369,12 @@ function renderCours() {
           ${coursCard('R3.03-A','LV2 Espagnol')}
           ${coursCard('R3.04','Droit du travail')}
           ${coursCard('R3.05','Stratégie d\'entreprise')}
-          ${coursCard('R3.06','Marketing')}
-          ${coursCard('R3.07','Ressources Humaines')}
+          ${coursCard('R3.06','Marketing','https://canva.link/pjkhsdo2ondi2xs')}
+          ${coursCard('R3.07','Ressources Humaines','https://canva.link/y7hwb0pn8w2vt0l')}
           ${coursCard('R3.08','Expression et Communication')}
           ${coursCard('R3.MRPE.10','Nouvelles approches de l\'entreprise')}
-          ${coursCard('R3.MRPE.11','Management global du développement durable')}
-          ${coursCard('R3.MRPE.99','Logistique')}
+          ${coursCard('R3.MRPE.11','Management global du développement durable','https://docs.google.com/document/d/1Y0-ui77xCbmo4I_P4JCyvzIQ9uMjhtjZJ7VaecgFcBw/edit?usp=sharing')}
+          ${coursCard('R3.MRPE.99','Logistique','https://docs.google.com/document/d/12BFD01_Zil_XSc6niE1GztKjgd3SPn8LtwELpfBwXtc/edit?usp=sharing')}
         </div>
       </div>
       <div class="cours-sem">
@@ -372,9 +386,9 @@ function renderCours() {
           ${coursCard('R4.04','Droit des affaires')}
           ${coursCard('R4.05','Outils de pilotage')}
           ${coursCard('R4.06','Expression et communication')}
-          ${coursCard('R4.MRPE.07','Commerce éco-responsable')}
+          ${coursCard('R4.MRPE.07','Commerce éco-responsable','https://docs.google.com/document/d/1dgnCIw8VWP97y2HATxr3EfoYijkQeu6zm8_ozHqPmMM/edit?usp=sharing')}
           ${coursCard('R4.MRPE.08','Responsabilité sociale et environnementale de l\'organisation')}
-          ${coursCard('R4.MRPE.09','Entrepreneuriat et intraprenariat responsable')}
+          ${coursCard('R4.MRPE.09','Entrepreneuriat et intraprenariat responsable','https://docs.google.com/document/d/12jMT99dYT__5lchVtj4a5DI1qngFh28n4ZjFYUhXyeg/edit?usp=sharing')}
           ${coursCard('R4.MRPE.10','Tourisme')}
         </div>
       </div>
@@ -388,9 +402,9 @@ function renderCours() {
           ${coursCard('R5.01','Projet personnel et Professionnel')}
           ${coursCard('R5.02','Anglais des affaires')}
           ${coursCard('R5.03 A','Espagnol')}
-          ${coursCard('R5.04','Achats')}
-          ${coursCard('R5.05','Logistique')}
-          ${coursCard('R5.MRPE.06','Reporting et achats')}
+          ${coursCard('R5.04','Achats','https://docs.google.com/document/d/1SBw-09q62CVsq_bKIUb9IZ9z5-ezhPh1908pVNKpvP8/edit?usp=sharing')}
+          ${coursCard('R5.05','Logistique','https://canva.link/kjve4i0r0msgqw3')}
+          ${coursCard('R5.MRPE.06','Reporting et achats','https://canva.link/rsv2akw8h0y7a1r')}
           ${coursCard('R5.MRPE.07','Management et reporting')}
           ${coursCard('R5.MRPE.08','Entrepreneuriat et Intrapreneuriat resp.')}
           ${coursCard('R5.MRPE.09','Management responsable d\'équipe')}
@@ -479,7 +493,7 @@ function renderSAE() {
       <p class="sae-sem-label">5e Semestre</p>
       ${saeItem('SAE 5.02','Conduire un projet de développement commercial dans un contexte international','https://docs.google.com/document/d/1Jqvaco7bihIsaaLKY2hJrOZ3hNoOPZH-fxjqXBPm2hQ/edit?tab=t.0')}
       <p class="sae-sem-label">6e Semestre</p>
-      ${saeItem('SAE 6.0','Piloter et rendre compte d\'un projet (Adaptation locale S6)','https://www.notion.so/Second-Souffle-3278adcbd1528082b70aec60b99b20af')}
+      ${saeItem('SAE 6.0','Piloter et rendre compte d\'un projet — Adaptation locale S6','https://drive.google.com/file/d/15eqW4iVubhCZOpwGT7XrpHk-FMERgO7b/view?usp=sharing')}
     </div>
 
     <p class="detail-section-title">Les SAE qui m'ont le plus plu</p>
@@ -499,32 +513,41 @@ function renderSAE() {
     </div>
 
     <div class="sae-fave">
-      <h4 class="sae-fave-title">SAE 4.MRPE.01 — Créa IUT · Barbertruck</h4>
+      <div class="exp-photo">
+        <img src="./images/barbertruck.jpg" alt="Barbertruck" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>barbertruck.jpg</small>'" />
+      </div>
+      <h4 class="sae-fave-title">SAE 4.MRPE.01 — Créa IUT · Barbertruck 🏆</h4>
       <p class="detail-text" style="margin-bottom:0.9rem;">
-        En équipe de trois, nous avons imaginé <strong>Barbertruck</strong> — un concept
-        de barbier ambulant. Créer une entreprise fictive de A à Z : idée, concept,
-        offre, clientèle, communication, présentation. Un projet qui m'a permis de
-        penser comme un vrai entrepreneur.
+        Concours inter-équipes organisé à l'IUT : chaque équipe devait créer une
+        entreprise fictive de A à Z. Avec <strong>Noah et Justin</strong>, nous avons
+        imaginé <strong>Barbertruck</strong> — un concept de barbier ambulant.
+        Idée, concept, offre, cible, communication, présentation… et nous avons
+        <strong>remporté le concours</strong> face aux autres équipes.
       </p>
       <div class="passion-points">
-        <span class="passion-point"><strong>Créativité</strong> · idée, concept, innovation</span>
-        <span class="passion-point"><strong>Entrepreneuriat</strong> · offre, stratégie, cohérence</span>
+        <span class="passion-point"><strong>Créativité</strong> · idée originale, concept différenciant</span>
+        <span class="passion-point"><strong>Esprit de compétition</strong> · se démarquer, convaincre, gagner</span>
+        <span class="passion-point"><strong>Travail d'équipe</strong> · cohésion, répartition, synergie</span>
         <span class="passion-point"><strong>Présentation orale</strong> · argumentation, confiance, clarté</span>
       </div>
     </div>
 
     <div class="sae-fave">
-      <h4 class="sae-fave-title">SAE 5 / 6 — Kavaton</h4>
+      <div class="exp-photo">
+        <img src="./images/kavaton.jpg" alt="Kavaton" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>kavaton.jpg</small>'" />
+      </div>
+      <h4 class="sae-fave-title">SAE 5 / 6 — Kavaton 🏆</h4>
       <p class="detail-text" style="margin-bottom:0.9rem;">
-        En 3<sup>e</sup> année, nous avons travaillé sur le projet <strong>Kavaton</strong>
-        à partir d'un thème imposé. Ce projet m'a permis de réutiliser les compétences
-        développées les années précédentes tout en poussant davantage la réflexion :
-        adaptation aux contraintes, propositions cohérentes, gestion de projet et
-        défense devant un public.
+        Même principe que Barbertruck : un concours inter-équipes à l'IUT, avec un
+        thème imposé. En 3<sup>e</sup> année, nous avons travaillé sur le projet
+        <strong>Kavaton</strong> en remobilisant toutes les compétences acquises
+        les années précédentes — analyse, stratégie, cohérence de l'offre,
+        gestion de projet et défense devant un jury.
       </p>
       <div class="passion-points">
-        <span class="passion-point"><strong>Adaptation</strong> · thème imposé, contraintes, solutions</span>
+        <span class="passion-point"><strong>Compétition</strong> · thème imposé, se démarquer, convaincre</span>
         <span class="passion-point"><strong>Gestion de projet</strong> · étapes, délais, organisation</span>
+        <span class="passion-point"><strong>Prise de recul</strong> · analyse, synthèse, décision</span>
         <span class="passion-point"><strong>Confiance</strong> · prise de parole, assurance, progression</span>
       </div>
     </div>
@@ -555,13 +578,17 @@ function renderProjetTutore() {
     </p>
 
     <div class="pt-card">
+      <div class="exp-photo">
+        <img src="./images/tendouck.jpg" alt="Projet Tendouck" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>tendouck.jpg</small>'" />
+      </div>
       <div class="pt-header">
         <h3 class="pt-title">Projet Tendouck</h3>
         <span class="pt-badge">1ère année</span>
       </div>
       <div class="pt-body">
         <p class="detail-text" style="margin-bottom:0.9rem;">
-          Organiser une <strong>soirée caritative</strong> afin de récolter des fonds
+          En partenariat avec l'association <strong>Solidarité Santé Brest</strong>,
+          organiser une <strong>soirée caritative</strong> afin de récolter des fonds
           pour participer à la construction de puits au Sénégal. La soirée a réuni
           environ <strong>100 personnes</strong> et nous avons récolté
           <strong>environ 3 000 €</strong>.
@@ -580,25 +607,35 @@ function renderProjetTutore() {
     </div>
 
     <div class="pt-card">
+      <div class="exp-photo">
+        <img src="./images/alternants.jpg" alt="Événement Alternants" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>alternants.jpg</small>'" />
+      </div>
       <div class="pt-header">
-        <h3 class="pt-title">Événement Alternants BUT GACO</h3>
+        <h3 class="pt-title">Temps fort Alternants BUT GACO</h3>
         <span class="pt-badge">2ème année</span>
+        <a href="https://canva.link/s7kf991qmkqf7kh" target="_blank" rel="noopener" class="sae-link" style="margin-left:auto;">Voir ↗</a>
       </div>
       <div class="pt-body">
         <p class="detail-text" style="margin-bottom:0.9rem;">
-          Organiser un <strong>temps fort pour les alternants</strong> : créer un
-          événement destiné aux étudiants en alternance afin de favoriser les échanges,
-          la cohésion et le partage d'expériences.
+          Créer un <strong>temps fort destiné aux alternants</strong> de la promo BUT GACO
+          afin de favoriser les échanges, la cohésion et le partage d'expériences
+          entre étudiants.
+        </p>
+        <p class="detail-text" style="margin-bottom:0.9rem;">
+          Au programme : une <strong>visite d'entreprise</strong> (Le Saint, La But),
+          un <strong>escape game</strong>, un <strong>repas au restaurant</strong>,
+          des <strong>olympiades</strong> et différents événements organisés tout
+          au long de l'année.
         </p>
         <p class="detail-text">
-          Réflexion sur le contenu, organisation des activités, gestion de la
-          communication, accueil des participants et coordination des différentes
-          étapes du projet. Plus d'autonomie et une organisation plus exigeante
-          qu'en 1<sup>ère</sup> année.
+          Plus d'autonomie et une organisation plus exigeante qu'en 1<sup>ère</sup> année :
+          réflexion sur le contenu, coordination des prestataires, gestion de la
+          communication et accueil des participants.
         </p>
         <div class="passion-points" style="margin-top:1rem;">
           <span class="passion-point"><strong>Autonomie</strong> · responsabilités, décisions, initiative</span>
-          <span class="passion-point"><strong>Coordination</strong> · planning, équipe, parties prenantes</span>
+          <span class="passion-point"><strong>Coordination</strong> · planning, équipe, prestataires</span>
+          <span class="passion-point"><strong>Expérience terrain</strong> · visites, activités, animation</span>
         </div>
       </div>
     </div>
@@ -609,14 +646,16 @@ function renderProjetTutore() {
         <span class="pt-badge">3ème année</span>
       </div>
       <div class="pt-body">
+        <img src="./images/cerafel.jpg" alt="Cerafel Prince de Bretagne" style="width:160px;height:auto;border-radius:10px;border:1px solid var(--border);margin-bottom:1rem;display:block;" onerror="this.style.display='none'" />
         <p class="detail-text" style="margin-bottom:0.9rem;">
           Réalisation d'une <strong>étude de marché complète</strong> pour Cerafel,
           la coopérative agricole bretonne derrière la marque Prince de Bretagne.
-          Un projet plus professionnel, davantage tourné vers l'analyse.
+          Un projet plus professionnel, davantage tourné vers l'analyse et la rigueur
+          méthodologique.
         </p>
         <p class="detail-text">
-          Analyse du marché, recherche d'informations, étude concurrentielle,
-          analyse des besoins consommateurs, recommandations stratégiques et
+          Étude quantitative via <strong>questionnaire consommateurs</strong>, analyse
+          concurrentielle, segmentation du marché, recommandations stratégiques et
           présentation orale des résultats.
         </p>
         <div class="passion-points" style="margin-top:1rem;">
@@ -645,14 +684,85 @@ function renderProjetTutore() {
 /* ── Bilan des compétences ─────────────────────────────────── */
 function renderBilanCompetences() {
   return `
-    <p class="detail-cat-label">Savoir-faire</p>
+    <p class="detail-cat-label">Savoir · Savoir-faire · Savoir-être</p>
     <h2 class="detail-main-title">Bilan des<br>Compétences</h2>
     <div class="detail-divider"></div>
-    <p class="detail-text" style="margin-bottom:2rem;">
-      Cette section présentera mon bilan de compétences détaillé.
-      Contenu à venir.
+    <p class="detail-text" style="margin-bottom:2.5rem;">
+      Trois ans de BUT GACO, deux ans d'alternance et une vie sportive intense —
+      voici ce que j'ai acquis, ce que je sais faire et qui je suis.
     </p>
-    <div class="ph-block">[ Bilan des compétences — contenu à compléter ]</div>
+
+    <!-- SAVOIRS -->
+    <p class="detail-section-title">📚 Savoirs — Ce que je connais</p>
+    <div class="bilan-grid">
+      <div class="bilan-card"><span class="bilan-card-icon">⚖️</span><span class="bilan-card-label">Droit</span><span class="bilan-card-sub">Droit du travail, des affaires, de l'entreprise</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">📊</span><span class="bilan-card-label">Comptabilité</span><span class="bilan-card-sub">Bilan, compte de résultat, analyse financière</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">📈</span><span class="bilan-card-label">Marketing</span><span class="bilan-card-sub">Études de marché, segmentation, stratégie</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">🏭</span><span class="bilan-card-label">Logistique</span><span class="bilan-card-sub">Supply chain, distribution, gestion des flux</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">👥</span><span class="bilan-card-label">Management</span><span class="bilan-card-sub">Gestion d'équipe, reporting, organisation</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">🌱</span><span class="bilan-card-label">RSE</span><span class="bilan-card-sub">Développement durable, enjeux sociaux et environnementaux</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">💰</span><span class="bilan-card-label">Économie</span><span class="bilan-card-sub">Micro/macro économie, organisations, marchés</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">🚀</span><span class="bilan-card-label">Entrepreneuriat</span><span class="bilan-card-sub">Business plan, création d'activité, intrapreneuriat</span></div>
+    </div>
+
+    <!-- SAVOIR-FAIRE -->
+    <p class="detail-section-title" style="margin-top:2.5rem;">🛠️ Savoir-faire — Ce que je sais faire</p>
+    <div class="bilan-grid">
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📋</span><span class="bilan-card-label">Étude de marché</span><span class="bilan-card-sub">Analyse concurrentielle, enquête consommateurs, synthèse</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📝</span><span class="bilan-card-label">Cahier des charges</span><span class="bilan-card-sub">Rédaction, cadrage, spécifications fonctionnelles</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">⚙️</span><span class="bilan-card-label">Automatisation bureautique</span><span class="bilan-card-sub">Création de scripts Google Apps pour automatiser des tâches répétitives</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📊</span><span class="bilan-card-label">Analyse financière</span><span class="bilan-card-sub">Lecture de bilan, compte de résultat, interprétation des ratios</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🎪</span><span class="bilan-card-label">Organisation d'événements</span><span class="bilan-card-sub">Planification, logistique, communication, gestion du budget</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📄</span><span class="bilan-card-label">Rédaction & synthèse</span><span class="bilan-card-sub">Rapports, dossiers, comptes-rendus professionnels</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🗣️</span><span class="bilan-card-label">Présentation orale</span><span class="bilan-card-sub">Argumentation, prise de parole devant un jury, conviction</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📦</span><span class="bilan-card-label">Gestion de projet</span><span class="bilan-card-sub">Planification, répartition des tâches, respect des délais</span></div>
+    </div>
+
+    <!-- SAVOIR-ÊTRE -->
+    <p class="detail-section-title" style="margin-top:2.5rem;">🌟 Savoir-être — Qui je suis</p>
+    <div class="bilan-grid">
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">🎯</span><span class="bilan-card-label">Autonomie</span><span class="bilan-card-sub">Je sais travailler seul et prendre des initiatives</span></div>
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">👂</span><span class="bilan-card-label">Écoute active</span><span class="bilan-card-sub">Comprendre les besoins, reformuler, s'adapter</span></div>
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">🤝</span><span class="bilan-card-label">Esprit d'équipe</span><span class="bilan-card-sub">Collaboration, entraide, cohésion de groupe</span></div>
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">💪</span><span class="bilan-card-label">Persévérance</span><span class="bilan-card-sub">Ne pas abandonner face aux difficultés</span></div>
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">🔄</span><span class="bilan-card-label">Adaptabilité</span><span class="bilan-card-sub">Nouveaux environnements, imprévus, changements</span></div>
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">🧠</span><span class="bilan-card-label">Esprit d'analyse</span><span class="bilan-card-sub">Recul, synthèse, prise de décision raisonnée</span></div>
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">⏰</span><span class="bilan-card-label">Rigueur</span><span class="bilan-card-sub">Organisation, respect des délais, sérieux</span></div>
+      <div class="bilan-card bilan-card--green"><span class="bilan-card-icon">🔥</span><span class="bilan-card-label">Motivation</span><span class="bilan-card-sub">Engagement, implication, volonté d'apprendre</span></div>
+    </div>
+
+    <!-- LOGICIELS -->
+    <p class="detail-section-title" style="margin-top:2.5rem;">🖥️ Logiciels maîtrisés</p>
+    <div class="bilan-tools">
+      <span class="bilan-tool">Canva</span>
+      <span class="bilan-tool">Excel</span>
+      <span class="bilan-tool">Google Sheets</span>
+      <span class="bilan-tool">Google Script</span>
+      <span class="bilan-tool">GitHub</span>
+      <span class="bilan-tool">Google Docs</span>
+      <span class="bilan-tool">Google Slides</span>
+      <span class="bilan-tool">PowerPoint</span>
+      <span class="bilan-tool">Word</span>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <p class="detail-section-title" style="margin-top:2rem;">🏅 Certifications</p>
+    <div class="bilan-certs">
+      <div class="bilan-cert">
+        <span class="bilan-cert-icon">🏆</span>
+        <div>
+          <p class="bilan-cert-name">PIX</p>
+          <p class="bilan-cert-desc">Certification nationale des compétences numériques</p>
+        </div>
+      </div>
+      <div class="bilan-cert">
+        <span class="bilan-cert-icon">✍️</span>
+        <div>
+          <p class="bilan-cert-name">Certificat Voltaire</p>
+          <p class="bilan-cert-desc">Orthographe et expression écrite en français</p>
+        </div>
+      </div>
+    </div>
   `;
 }
 
@@ -666,13 +776,17 @@ function renderMonProjet() {
     <div class="proj-section">
       <div class="proj-section-badge">À court terme</div>
       <h3 class="proj-section-title">CDD — Service ADV, Le Télégramme</h3>
+      <div class="exp-photo" style="margin-bottom:1.4rem;">
+        <img src="./images/telegramme.jpg" alt="Le Télégramme" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>telegramme.jpg</small>'" />
+      </div>
       <p class="detail-text" style="margin-bottom:1.2rem;">
         Dès septembre, je vais réaliser un <strong>CDD au sein du service
         Administration des Ventes</strong> du groupe Le Télégramme (direction
-        Logistique et Réseau). Cette expérience me permettra de continuer à développer
-        mes compétences professionnelles tout en approfondissant ma compréhension
-        du fonctionnement d'une entreprise dans les domaines de la logistique,
-        de l'ADV et de la relation partenaires.
+        Logistique et Réseau). J'ai fait ce choix pour apprendre un métier
+        plus technique et concret — mon alternance dans le pôle logistique
+        était davantage axée sur l'optimisation et l'analyse des processus
+        (il n'y avait pas vraiment de partie technique au quotidien), et je
+        souhaitais acquérir une vraie maîtrise opérationnelle d'un métier.
       </p>
       <p class="detail-text" style="margin-bottom:1.2rem;">
         Mes missions seront variées : gestion de la distribution des titres accessoires
@@ -731,16 +845,25 @@ function renderMonProjet() {
 function renderContact() {
   return `
     <p class="detail-cat-label">Me joindre</p>
-    <h2 class="detail-main-title">Contact</h2>
+    <h2 class="detail-main-title">Me<br>Contacter</h2>
     <div class="detail-divider"></div>
-    <p class="detail-text" style="margin-bottom:2rem;">
-      Tu veux me contacter pour une opportunité, un projet ou juste discuter ?
-    </p>
 
-    <div class="contact-links" style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem;">
+    <div class="profil-layout" style="margin-bottom:2rem;">
+      <div class="profil-photo">
+        <img src="./images/profil.jpg" alt="Alexis Bleuse" onerror="this.style.display='none'" />
+      </div>
+      <div>
+        <p class="detail-text">
+          Disponible pour toute opportunité professionnelle, stage, alternance ou
+          simplement pour échanger. N'hésite pas à me contacter via l'un de ces canaux.
+        </p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:0.8rem;margin-bottom:2rem;">
 
       <a href="mailto:alexis.bleuse6@gmail.com" class="contact-item">
-        <span class="contact-item-icon">✉</span>
+        <span class="contact-item-icon">✉️</span>
         <div>
           <p class="contact-item-label">Email</p>
           <p class="contact-item-value">alexis.bleuse6@gmail.com</p>
@@ -756,31 +879,22 @@ function renderContact() {
       </a>
 
       <a href="https://www.linkedin.com/in/alexis-bleuse-054bb3271/" target="_blank" rel="noopener" class="contact-item">
-        <span class="contact-item-icon">🔗</span>
+        <span class="contact-item-icon">💼</span>
         <div>
           <p class="contact-item-label">LinkedIn</p>
-          <p class="contact-item-value">Alexis Bleuse</p>
-        </div>
-      </a>
-
-      <a href="https://github.com/alexibleuse110205-rgb" target="_blank" rel="noopener" class="contact-item">
-        <span class="contact-item-icon">⌥</span>
-        <div>
-          <p class="contact-item-label">GitHub</p>
-          <p class="contact-item-value">alexibleuse110205-rgb</p>
+          <p class="contact-item-value">Alexis Bleuse — linkedin.com/in/alexis-bleuse-054bb3271</p>
         </div>
       </a>
 
     </div>
 
-    <div class="cv-section">
-      <div style="font-size:2.5rem;margin-bottom:1rem;">📄</div>
-      <h2 style="font-family:var(--font-serif);font-size:1.3rem;font-weight:700;margin-bottom:0.7rem;">Mon CV</h2>
-      <p style="margin-bottom:1rem;">Télécharge mon CV au format PDF.</p>
-      <a href="#" class="btn btn-dark" download style="margin:0 auto;width:fit-content;">
-        Télécharger le CV
-        <span class="ph-block" style="display:inline;font-size:0.7rem;margin-left:0.4rem;">lien à ajouter</span>
-      </a>
+    <div style="margin-top:1.5rem;padding:1.2rem 1.5rem;background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;">
+      <p style="font-size:0.82rem;color:#555;line-height:1.75;">
+        <strong style="color:var(--accent);">Ouvert aux opportunités</strong> —
+        À la recherche d'un poste en CDI à partir de septembre 2025, idéalement
+        dans les domaines de la <strong>logistique, du management ou de l'administration
+        des ventes</strong> en Bretagne.
+      </p>
     </div>
   `;
 }
