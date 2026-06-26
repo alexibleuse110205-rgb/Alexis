@@ -159,7 +159,7 @@ function renderParcours() {
         </div>
         <div class="tl-map">
           <div class="tl-photo">
-            <img src="./images/college.jpg" alt="Collège des Deux Baies" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>college.jpg</small>'" />
+            <img src="./images/college.jpg" alt="Collège des Deux Baies" onerror="this.parentElement.style.display='none'" />
           </div>
           <iframe
             src="https://maps.google.com/maps?q=Coll%C3%A8ge+des+Deux+Baies+Carantec&z=14&output=embed"
@@ -186,7 +186,7 @@ function renderParcours() {
         </div>
         <div class="tl-map">
           <div class="tl-photo">
-            <img src="./images/lycee.jpg" alt="Lycée Tristan Corbière" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>lycee.jpg</small>'" />
+            <img src="./images/lycee.jpg" alt="Lycée Tristan Corbière" onerror="this.parentElement.style.display='none'" />
           </div>
           <iframe
             src="https://maps.google.com/maps?q=Lyc%C3%A9e+Tristan+Corbi%C3%A8re+Morlaix&z=14&output=embed"
@@ -222,7 +222,7 @@ function renderParcours() {
         </div>
         <div class="tl-map">
           <div class="tl-photo">
-            <img src="./images/iut.jpg" alt="IUT Morlaix" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>iut.jpg</small>'" />
+            <img src="./images/iut.jpg" alt="IUT Morlaix" onerror="this.parentElement.style.display='none'" />
           </div>
           <iframe
             src="https://maps.google.com/maps?q=IUT+Morlaix+Bretagne&z=14&output=embed"
@@ -244,7 +244,7 @@ function renderExperiences() {
 
     <div class="exp-card">
       <div class="exp-photo">
-        <img src="./images/jobs.jpg" alt="Premières expériences" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>jobs.jpg</small>'" />
+        <img src="./images/jobs.jpg" alt="Premières expériences" onerror="this.parentElement.style.display='none'" />
       </div>
       <div class="exp-header">
         <h3 class="exp-company">Mes premières expériences</h3>
@@ -268,7 +268,7 @@ function renderExperiences() {
 
     <div class="exp-card">
       <div class="exp-photo">
-        <img src="./images/telegramme.jpg" alt="Le Télégramme" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>telegramme.jpg</small>'" />
+        <img src="./images/telegramme.jpg" alt="Le Télégramme" onerror="this.parentElement.style.display='none'" />
       </div>
       <div class="exp-header">
         <h3 class="exp-company">Groupe Le Télégramme</h3>
@@ -320,7 +320,7 @@ function renderCours() {
     <h2 class="detail-main-title">Mes<br>Cours</h2>
     <div class="detail-divider"></div>
     <div class="exp-photo" style="margin-bottom:1.8rem;">
-      <img src="./images/iut.jpg" alt="IUT Morlaix" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>iut.jpg</small>'" />
+      <img src="./images/iut.jpg" alt="IUT Morlaix" onerror="this.parentElement.style.display='none'" />
     </div>
     <p class="detail-text" style="margin-bottom:2rem;">
       Liste des cours suivis au cours de mes trois années de BUT GACO.
@@ -517,7 +517,7 @@ function renderSAE() {
 
     <div class="sae-fave">
       <div class="exp-photo">
-        <img src="./images/barbertruck.jpg" alt="Barbertruck" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>barbertruck.jpg</small>'" />
+        <img src="./images/barbertruck.jpg" alt="Barbertruck" onerror="this.parentElement.style.display='none'" />
       </div>
       <h4 class="sae-fave-title">SAE 4.MRPE.01 — Créa IUT · Barbertruck 🏆</h4>
       <p class="detail-text" style="margin-bottom:0.9rem;">
@@ -579,7 +579,7 @@ function renderProjetTutore() {
 
     <div class="pt-card">
       <div class="exp-photo">
-        <img src="./images/tendouck.jpg" alt="Projet Tendouck" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>tendouck.jpg</small>'" />
+        <img src="./images/tendouck.jpg" alt="Projet Tendouck" onerror="this.parentElement.style.display='none'" />
       </div>
       <div class="pt-header">
         <h3 class="pt-title">Projet Tendouck</h3>
@@ -608,7 +608,7 @@ function renderProjetTutore() {
 
     <div class="pt-card">
       <div class="exp-photo">
-        <img src="./images/alternants.jpg" alt="Événement Alternants" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>alternants.jpg</small>'" />
+        <img src="./images/alternants.jpg" alt="Événement Alternants" onerror="this.parentElement.style.display='none'" />
       </div>
       <div class="pt-header">
         <h3 class="pt-title">Temps fort Alternants BUT GACO</h3>
@@ -787,7 +787,7 @@ function renderMonProjet() {
       <div class="proj-section-badge">À court terme</div>
       <h3 class="proj-section-title">CDD — Service ADV, Le Télégramme</h3>
       <div class="exp-photo" style="margin-bottom:1.4rem;">
-        <img src="./images/telegramme.jpg" alt="Le Télégramme" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>telegramme.jpg</small>'" />
+        <img src="./images/telegramme.jpg" alt="Le Télégramme" onerror="this.parentElement.style.display='none'" />
       </div>
       <p class="detail-text" style="margin-bottom:1.2rem;">
         Dès septembre, je vais réaliser un <strong>CDD au sein du service
