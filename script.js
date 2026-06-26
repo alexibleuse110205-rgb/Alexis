@@ -516,16 +516,18 @@ function renderSAE() {
       <div class="exp-photo">
         <img src="./images/barbertruck.jpg" alt="Barbertruck" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>barbertruck.jpg</small>'" />
       </div>
-      <h4 class="sae-fave-title">SAE 4.MRPE.01 — Créa IUT · Barbertruck</h4>
+      <h4 class="sae-fave-title">SAE 4.MRPE.01 — Créa IUT · Barbertruck 🏆</h4>
       <p class="detail-text" style="margin-bottom:0.9rem;">
-        En équipe de trois, nous avons imaginé <strong>Barbertruck</strong> — un concept
-        de barbier ambulant. Créer une entreprise fictive de A à Z : idée, concept,
-        offre, clientèle, communication, présentation. Un projet qui m'a permis de
-        penser comme un vrai entrepreneur.
+        Concours inter-équipes organisé à l'IUT : chaque équipe devait créer une
+        entreprise fictive de A à Z. Avec <strong>Noah et Justin</strong>, nous avons
+        imaginé <strong>Barbertruck</strong> — un concept de barbier ambulant.
+        Idée, concept, offre, cible, communication, présentation… et nous avons
+        <strong>remporté le concours</strong> face aux autres équipes.
       </p>
       <div class="passion-points">
-        <span class="passion-point"><strong>Créativité</strong> · idée, concept, innovation</span>
-        <span class="passion-point"><strong>Entrepreneuriat</strong> · offre, stratégie, cohérence</span>
+        <span class="passion-point"><strong>Créativité</strong> · idée originale, concept différenciant</span>
+        <span class="passion-point"><strong>Esprit de compétition</strong> · se démarquer, convaincre, gagner</span>
+        <span class="passion-point"><strong>Travail d'équipe</strong> · cohésion, répartition, synergie</span>
         <span class="passion-point"><strong>Présentation orale</strong> · argumentation, confiance, clarté</span>
       </div>
     </div>
@@ -534,17 +536,18 @@ function renderSAE() {
       <div class="exp-photo">
         <img src="./images/kavaton.jpg" alt="Kavaton" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>kavaton.jpg</small>'" />
       </div>
-      <h4 class="sae-fave-title">SAE 5 / 6 — Kavaton</h4>
+      <h4 class="sae-fave-title">SAE 5 / 6 — Kavaton 🏆</h4>
       <p class="detail-text" style="margin-bottom:0.9rem;">
-        En 3<sup>e</sup> année, nous avons travaillé sur le projet <strong>Kavaton</strong>
-        à partir d'un thème imposé. Ce projet m'a permis de réutiliser les compétences
-        développées les années précédentes tout en poussant davantage la réflexion :
-        adaptation aux contraintes, propositions cohérentes, gestion de projet et
-        défense devant un public.
+        Même principe que Barbertruck : un concours inter-équipes à l'IUT, avec un
+        thème imposé. En 3<sup>e</sup> année, nous avons travaillé sur le projet
+        <strong>Kavaton</strong> en remobilisant toutes les compétences acquises
+        les années précédentes — analyse, stratégie, cohérence de l'offre,
+        gestion de projet et défense devant un jury.
       </p>
       <div class="passion-points">
-        <span class="passion-point"><strong>Adaptation</strong> · thème imposé, contraintes, solutions</span>
+        <span class="passion-point"><strong>Compétition</strong> · thème imposé, se démarquer, convaincre</span>
         <span class="passion-point"><strong>Gestion de projet</strong> · étapes, délais, organisation</span>
+        <span class="passion-point"><strong>Prise de recul</strong> · analyse, synthèse, décision</span>
         <span class="passion-point"><strong>Confiance</strong> · prise de parole, assurance, progression</span>
       </div>
     </div>
@@ -584,7 +587,8 @@ function renderProjetTutore() {
       </div>
       <div class="pt-body">
         <p class="detail-text" style="margin-bottom:0.9rem;">
-          Organiser une <strong>soirée caritative</strong> afin de récolter des fonds
+          En partenariat avec l'association <strong>Solidarité Santé Brest</strong>,
+          organiser une <strong>soirée caritative</strong> afin de récolter des fonds
           pour participer à la construction de puits au Sénégal. La soirée a réuni
           environ <strong>100 personnes</strong> et nous avons récolté
           <strong>environ 3 000 €</strong>.
@@ -607,46 +611,51 @@ function renderProjetTutore() {
         <img src="./images/alternants.jpg" alt="Événement Alternants" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>alternants.jpg</small>'" />
       </div>
       <div class="pt-header">
-        <h3 class="pt-title">Événement Alternants BUT GACO</h3>
+        <h3 class="pt-title">Temps fort Alternants BUT GACO</h3>
         <span class="pt-badge">2ème année</span>
         <a href="https://canva.link/s7kf991qmkqf7kh" target="_blank" rel="noopener" class="sae-link" style="margin-left:auto;">Voir ↗</a>
       </div>
       <div class="pt-body">
         <p class="detail-text" style="margin-bottom:0.9rem;">
-          Organiser un <strong>temps fort pour les alternants</strong> : créer un
-          événement destiné aux étudiants en alternance afin de favoriser les échanges,
-          la cohésion et le partage d'expériences.
+          Créer un <strong>temps fort destiné aux alternants</strong> de la promo BUT GACO
+          afin de favoriser les échanges, la cohésion et le partage d'expériences
+          entre étudiants.
+        </p>
+        <p class="detail-text" style="margin-bottom:0.9rem;">
+          Au programme : une <strong>visite d'entreprise</strong> (Le Saint, La But),
+          un <strong>escape game</strong>, un <strong>repas au restaurant</strong>,
+          des <strong>olympiades</strong> et différents événements organisés tout
+          au long de l'année.
         </p>
         <p class="detail-text">
-          Réflexion sur le contenu, organisation des activités, gestion de la
-          communication, accueil des participants et coordination des différentes
-          étapes du projet. Plus d'autonomie et une organisation plus exigeante
-          qu'en 1<sup>ère</sup> année.
+          Plus d'autonomie et une organisation plus exigeante qu'en 1<sup>ère</sup> année :
+          réflexion sur le contenu, coordination des prestataires, gestion de la
+          communication et accueil des participants.
         </p>
         <div class="passion-points" style="margin-top:1rem;">
           <span class="passion-point"><strong>Autonomie</strong> · responsabilités, décisions, initiative</span>
-          <span class="passion-point"><strong>Coordination</strong> · planning, équipe, parties prenantes</span>
+          <span class="passion-point"><strong>Coordination</strong> · planning, équipe, prestataires</span>
+          <span class="passion-point"><strong>Expérience terrain</strong> · visites, activités, animation</span>
         </div>
       </div>
     </div>
 
     <div class="pt-card">
-      <div class="exp-photo">
-        <img src="./images/cerafel.jpg" alt="Étude de marché Cerafel" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>cerafel.jpg</small>'" />
-      </div>
       <div class="pt-header">
         <h3 class="pt-title">Étude de marché — Cerafel / Prince de Bretagne</h3>
         <span class="pt-badge">3ème année</span>
       </div>
       <div class="pt-body">
+        <img src="./images/cerafel.jpg" alt="Cerafel Prince de Bretagne" style="width:160px;height:auto;border-radius:10px;border:1px solid var(--border);margin-bottom:1rem;display:block;" onerror="this.style.display='none'" />
         <p class="detail-text" style="margin-bottom:0.9rem;">
           Réalisation d'une <strong>étude de marché complète</strong> pour Cerafel,
           la coopérative agricole bretonne derrière la marque Prince de Bretagne.
-          Un projet plus professionnel, davantage tourné vers l'analyse.
+          Un projet plus professionnel, davantage tourné vers l'analyse et la rigueur
+          méthodologique.
         </p>
         <p class="detail-text">
-          Analyse du marché, recherche d'informations, étude concurrentielle,
-          analyse des besoins consommateurs, recommandations stratégiques et
+          Étude quantitative via <strong>questionnaire consommateurs</strong>, analyse
+          concurrentielle, segmentation du marché, recommandations stratégiques et
           présentation orale des résultats.
         </p>
         <div class="passion-points" style="margin-top:1rem;">
