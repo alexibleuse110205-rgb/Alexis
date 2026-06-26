@@ -706,6 +706,7 @@ function renderBilanCompetences() {
       <div class="bilan-card"><span class="bilan-card-icon">💬</span><span class="bilan-card-label">Communication</span><span class="bilan-card-sub">Communication écrite, orale, supports visuels, relation client</span></div>
       <div class="bilan-card"><span class="bilan-card-icon">👔</span><span class="bilan-card-label">Management d'équipe</span><span class="bilan-card-sub">Animation, coordination, motivation, gestion des relations</span></div>
       <div class="bilan-card"><span class="bilan-card-icon">🔎</span><span class="bilan-card-label">Audit</span><span class="bilan-card-sub">Analyse des processus, identification des écarts, recommandations</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">🛒</span><span class="bilan-card-label">Achats</span><span class="bilan-card-sub">Processus d'achat, sélection fournisseurs, négociation, cahier des charges</span></div>
     </div>
 
     <!-- SAVOIR-FAIRE -->
