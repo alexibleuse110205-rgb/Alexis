@@ -348,7 +348,7 @@ function renderCours() {
       <div class="cours-sem">
         <p class="cours-sem-label">2e Semestre</p>
         <div class="cours-grid">
-          ${coursCard('R2.01','PPP2','https://docs.google.com/document/d/19_8xTtB2RbufPA2LD9pCD1tTPcyoW4rxqap1yPPgOps/edit?usp=sharing')}
+          ${coursCard('R2.01','PPP2')}
           ${coursCard('R2.02','LV1 Anglais')}
           ${coursCard('R2.03-12','LV2 Espagnol')}
           ${coursCard('R2.04','Droit de l\'entreprise')}
@@ -703,6 +703,9 @@ function renderBilanCompetences() {
       <div class="bilan-card"><span class="bilan-card-icon">🌱</span><span class="bilan-card-label">RSE</span><span class="bilan-card-sub">Développement durable, enjeux sociaux et environnementaux</span></div>
       <div class="bilan-card"><span class="bilan-card-icon">💰</span><span class="bilan-card-label">Économie</span><span class="bilan-card-sub">Micro/macro économie, organisations, marchés</span></div>
       <div class="bilan-card"><span class="bilan-card-icon">🚀</span><span class="bilan-card-label">Entrepreneuriat</span><span class="bilan-card-sub">Business plan, création d'activité, intrapreneuriat</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">💬</span><span class="bilan-card-label">Communication</span><span class="bilan-card-sub">Communication écrite, orale, supports visuels, relation client</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">👔</span><span class="bilan-card-label">Management d'équipe</span><span class="bilan-card-sub">Animation, coordination, motivation, gestion des relations</span></div>
+      <div class="bilan-card"><span class="bilan-card-icon">🔎</span><span class="bilan-card-label">Audit</span><span class="bilan-card-sub">Analyse des processus, identification des écarts, recommandations</span></div>
     </div>
 
     <!-- SAVOIR-FAIRE -->
@@ -720,6 +723,8 @@ function renderBilanCompetences() {
       <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📄</span><span class="bilan-card-label">Rédaction & synthèse</span><span class="bilan-card-sub">Rapports, comptes-rendus, dossiers professionnels</span></div>
       <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🎪</span><span class="bilan-card-label">Organisation d'événements</span><span class="bilan-card-sub">Planification, logistique, communication, gestion du budget</span></div>
       <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🗂️</span><span class="bilan-card-label">Gestion de projet</span><span class="bilan-card-sub">Planification, répartition des tâches, respect des délais</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🧩</span><span class="bilan-card-label">Diagnostic d'entreprise</span><span class="bilan-card-sub">SWOT, Forces de Porter, analyse interne/externe, recommandations</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📐</span><span class="bilan-card-label">Tableaux professionnels</span><span class="bilan-card-sub">Mise en page soignée, tableaux de bord, rapports structurés</span></div>
     </div>
 
     <!-- SAVOIR-ÊTRE -->
@@ -895,9 +900,8 @@ function renderContact() {
     <div style="margin-top:1.5rem;padding:1.2rem 1.5rem;background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;">
       <p style="font-size:0.82rem;color:#555;line-height:1.75;">
         <strong style="color:var(--accent);">Ouvert aux opportunités</strong> —
-        À la recherche d'un poste en CDI à partir de septembre 2025, idéalement
-        dans les domaines de la <strong>logistique, du management ou de l'administration
-        des ventes</strong> en Bretagne.
+        Disponible pour toute opportunité dans les domaines de la
+        <strong>logistique, du management ou de l'administration des ventes</strong> en Bretagne.
       </p>
     </div>
   `;
