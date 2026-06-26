@@ -319,6 +319,9 @@ function renderCours() {
     <p class="detail-cat-label">Formation</p>
     <h2 class="detail-main-title">Mes<br>Cours</h2>
     <div class="detail-divider"></div>
+    <div class="exp-photo" style="margin-bottom:1.8rem;">
+      <img src="./images/iut.jpg" alt="IUT Morlaix" onerror="this.parentElement.innerHTML='📸 Photo à ajouter<br><small>iut.jpg</small>'" />
+    </div>
     <p class="detail-text" style="margin-bottom:2rem;">
       Liste des cours suivis au cours de mes trois années de BUT GACO.
       Pour certains enseignements, un lien vers le dossier ou projet associé
@@ -708,14 +711,18 @@ function renderBilanCompetences() {
     <!-- SAVOIR-FAIRE -->
     <p class="detail-section-title" style="margin-top:2.5rem;">🛠️ Savoir-faire — Ce que je sais faire</p>
     <div class="bilan-grid">
-      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📋</span><span class="bilan-card-label">Étude de marché</span><span class="bilan-card-sub">Analyse concurrentielle, enquête consommateurs, synthèse</span></div>
-      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📝</span><span class="bilan-card-label">Cahier des charges</span><span class="bilan-card-sub">Rédaction, cadrage, spécifications fonctionnelles</span></div>
-      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">⚙️</span><span class="bilan-card-label">Automatisation bureautique</span><span class="bilan-card-sub">Création de scripts Google Apps pour automatiser des tâches répétitives</span></div>
-      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📊</span><span class="bilan-card-label">Analyse financière</span><span class="bilan-card-sub">Lecture de bilan, compte de résultat, interprétation des ratios</span></div>
-      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🎪</span><span class="bilan-card-label">Organisation d'événements</span><span class="bilan-card-sub">Planification, logistique, communication, gestion du budget</span></div>
-      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📄</span><span class="bilan-card-label">Rédaction & synthèse</span><span class="bilan-card-sub">Rapports, dossiers, comptes-rendus professionnels</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📋</span><span class="bilan-card-label">Étude de marché</span><span class="bilan-card-sub">Analyse concurrentielle, questionnaire quantitatif, synthèse</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📝</span><span class="bilan-card-label">Rédaction de cahier des charges</span><span class="bilan-card-sub">Cadrage, spécifications fonctionnelles, livrables</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">⚙️</span><span class="bilan-card-label">Automatisation bureautique</span><span class="bilan-card-sub">Scripts Google Apps pour automatiser des tâches répétitives (ADV)</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🖥️</span><span class="bilan-card-label">Utilisation CRM</span><span class="bilan-card-sub">Suivi clients, mises à jour fichiers, gestion des abonnés</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🚚</span><span class="bilan-card-label">Gestion de la distribution</span><span class="bilan-card-sub">Suivi des réseaux (VCP, portage), fichiers de distribution, planification</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📊</span><span class="bilan-card-label">Traitement de données statistiques</span><span class="bilan-card-sub">Tableaux de bord, indicateurs, analyse des résultats de distribution</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📦</span><span class="bilan-card-label">Gestion des commandes & réclamations</span><span class="bilan-card-sub">Traitement des demandes éditeurs, suivi et résolution des litiges (ADV)</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🔍</span><span class="bilan-card-label">Analyse & proposition d'amélioration</span><span class="bilan-card-sub">Diagnostic des processus existants, identification des axes d'optimisation</span></div>
       <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🗣️</span><span class="bilan-card-label">Présentation orale</span><span class="bilan-card-sub">Argumentation, prise de parole devant un jury, conviction</span></div>
-      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📦</span><span class="bilan-card-label">Gestion de projet</span><span class="bilan-card-sub">Planification, répartition des tâches, respect des délais</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">📄</span><span class="bilan-card-label">Rédaction & synthèse</span><span class="bilan-card-sub">Rapports, comptes-rendus, dossiers professionnels</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🎪</span><span class="bilan-card-label">Organisation d'événements</span><span class="bilan-card-sub">Planification, logistique, communication, gestion du budget</span></div>
+      <div class="bilan-card bilan-card--blue"><span class="bilan-card-icon">🗂️</span><span class="bilan-card-label">Gestion de projet</span><span class="bilan-card-sub">Planification, répartition des tâches, respect des délais</span></div>
     </div>
 
     <!-- SAVOIR-ÊTRE -->
